@@ -1,3 +1,7 @@
+/*Imports*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 html {
   font-size: 14px;
 }
@@ -19,4 +23,80 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Custom CSS*/
+.nav-title {
+    font-family: 'Montserrat',sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration:none;
+    color:white;
+}
+.nav-title:hover{
+    color:white;
+}
+.hero-container {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../lib/images/hero-img.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.hero-title {
+    font-family: 'Montserrat',sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    width: 65%;
+    line-height: 59px;
+    margin-left:20%;
+    margin-top:14%;
+}
+.desc {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    line-height: 28.8px;
+    margin-left: 20.5%;
+    margin-top: 2%;
+}
+.btn-orange {
+    background-color: #E27D36;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border: 2px solid;
+    border-color: #E27D36;
+}
+.btn-orange:hover {
+    color: #E27D36;
+    background-color:white;
+    border: 2px solid;
+    border-color:#E27D36;
+}
+.btn-orange-outline {
+    color: #E27D36;
+    background-color: white;
+    border: 2px solid;
+    border-color: #E27D36;
+    padding: 10px;
+    text-decoration: none;
+    margin-left:40px;
+}
+.btn-orange-outline:hover {
+    background-color: #E27D36;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+.buttons-container{
+    margin-top:20px;
+    display:flex;
+    margin-left:20.5%;
 }

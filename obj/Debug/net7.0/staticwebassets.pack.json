@@ -197,6 +197,14 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\images\\bread.jpg",
+      "PackagePath": "staticwebassets\\lib\\images\\bread.jpg"
+    },
+    {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\images\\hero-img.png",
+      "PackagePath": "staticwebassets\\lib\\images\\hero-img.png"
+    },
+    {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },

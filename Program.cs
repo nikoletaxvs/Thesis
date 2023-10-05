@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ThesisOct2023.Data;
+using ThesisOct2023.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.Sign
     .AddDefaultUI()
     .AddDefaultTokenProviders();
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddScoped<IMenuRepository, MenuRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

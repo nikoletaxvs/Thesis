@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4otPH+0Pw57trqzNEgr81oLDEFr/OewvP9FJYJDF5Xo=",
+  "Hash": "RXCbMceufTdu7BUo79B73SKn0ZtYwpoBgtbSWmYkUGs=",
   "Source": "ThesisOct2023",
   "BasePath": "_content/ThesisOct2023",
   "Mode": "Default",
@@ -1885,6 +1885,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
+    },
+    {
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\images\\bread.jpg",
+      "SourceId": "ThesisOct2023",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
+      "BasePath": "_content/ThesisOct2023",
+      "RelativePath": "lib/images/bread.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\images\\bread.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\images\\hero-img.png",
+      "SourceId": "ThesisOct2023",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
+      "BasePath": "_content/ThesisOct2023",
+      "RelativePath": "lib/images/hero-img.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\images\\hero-img.png"
     },
     {
       "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\jquery\\dist\\jquery.js",

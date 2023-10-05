@@ -120,7 +120,10 @@ namespace ThesisOct2023.Areas.Identity.Pages.Account
                     var role = await _userManager.GetRolesAsync(user);
 
                     _logger.LogInformation("User logged in.");
-                    
+                    if(role.ToString().Length > 0)
+                    {
+                        returnUrl = "/" + role[0];
+                    }
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
