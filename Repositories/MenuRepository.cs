@@ -5,41 +5,41 @@ using ThesisOct2023.Models;
 
 namespace ThesisOct2023.Repositories
 {
-	public class MenuRepository : IMenuRepository
-	{
-		private ApplicationDbContext context;
+    public class MenuRepository : IMenuRepository
+    {
+        private ApplicationDbContext context;
 
-		List<Menu> menuList;
-		public MenuRepository(ApplicationDbContext context)
-		{
-			this.context = context;
-			menuList =new List<Menu>() {new Menu()
-			{
-				Id = 1,
-				week = 1
-			}
-			};
-		}
+        List<Menu> menuList;
+        public MenuRepository(ApplicationDbContext context)
+        {
+            this.context = context;
+            menuList = new List<Menu>() {new Menu()
+            {
+                Id = 1,
+                week = 1
+            }
+            };
+        }
 
-		public Menu GetMenu(int id)
-		{
-			//return context.Menus.Find(id);
-			return menuList[id];
-		}
-		public IEnumerable<Menu> GetMenus()
-		{
-			return context.Menus;
-		}
-		public void PostMenu(Menu menu)
-		{
-			context.Menus.Add(menu);
-		}
+        public Menu GetMenu(int id)
+        {
+            //return context.Menus.Find(id);
+            return menuList[id];
+        }
+        public IEnumerable<Menu> GetMenus()
+        {
+            return context.Menus;
+        }
+        public void PostMenu(Menu menu)
+        {
+            context.Menus.Add(menu);
+        }
 
 
-		public Menu GetMenuByWeek(int number)
-		{
-			return context.Menus.FirstOrDefault(m =>m.week == number);
-		}
+        public Menu GetMenuByWeek(int number)
+        {
+            return context.Menus.FirstOrDefault(m => m.week == number);
+        }
         // This presumes that weeks start with Monday.
         // Week 1 is the 1st week of the year with a Thursday in it.
         public static int GetIso8601WeekOfYear(DateTime time)

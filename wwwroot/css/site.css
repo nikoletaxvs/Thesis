@@ -1,5 +1,5 @@
 /*Imports*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 html {
@@ -44,50 +44,55 @@ body, html {
 .hero-container {
     width: 100%;
     height: 100vh;
-    background-image: url(../lib/images/hero-img.png);
+    background-image: url(../lib/images/Image.png);
     background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: fixed;
+    top: 0;
+    z-index:1;
 }
 .hero-title {
     font-family: 'Montserrat',sans-serif;
-    font-size: 60px;
-    font-weight: bold;
-    width: 65%;
+    font-size: 42px;
+    width: 100%;
     line-height: 59px;
-    margin-left:20%;
-    margin-top:14%;
+    margin-left: 12%;
+    margin-top: 12%;
+    color: #F5F5F5;
+    font-weight:100;
 }
 .desc {
     font-family: 'Lato', sans-serif;
     font-size: 18px;
     line-height: 28.8px;
-    margin-left: 20.5%;
+    margin-left: 12.5%;
     margin-top: 2%;
+    color: #F5F5F5;
 }
 .btn-orange {
-    background-color: #E27D36;
+    background-color: #ED7812;
     padding: 10px;
     text-decoration: none;
     color: white;
     border: 2px solid;
-    border-color: #E27D36;
+    border-color: #ED7812;
 }
-.btn-orange:hover {
-    color: #E27D36;
-    background-color:white;
-    border: 2px solid;
-    border-color:#E27D36;
-}
+    .btn-orange:hover {
+        color: #E27D36;
+        background-color: white;
+        border: 2px solid;
+        border-color: #ED7812;
+    }
 .btn-orange-outline {
-    color: #E27D36;
-    background-color: white;
+    color: #F5F5F5;
+    background-color: transparent;
     border: 2px solid;
-    border-color: #E27D36;
+    border-color: #F5F5F5;
     padding: 10px;
     text-decoration: none;
-    margin-left:40px;
+    margin-left: 40px;
 }
 .btn-orange-outline:hover {
     background-color: #E27D36;
@@ -98,5 +103,5 @@ body, html {
 .buttons-container{
     margin-top:20px;
     display:flex;
-    margin-left:20.5%;
+    margin-left:12.5%;
 }

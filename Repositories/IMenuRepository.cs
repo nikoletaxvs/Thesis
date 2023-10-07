@@ -2,9 +2,9 @@
 
 namespace ThesisOct2023.Repositories
 {
-	public interface IMenuRepository
-	{
-		public Menu GetMenu(int id);
-		public void PostMenu(Menu menu);
-	}
+    public interface IMenuRepository
+    {
+        public Menu GetMenu(int id);
+        public void PostMenu(Menu menu);
+    }
 }

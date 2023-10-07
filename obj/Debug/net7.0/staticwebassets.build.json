@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RXCbMceufTdu7BUo79B73SKn0ZtYwpoBgtbSWmYkUGs=",
+  "Hash": "Wwcx4AMQrtuAKt5mlx1XaBfvUZgIaFQmEUoyrJhUMbc=",
   "Source": "ThesisOct2023",
   "BasePath": "_content/ThesisOct2023",
   "Mode": "Default",
@@ -1919,6 +1919,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\images\\hero-img.png"
+    },
+    {
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\images\\Image.png",
+      "SourceId": "ThesisOct2023",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
+      "BasePath": "_content/ThesisOct2023",
+      "RelativePath": "lib/images/Image.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\images\\Image.png"
     },
     {
       "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\jquery\\dist\\jquery.js",

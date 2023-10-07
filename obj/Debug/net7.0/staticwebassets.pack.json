@@ -197,6 +197,10 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\images\\Image.png",
+      "PackagePath": "staticwebassets\\lib\\images\\Image.png"
+    },
+    {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\images\\bread.jpg",
       "PackagePath": "staticwebassets\\lib\\images\\bread.jpg"
     },
