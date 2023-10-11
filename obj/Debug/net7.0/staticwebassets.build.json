@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Wwcx4AMQrtuAKt5mlx1XaBfvUZgIaFQmEUoyrJhUMbc=",
+  "Hash": "nBNWnnBlR2q4mk9BpUGzuWUQ/e7lbNVm4yd8vAHLhD4=",
   "Source": "ThesisOct2023",
   "BasePath": "_content/ThesisOct2023",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ThesisOct2023.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\b0bb225f-fc5e-4461-b966-4fb6b75fb3b0_pizza.jpg",
+      "SourceId": "ThesisOct2023",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
+      "BasePath": "_content/ThesisOct2023",
+      "RelativePath": "b0bb225f-fc5e-4461-b966-4fb6b75fb3b0_pizza.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\b0bb225f-fc5e-4461-b966-4fb6b75fb3b0_pizza.jpg"
     },
     {
       "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\css\\site.css",

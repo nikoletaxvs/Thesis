@@ -21,7 +21,20 @@ namespace ThesisOct2023.Controllers
 
         public IActionResult Index()
         {
-           
+            /*
+             * Role based routing is not supported in MVC.
+             * What you do is have default controller which checks for
+             * the roles and redirect to that controller            
+             */
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Index", "Admin");
+            }else if (User.IsInRole("Cook"))
+            {
+                return RedirectToAction("Index","Cook");
+            }else if (User.IsInRole("Student")){
+                return RedirectToAction("Index", "Student");
+            }
             return View();
         }
 

@@ -1,0 +1,41 @@
+﻿@model FoodHelper
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<form method="post" enctype="multipart/form-data">
+    <div>
+        <div>Create category</div>
+        <hr />
+        <div>
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control"/>
+        </div>
+        <div>
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control"/>
+        </div>
+        <div>
+            <label asp-for="Category"></label>
+            <input asp-for="Category" class="form-control"/>
+        </div>
+        <div>
+            <label asp-for="AvgRating"></label>
+            <input asp-for="AvgRating" class="form-control"/>
+        </div>
+        <div>
+            <label asp-for="Photo"></label>
+            <input asp-for="Photo"  value="Upload file" id="txtFile" class="form-control"/>
+        </div>
+        <div>
+            <img id="imgViewer" src="" width="200" height="200" stlye="border:1px solid #000000;" />
+        </div>
+        <button type="submit">Add Food</button>
+    </div>
+</form>
+<script type="text/javascript">
+
+    $("#txtFile").change(function(event){
+        var files = event.target.files;
+        $("#imgViewer").attr("src",window.URL.createObjectURL(files[0]));
+    });
+
+</script>

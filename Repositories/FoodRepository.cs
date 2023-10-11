@@ -6,27 +6,33 @@ namespace ThesisOct2023.Repositories
 {
     public class FoodRepository : IFoodRepository
     {
-        List<Food> FoodList;
+       
         private ApplicationDbContext context;
         public FoodRepository(ApplicationDbContext context)
         {
-            //FormFile photo = ".../wwwroot/lib/images/bread.jpg";
             
-            FoodList = new List<Food>()
-            {
-                new Food{ Id = 1,Title="Freshly baked bread",Description="Very fresh bread....",Day="1",Category="Appetizer"}
-            };
             this.context = context;
         }
 
         public IEnumerable<Food> GetAllFood()
         {
-            throw new NotImplementedException();
+            return context.Foods.ToList();
         }
 
         public Food GetFoodById(int id)
         {
-            throw new NotImplementedException();
+            return context.Foods.Find(id);
+        }
+        public void AddFood(FoodHelper foodhelper)
+        {
+            Food food = new Food() {
+                Title= foodhelper.Title,
+                Description= foodhelper.Description,
+                Category= foodhelper.Category,
+                ImageUrl = foodhelper.ImageUrl
+            };
+            context.Foods.Add(food);
+            context.SaveChanges();
         }
     }
 }

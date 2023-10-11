@@ -6,7 +6,7 @@ namespace ThesisOct2023.Repositories
     {
         public Food GetFoodById(int id);
         public IEnumerable<Food> GetAllFood();
-        
+        public void AddFood(FoodHelper food);
 
     }
 }
