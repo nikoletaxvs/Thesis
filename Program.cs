@@ -18,6 +18,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.Sign
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IMenuRepository, MenuRepository>();
 builder.Services.AddScoped<IFoodRepository, FoodRepository>();
+builder.Services.AddScoped<IMenuItemRepository, MenuItemRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

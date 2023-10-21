@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+    DateTime currentDateTime = DateTime.Now;
+}
+<div class="container mt-4">
+    <div class="menu-date">@currentDateTime.ToString("dddd, dd MMMM yyyy")</div>
+    <div class="menu-header">Served Now</div>
+    <div class="cointainer">
+        <div class="row">
+        <div class="card" style="width: 15rem;">
+            <img src="~/lib/images/bread.jpg" class="card-img-top mt-4 mb-2" style="margin:auto;width:80px;height:80px;border-radius:30px;" alt="bread">
+            <div class="card-body">
+                <span id="food-card-text">
+                        <div class="card-title-custom">Freshly Baked Bread</div>
+                        <div class="card-info-small">Served at Breakfast</div>
+                        <div class="rating-text mt-2">
+                            Rating 4/5</div>
+                       
+                        <div class="my-2 mb-3">
+                            <img src="~/lib/icons/star-orange.png" />
+                            <img src="~/lib/icons/star-orange.png" />
+                            <img src="~/lib/icons/star-orange.png" />
+                            <img src="~/lib/icons/star-orange.png" />
+                            <img src="~/lib/icons/star-black.png" />
+                        </div>
+
+                 </span>
+                    <div class="buttons-container-menu">
+                        <a href="#" class="btn btn-rate-menu">Rate</a>
+                        <a href="#" class="btn btn-info-menu">Info</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+

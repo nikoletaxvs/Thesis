@@ -196,8 +196,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUG9zdFN0dWRlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/vvlac/source/repos/ThesisOct2023/Views/Cook/CreateMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29va1xDcmVhdGVNZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vvlac/source/repos/ThesisOct2023/Views/Cook/Food.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29va1xGb29kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/vvlac/source/repos/ThesisOct2023/Views/Cook/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29va1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vvlac/source/repos/ThesisOct2023/Views/Cook/WeeksMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29va1xXZWVrc01lbnUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vvlac/source/repos/ThesisOct2023/Views/Home/Index.cshtml]
@@ -220,8 +232,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/vvlac/source/repos/ThesisOct2023/Views/Shared/_CookLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db29rTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/vvlac/source/repos/ThesisOct2023/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vvlac/source/repos/ThesisOct2023/Views/Shared/_StudentLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TdHVkZW50TGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vvlac/source/repos/ThesisOct2023/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -230,6 +250,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/vvlac/source/repos/ThesisOct2023/Views/Student/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vvlac/source/repos/ThesisOct2023/Views/Student/Menu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxNZW51LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vvlac/source/repos/ThesisOct2023/Views/_ViewImports.cshtml]

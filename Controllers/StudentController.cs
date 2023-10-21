@@ -18,5 +18,9 @@ namespace ThesisOct2023.Controllers
 		{
 			return View();
 		}
+		public IActionResult Menu()
+		{
+			return View();
+		}
 	}
 }

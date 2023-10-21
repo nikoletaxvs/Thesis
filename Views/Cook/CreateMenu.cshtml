@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "CreateMenu";
+    Layout = "~/Views/Shared/_CookLayout.cshtml";
+    List<string> weekDays = new List<string>() {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
+}
+
+<h1>CreateMenu</h1>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<!-- MultiStep Form -->
+<body>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-3">
+            <form id="msform">
+                <!-- progressbar -->
+                <ul id="progressbar">
+                    @foreach(var weekday in weekDays)
+                    {
+                        if(weekDays[0] == weekday)
+                        {
+                            <li class="active">@weekday</li>
+                            continue;
+                        }
+                        <li>@weekday</li>
+
+                    }
+                   
+                    
+                </ul>
+                <!-- fieldsets -->
+                @foreach(var weekday in weekDays)
+                {
+                    <fieldset>
+                        <h2 class="fs-title">@weekday</h2>
+                        <h3 class="fs-subtitle">What will be in @weekday's menu?'</h3>
+                        <input type="text" name="breakfast" placeholder="Breakfast" />
+                        <input type="text" name="launch" placeholder="Launch" />
+                        <input type="text" name="dinner" placeholder="Dinner" />
+                        @if (weekday != weekDays[0])
+                        {
+                            <input type="button" name="previous" class="previous action-button" value="Previous" />
+                        }
+                        <input type="button" name="next" class="next action-button" value="Next" />
+                       
+                        
+                    </fieldset>
+                }
+                
+          
+            </form>
+           
+
+        </div>
+    </div>
+
+ 
+
+</body>
+
+<!-- /.MultiStep Form -->

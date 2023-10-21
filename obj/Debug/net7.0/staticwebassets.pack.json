@@ -5,8 +5,20 @@
       "PackagePath": "staticwebassets\\ThesisOct2023.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\5590e573-f04a-450c-a8de-19bcc539c6dc_mousaka.jpg",
+      "PackagePath": "staticwebassets\\5590e573-f04a-450c-a8de-19bcc539c6dc_mousaka.jpg"
+    },
+    {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\Scripts\\multistep-form.js",
+      "PackagePath": "staticwebassets\\Scripts\\multistep-form.js"
+    },
+    {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\b0bb225f-fc5e-4461-b966-4fb6b75fb3b0_pizza.jpg",
       "PackagePath": "staticwebassets\\b0bb225f-fc5e-4461-b966-4fb6b75fb3b0_pizza.jpg"
+    },
+    {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\css\\form.css",
+      "PackagePath": "staticwebassets\\css\\form.css"
     },
     {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\css\\site.css",
@@ -199,6 +211,14 @@
     {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\icons\\star-black.png",
+      "PackagePath": "staticwebassets\\lib\\icons\\star-black.png"
+    },
+    {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\icons\\star-orange.png",
+      "PackagePath": "staticwebassets\\lib\\icons\\star-orange.png"
     },
     {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\images\\Image.png",
