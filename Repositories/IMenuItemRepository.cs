@@ -6,6 +6,6 @@ namespace ThesisOct2023.Repositories
     {
         public IEnumerable<MenuItem> getMenusItems(int menuId);
         public IEnumerable<MenuItem> getDaysItems(int day);
-        public void addItemToMenu(MenuItem item,int menuId);   
+        public void addItemToMenu(MenuItem item);   
     }
 }

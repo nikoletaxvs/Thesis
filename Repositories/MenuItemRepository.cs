@@ -7,23 +7,24 @@ namespace ThesisOct2023.Repositories
     public class MenuItemRepository : IMenuItemRepository
     {
         private ApplicationDbContext context;
-        public MenuItemRepository(ApplicationDbContext ctx)
+        public MenuItemRepository(ApplicationDbContext context)
         {
-            context= ctx;
+            this.context = context;
         }
-        public void addItemToMenu(MenuItem item, int menuId)
+        public void addItemToMenu(MenuItem item)
         {
-            throw new NotImplementedException();
+            context.MenuItems.Add(item);
+            context.SaveChanges();
         }
 
         public IEnumerable<MenuItem> getDaysItems(int day)
         {
-            throw new NotImplementedException();
+            return context.MenuItems.Where(x => x.Day == day);
         }
 
         public IEnumerable<MenuItem> getMenusItems(int menuId)
         {
-            throw new NotImplementedException();
+           return context.MenuItems.Where(x=>x.MenuId== menuId);
         }
     }
 }
