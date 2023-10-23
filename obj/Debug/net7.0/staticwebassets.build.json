@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FxShAAwX9aSzBkafXswMvb3x+/nPUiKboyjc2Gn4X3g=",
+  "Hash": "C3LyZVOs5vI9HroXYU6f8Yh64rpVn+V9NTeBYhO8o4c=",
   "Source": "ThesisOct2023",
   "BasePath": "_content/ThesisOct2023",
   "Mode": "Default",
@@ -1071,6 +1071,23 @@
       "OriginalItemSpec": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ThesisOct2023.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\4eeb22b1-b717-463e-b5b7-90c4190fbc20_apple.jpg",
+      "SourceId": "ThesisOct2023",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
+      "BasePath": "_content/ThesisOct2023",
+      "RelativePath": "4eeb22b1-b717-463e-b5b7-90c4190fbc20_apple.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\4eeb22b1-b717-463e-b5b7-90c4190fbc20_apple.jpg"
+    },
+    {
       "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\5590e573-f04a-450c-a8de-19bcc539c6dc_mousaka.jpg",
       "SourceId": "ThesisOct2023",
       "SourceType": "Discovered",
@@ -1086,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\5590e573-f04a-450c-a8de-19bcc539c6dc_mousaka.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\7fd6de94-c8fd-4d74-958a-8aad0e7aac6c_filter coffee.jpg",
+      "SourceId": "ThesisOct2023",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
+      "BasePath": "_content/ThesisOct2023",
+      "RelativePath": "7fd6de94-c8fd-4d74-958a-8aad0e7aac6c_filter coffee.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\7fd6de94-c8fd-4d74-958a-8aad0e7aac6c_filter coffee.jpg"
     },
     {
       "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\b0bb225f-fc5e-4461-b966-4fb6b75fb3b0_pizza.jpg",

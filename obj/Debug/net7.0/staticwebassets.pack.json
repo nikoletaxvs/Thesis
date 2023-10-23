@@ -5,8 +5,16 @@
       "PackagePath": "staticwebassets\\ThesisOct2023.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\4eeb22b1-b717-463e-b5b7-90c4190fbc20_apple.jpg",
+      "PackagePath": "staticwebassets\\4eeb22b1-b717-463e-b5b7-90c4190fbc20_apple.jpg"
+    },
+    {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\5590e573-f04a-450c-a8de-19bcc539c6dc_mousaka.jpg",
       "PackagePath": "staticwebassets\\5590e573-f04a-450c-a8de-19bcc539c6dc_mousaka.jpg"
+    },
+    {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\7fd6de94-c8fd-4d74-958a-8aad0e7aac6c_filter coffee.jpg",
+      "PackagePath": "staticwebassets\\7fd6de94-c8fd-4d74-958a-8aad0e7aac6c_filter coffee.jpg"
     },
     {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\Scripts\\multistep-form.js",

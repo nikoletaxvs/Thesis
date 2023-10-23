@@ -15,7 +15,11 @@
         </div>
         <div>
             <label asp-for="Category"></label>
-            <input asp-for="Category" class="form-control"/>
+            <select name="Category" id="Categories">
+                <option value="BreakFast" selected>Breakfast</option>
+                <option value="Launch">Launch</option>
+                <option value="Dinner">Dinner</option>
+            </select>
         </div>
         <div>
             <label asp-for="AvgRating"></label>

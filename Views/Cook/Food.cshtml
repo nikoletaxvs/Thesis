@@ -3,47 +3,10 @@
     Layout = "~/Views/Shared/_CookLayout.cshtml";
    
 }
-@foreach(var f in Model){
- <div class="cointainer">
-        <div class="row">
-            <div class="card" style="width: 16rem;">
-                <img src="~/@f.ImageUrl" class="card-img-top mt-4 mb-2" style="margin:auto;width:80px;height:80px;border-radius:30px;" alt="@f.Title">
-                <div class="card-body">
-                    <span id="food-card-text">
-                        <div class="card-title-custom">@f.Title</div>
-                        <div class="card-info-small">Served at Breakfast</div>
-                        @if (f.AvgRating != null)
-                        {
-                            <div class="rating-text mt-2">Rating @f.AvgRating/5</div>
-                            @for(var i = 0; i < f.AvgRating; i++)
-                            {
-                                <img src="~/lib/icons/star-orange.png" />
-                            }
-                            @for (var j = 0; j < 5-f.AvgRating; j++)
-                            {
-                                <img src="~/lib/icons/star-black.png" />
-                            }
-                        }
-                        else
-                        {
-                            <div class="rating-text mt-2" >Not Rated</div>
-                            <div class="my-2 mb-3">
-                                @for(var i = 0; i < 5; i++)
-                                {
-                                     <img src="~/lib/icons/star-black.png"/>
-                                }  
-                            </div>
-                        }
-                        
-
-                    </span>
-                    <div class="buttons-container-menu">
-                        <a href="#" class="btn btn-rate-menu">Enable</a>
-                        <a href="#" class="btn btn-info-menu">Info</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+<div class="cointainer">
+    <div class="row">
+        @foreach(var f in Model){
+            <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@f"></partial>
+        }
     </div>
-}
+</div>
