@@ -34,30 +34,31 @@
                     
                 </ul>
                 <!-- fieldsets -->
-                @foreach(var weekday in weekDays)
-                {
+                @for (int counter = 0;counter < weekDays.Count;counter++)
+                        {
                     <fieldset>
-                        <h2 class="fs-title">@weekday</h2>
-                        <h3 class="fs-subtitle">What will be in @weekday's menu?'</h3>
+                        <h2 class="fs-title">@weekDays[counter]</h2>
+                        <h3 class="fs-subtitle">What will be in @weekDays[counter]'s menu?'</h3>
+                        <input type="hidden" asp-for="SelectedItems[counter].Day" value="@counter"/>
                         <label class="form-label">Select Breakfast</label>
-                        <select class="form-select" asp-items="Model.ItemsSelectList" asp-for="BreakFast"></select>
+                        <select class="form-select" asp-items="Model.ItemsSelectList" asp-for="SelectedItems[counter].BreakFast"></select>
                         <label class="form-label">Select Breakfast</label>
-                        <select class="form-select" asp-items="Model.ItemsSelectList" asp-for="Launch"></select>
+                        <select class="form-select" asp-items="Model.ItemsSelectList" asp-for="SelectedItems[counter].Launch"></select>
                         <label class="form-label">Select Breakfast</label>
-                        <select class="form-select" asp-items="Model.ItemsSelectList" asp-for="Dinner"></select>
+                        <select class="form-select" asp-items="Model.ItemsSelectList" asp-for="SelectedItems[counter].Dinner"></select>
                         
-                        @if (weekday != weekDays[0])
+                        @if (counter != 0)
                         {
                             <input type="button" name="previous" class="previous action-button" value="Previous" />
                         }
                         <input type="button" name="next" class="next action-button" value="Next" />
-                        @if(weekday == weekDays[6])
+                        @if(counter == 6)
                         {
                             <button type="submit">Submit</button>
                         }
 
                     </fieldset>
-                    @if (weekday == weekDays[6])
+                    @if (counter == 6)
                     {
                         <fieldset >
                             <h2 class="fs-title">Done</h2>

@@ -4,6 +4,7 @@ using ThesisOct2023.Models;
 using ThesisOct2023.Models.ViewModels;
 using ThesisOct2023.Repositories;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using ThesisOct2023.Helpers;
 namespace ThesisOct2023.Controllers
 {
     [Authorize(Roles = "Cook")]
@@ -43,8 +44,14 @@ namespace ThesisOct2023.Controllers
         [HttpPost]
         public IActionResult PostMenu(MenuFormView model)
         {
-
-            return RedirectToAction("Index");
+            bool allDaysAreFilled = model.SelectedItems.Count == 7;
+            if (allDaysAreFilled)
+            {
+                Menu menu = new Menu();
+                menu.week = Iso8601WeekOfYear.GetIso8601WeekOfYear(DateTime.Now);
+                return RedirectToAction("Index");
+            }
+            return View(model.ItemsSelectList);
         }
     }
 }

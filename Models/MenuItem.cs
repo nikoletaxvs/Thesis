@@ -13,5 +13,6 @@ namespace ThesisOct2023.Models
         public Food Food { get; set; } = null!;
         public Menu Menu { get; set; } = null!;
         public int Day { get; set; } //range from 1 to 7
+        public string ServedAt { get; set; } //Breakfast,Launch or Dinner
     }
 }
