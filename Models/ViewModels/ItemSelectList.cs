@@ -2,9 +2,10 @@
 
 namespace ThesisOct2023.Models.ViewModels
 {
-    public class ItemsSelectList
+    public class ItemSelectList
     {
         //List for the items that are available for selection
         public List<SelectListItem> ItemsSelectList { get; set; }
     }
+
 }

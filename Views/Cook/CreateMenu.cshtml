@@ -1,5 +1,6 @@
 ﻿
 @{
+
     ViewData["Title"] = "CreateMenu";
     Layout = "~/Views/Shared/_CookLayout.cshtml";
     List<string> weekDays = new List<string>() {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
@@ -41,11 +42,11 @@
                         <h3 class="fs-subtitle">What will be in @weekDays[counter]'s menu?'</h3>
                         <input type="hidden" asp-for="SelectedItems[counter].Day" value="@counter"/>
                         <label class="form-label">Select Breakfast</label>
-                        <select class="form-select" asp-items="Model.ItemsSelectList" asp-for="SelectedItems[counter].BreakFast"></select>
+                        <select class="form-select" asp-items="ViewBag.MenuItems" asp-for="SelectedItems[counter].BreakFast"></select>
                         <label class="form-label">Select Breakfast</label>
-                        <select class="form-select" asp-items="Model.ItemsSelectList" asp-for="SelectedItems[counter].Launch"></select>
+                        <select class="form-select" asp-items="ViewBag.MenuItems" asp-for="SelectedItems[counter].Launch"></select>
                         <label class="form-label">Select Breakfast</label>
-                        <select class="form-select" asp-items="Model.ItemsSelectList" asp-for="SelectedItems[counter].Dinner"></select>
+                        <select class="form-select" asp-items="ViewBag.MenuItems" asp-for="SelectedItems[counter].Dinner"></select>
                         
                         @if (counter != 0)
                         {

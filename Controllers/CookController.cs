@@ -31,15 +31,17 @@ namespace ThesisOct2023.Controllers
         public IActionResult CreateMenu()
         {
             var menuItemsData = _foodRepository.GetAllFood();
-            var model = new MenuFormView();
-            model.ItemsSelectList = new List<SelectListItem>();
+            //var model = new MenuFormView();
+            //model.ItemsSelectList = new List<SelectListItem>();
 
+            var items = new ItemSelectList();
+            items.ItemsSelectList = new List<SelectListItem>();
             foreach (var item in menuItemsData)
             {
-                model.ItemsSelectList.Add(new SelectListItem { Text = item.Title, Value = item.Id.ToString() });
+                items.ItemsSelectList.Add(new SelectListItem { Text = item.Title, Value = item.Id.ToString() });
             }
-
-            return View(model);
+            ViewBag.MenuItems = items.ItemsSelectList;
+            return View();
         }
         [HttpPost]
         public IActionResult PostMenu(MenuFormView model)
@@ -51,7 +53,7 @@ namespace ThesisOct2023.Controllers
                 menu.week = Iso8601WeekOfYear.GetIso8601WeekOfYear(DateTime.Now);
                 return RedirectToAction("Index");
             }
-            return View(model.ItemsSelectList);
+            return View();
         }
     }
 }
