@@ -7,7 +7,7 @@ namespace ThesisOct2023.Models
         [Key]
         public int Id { get; set; }
       
-        public int week { get; set; }
+        public int week { get; set; }// weeks in iso8601 format
         
         //Many to many relationship with menu items
         public List<MenuItem> MenuItems { get; } = new();
