@@ -33,8 +33,10 @@ namespace ThesisOct2023.Controllers
 			{
                 timeOfDay = "Dinner";
 			}
-			//Get food served now
-			var foodServedNow = _menuItemRepository.getFoodSevedNow(timeOfDay, currentWeek);
+			int day = (int)(DateTime.Now.DayOfWeek + 6) % 7; //Assuming monday is 0
+
+            //Get food served now
+            var foodServedNow = _menuItemRepository.getFoodSevedNow(timeOfDay, currentWeek,day);
 			ViewBag.ServedNow = foodServedNow;
 			return View(model);
 		}

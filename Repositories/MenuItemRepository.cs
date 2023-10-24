@@ -34,11 +34,12 @@ namespace ThesisOct2023.Repositories
                         select f;
             return query.ToList();
         }
-        public IEnumerable<Food> getFoodSevedNow(string timeOfDay,int week)
+        public IEnumerable<Food> getFoodSevedNow(string timeOfDay,int week,int day)
         {
             var query = from f in context.Foods
                         join m_item in context.MenuItems on f.Id equals m_item.FoodId
                         where m_item.ServedAt.ToUpper() == timeOfDay.ToUpper()
+                        where m_item.Day== day
                         join m in context.Menus on m_item.MenuId equals m.Id
                         where m.week == week
                         select f;

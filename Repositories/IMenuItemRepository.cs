@@ -8,6 +8,6 @@ namespace ThesisOct2023.Repositories
         public IEnumerable<MenuItem> getDaysItems(int day);
         public void addItemToMenu(MenuItem item);
         public IEnumerable<Food> getFoodByWeek(int week);
-        public IEnumerable<Food> getFoodSevedNow(string timeOfDay, int week);
+        public IEnumerable<Food> getFoodSevedNow(string timeOfDay, int week,int day);
     }
 }

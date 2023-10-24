@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
     DateTime currentDateTime = DateTime.Now;
+   
 }
 @model IEnumerable<Food>
 <div class="container mt-4">
@@ -8,7 +9,7 @@
     <div class="menu-header">Served Now</div>
     <div class="cointainer">
         <div class="row">
-            @foreach(var item in Model)
+            @foreach (var item in ViewBag.ServedNow)
             {
                  <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@item"></partial>
             }
