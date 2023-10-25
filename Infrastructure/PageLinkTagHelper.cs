@@ -8,7 +8,7 @@ using ThesisOct2023.Models.ViewModels;
 namespace ThesisOct2023.Infrastructure
 {
     //This tag helper populates a div element with a elements that correspond to
-    pages of products
+    //pages of products
         [HtmlTargetElement("div", Attributes = "page-model")]
     public class PageLinkTagHelper : TagHelper
     {
