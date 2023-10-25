@@ -5,6 +5,8 @@ using ThesisOct2023.Models.ViewModels;
 using ThesisOct2023.Repositories;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ThesisOct2023.Helpers;
+using NuGet.Protocol.Core.Types;
+
 namespace ThesisOct2023.Controllers
 {
     [Authorize(Roles = "Cook")]
@@ -12,6 +14,7 @@ namespace ThesisOct2023.Controllers
     {
         private readonly IFoodRepository _foodRepository;
         private readonly IMenuItemRepository _menuItemRepository;
+        private readonly int PageSize = 3;
         public CookController(IFoodRepository foodRepository, IMenuItemRepository menuItemRepository)
         {
             _foodRepository = foodRepository;
@@ -21,11 +24,24 @@ namespace ThesisOct2023.Controllers
         {
             return View();
         }
-        public IActionResult Food()
+        public ViewResult Food(int productPage=1)
+        //{
+        //    IEnumerable<Food> food = _foodRepository.GetAllFood();
+        //    return View(food);
+        //}
+        => View(new FoodListViewModel
         {
-            IEnumerable<Food> food = _foodRepository.GetAllFood();
-            return View(food);
-        }
+            Foods = _foodRepository.GetAllFood()
+            .OrderBy(p => p.Id)
+            .Skip((productPage - 1) * PageSize)
+            .Take(PageSize),
+            PagingInfo = new PagingInfo
+            {
+                CurrentPage = productPage,
+                ItemsPerPage = PageSize,
+                TotalItems = _foodRepository.GetAllFood().Count()
+            }
+        });
         public IActionResult WeeksMenu()
         {
             return View();
