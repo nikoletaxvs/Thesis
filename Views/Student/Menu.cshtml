@@ -16,6 +16,14 @@
             
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            @foreach(var item in ViewBag.MondayFood)
+            {
+                <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@item"></partial>
+            }
+        </div>
+    </div>
 </div>
 </div>
 
