@@ -1,5 +1,4 @@
-﻿using Microsoft.Build.Framework;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ThesisOct2023.Models
 {
