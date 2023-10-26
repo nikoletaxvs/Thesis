@@ -24,7 +24,7 @@ namespace ThesisOct2023.Controllers
         {
             return View();
         }
-        public ViewResult Food(int productPage=1)
+        public ViewResult Food(string? category, int productPage=1)
         //{
         //    IEnumerable<Food> food = _foodRepository.GetAllFood();
         //    return View(food);
@@ -32,6 +32,7 @@ namespace ThesisOct2023.Controllers
         => View(new FoodListViewModel
         {
             Foods = _foodRepository.GetAllFood()
+            .Where(p=>category ==null || p.Category == category)
             .OrderBy(p => p.Id)
             .Skip((productPage - 1) * PageSize)
             .Take(PageSize),

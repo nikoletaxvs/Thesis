@@ -3,6 +3,9 @@
     Layout = "~/Views/Shared/_CookLayout.cshtml";
    
 }
+<div id="categories">
+    <vc:navigation-categories />
+</div>
 <div class="cointainer">
     <div class="row m-2">
         @foreach(var f in Model.Foods){
@@ -10,4 +13,10 @@
         }
     </div>
 </div>
-<div page-model="@Model.PagingInfo" page-action="Food"></div>
+<div page-model="@Model.PagingInfo" page-action="Food"
+     page-classes-enabled="true" page-class="btn"
+     page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary"
+     page-url-category="@Model.CurrentCategory!"
+     class="btn-group pull-right m-1">
+</div>
