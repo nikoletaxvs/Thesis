@@ -145,3 +145,6 @@ body, html {
 .rating-text{
     font-size:14px;
 }
+th, td {
+    padding: 15px;
+}

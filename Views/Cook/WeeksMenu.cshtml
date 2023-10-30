@@ -5,3 +5,98 @@
 
 <h1>Menu</h1>
 
+@model IEnumerable<MenuItem>
+<table>
+    <tr>
+        <th>Moday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+    </tr>
+    <tr>
+    <td>
+            @foreach(var item in Model)
+            {
+                <td>@item.Food.Title</td>
+            }
+            @*@foreach (var i in ViewBag.MondayFood)
+    {
+
+                @i.Title
+
+                <br />
+
+        
+    }
+    </td>
+    <td>
+     @foreach (var i in ViewBag.TuesdayFood)
+    {
+
+
+                @i.Title
+
+                <br />
+        
+    }
+    </td>
+    <td>
+     @foreach (var i in ViewBag.WednesdayFood)
+    {
+        
+                @i.Title
+
+                <br />
+
+        
+    }
+    </td>
+    <td>
+     @foreach (var i in ViewBag.ThursdayFood)
+    {
+        
+                @i.Title
+
+                <br />
+
+        
+    }
+    </td>
+    <td>
+     @foreach (var i in ViewBag.FridayFood)
+    {
+        
+                @i.Title
+
+                <br />
+
+        
+    }
+    </td>
+    <td>
+     @foreach (var i in ViewBag.SaturdayFood)
+    {
+        
+                @i.Title
+
+                <br />
+
+       
+    }
+    </td>
+    <td>
+     @foreach (var i in ViewBag.SundayFood)
+    {
+        
+                @i.Title
+
+                <br />
+
+        
+    }
+    </td>
+    </tr>*@
+</table> 

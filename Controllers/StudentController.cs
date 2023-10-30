@@ -10,10 +10,10 @@ namespace ThesisOct2023.Controllers
 	[Authorize(Roles ="Student")]
     public class StudentController : Controller
 	{
-		private IMenuItemRepository _menuItemRepository;
-		public StudentController(IMenuItemRepository _menuItemRepository) {
+		private IMenuItemRepository _foodRepository;
+		public StudentController(IMenuItemRepository _foodRepository) {
 			
-			this._menuItemRepository = _menuItemRepository;
+			this._foodRepository = _foodRepository;
 		}
 		public IActionResult Index()
 		{
@@ -26,21 +26,21 @@ namespace ThesisOct2023.Controllers
             int day = DayPoints.GetCurrentDayNumber(); //Assuming monday is 0
 
             //Get all food served this week 
-            var model = _menuItemRepository.getFoodByWeek(currentWeek);
+            var model = _foodRepository.getFoodByWeek(currentWeek);
 
             //Get food served now
-            IEnumerable<Food> foodServedNow = _menuItemRepository.getFoodSevedNow(timeOfDay, currentWeek,day);
+            IEnumerable<Food> foodServedNow = _foodRepository.getFoodSevedNow(timeOfDay, currentWeek,day);
 
 			ViewBag.ServedNow = foodServedNow;
 
 			//Retrieving Menu Of this Week
-			ViewBag.MondayFood = _menuItemRepository.getFoodOfDay(0, currentWeek);
-			ViewBag.TuesdayFood = _menuItemRepository.getFoodOfDay(1, currentWeek);
-			ViewBag.WednesdayFood = _menuItemRepository.getFoodOfDay(2, currentWeek);
-			ViewBag.ThursdayFood = _menuItemRepository.getFoodOfDay(3, currentWeek);
-			ViewBag.FridayFood = _menuItemRepository.getFoodOfDay(4, currentWeek);
-			ViewBag.SaturdayFood = _menuItemRepository.getFoodOfDay(5, currentWeek);
-			ViewBag.SundayFood = _menuItemRepository.getFoodOfDay(6, currentWeek);
+			ViewBag.MondayFood = _foodRepository.getFoodOfDay(0, currentWeek);
+			ViewBag.TuesdayFood = _foodRepository.getFoodOfDay(1, currentWeek);
+			ViewBag.WednesdayFood = _foodRepository.getFoodOfDay(2, currentWeek);
+			ViewBag.ThursdayFood = _foodRepository.getFoodOfDay(3, currentWeek);
+			ViewBag.FridayFood = _foodRepository.getFoodOfDay(4, currentWeek);
+			ViewBag.SaturdayFood = _foodRepository.getFoodOfDay(5, currentWeek);
+			ViewBag.SundayFood = _foodRepository.getFoodOfDay(6, currentWeek);
 
 			return View(model);
 		}

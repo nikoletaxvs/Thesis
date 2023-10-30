@@ -7,6 +7,7 @@ namespace ThesisOct2023.Repositories
         public Food GetFoodById(int id);
         public IEnumerable<Food> GetAllFood();
         public void AddFood(FoodHelper food);
-
+        public IEnumerable<Food> getFoodOfDay(int day, int week);
+        public IEnumerable<Food> getFoodByWeek(int week);
     }
 }

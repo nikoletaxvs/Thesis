@@ -15,10 +15,11 @@ namespace ThesisOct2023.Controllers
         private readonly IFoodRepository _foodRepository;
         private readonly IMenuItemRepository _menuItemRepository;
         private readonly int PageSize = 3;
-        public CookController(IFoodRepository foodRepository, IMenuItemRepository menuItemRepository)
+        public CookController(IFoodRepository foodRepository,IMenuItemRepository menuItemRepository)
         {
             _foodRepository = foodRepository;
             _menuItemRepository = menuItemRepository;
+            
         }
         public IActionResult Index()
         {
@@ -45,7 +46,19 @@ namespace ThesisOct2023.Controllers
         });
         public IActionResult WeeksMenu()
         {
-            return View();
+
+            int currentWeek = DayPoints.GetCurrentWeekNumber();
+            //Get all food served this week 
+            var model = _foodRepository.getFoodByWeek(currentWeek);
+            //Retrieving Menu Of this Week
+            ViewBag.MondayFood = _foodRepository.getFoodOfDay(0, currentWeek);
+            ViewBag.TuesdayFood = _foodRepository.getFoodOfDay(1, currentWeek);
+            ViewBag.WednesdayFood = _foodRepository.getFoodOfDay(2, currentWeek);
+            ViewBag.ThursdayFood = _foodRepository.getFoodOfDay(3, currentWeek);
+            ViewBag.FridayFood = _foodRepository.getFoodOfDay(4, currentWeek);
+            ViewBag.SaturdayFood = _foodRepository.getFoodOfDay(5, currentWeek);
+            ViewBag.SundayFood = _foodRepository.getFoodOfDay(6, currentWeek);
+            return View(model);
         }
         public IActionResult CreateMenu()
         {
