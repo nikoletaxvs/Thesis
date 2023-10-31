@@ -10,8 +10,8 @@ namespace ThesisOct2023.Controllers
 	[Authorize(Roles ="Student")]
     public class StudentController : Controller
 	{
-		private IMenuItemRepository _foodRepository;
-		public StudentController(IMenuItemRepository _foodRepository) {
+		private IFoodRepository _foodRepository;
+		public StudentController(IFoodRepository _foodRepository) {
 			
 			this._foodRepository = _foodRepository;
 		}

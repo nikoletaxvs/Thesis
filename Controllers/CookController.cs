@@ -6,6 +6,7 @@ using ThesisOct2023.Repositories;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ThesisOct2023.Helpers;
 using NuGet.Protocol.Core.Types;
+using System.Drawing.Printing;
 
 namespace ThesisOct2023.Controllers
 {
@@ -26,30 +27,31 @@ namespace ThesisOct2023.Controllers
             return View();
         }
         public ViewResult Food(string? category, int productPage=1)
-        //{
-        //    IEnumerable<Food> food = _foodRepository.GetAllFood();
-        //    return View(food);
-        //}
-        => View(new FoodListViewModel
-        {
-            Foods = _foodRepository.GetAllFood()
-            .Where(p=>category ==null || p.Category == category)
+        
+      
+        => View(new FoodListViewModel {
+             Foods = _foodRepository.GetAllFood()
+             .Where(p=>category ==null || p.Category.ToUpper() == category.ToUpper())
             .OrderBy(p => p.Id)
             .Skip((productPage - 1) * PageSize)
             .Take(PageSize),
-            PagingInfo = new PagingInfo
-            {
-                CurrentPage = productPage,
-                ItemsPerPage = PageSize,
-                TotalItems = _foodRepository.GetAllFood().Count()
-            }
-        });
-        public IActionResult WeeksMenu()
+            PagingInfo = new PagingInfo {
+            CurrentPage = productPage,
+            ItemsPerPage = PageSize,
+            TotalItems = category == null
+            ? _foodRepository.GetAllFood().Count()
+            :  _foodRepository.GetAllFood().Where(e =>
+            e.Category.ToUpper() == category.ToUpper()).Count()
+            },
+            CurrentCategory = category
+            });
+public IActionResult WeeksMenu()
         {
 
             int currentWeek = DayPoints.GetCurrentWeekNumber();
             //Get all food served this week 
-            var model = _foodRepository.getFoodByWeek(currentWeek);
+            //var model = _foodRepository.getFoodByWeek(currentWeek);
+            var model = _menuItemRepository.getWeeksItems(currentWeek);
             //Retrieving Menu Of this Week
             ViewBag.MondayFood = _foodRepository.getFoodOfDay(0, currentWeek);
             ViewBag.TuesdayFood = _foodRepository.getFoodOfDay(1, currentWeek);

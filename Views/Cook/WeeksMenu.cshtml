@@ -17,86 +17,34 @@
         <th>Sunday</th>
     </tr>
     <tr>
-    <td>
-            @foreach(var item in Model)
+        @foreach(var item in Model)
+        {
+            @if(item.ServedAt == "Breakfast")
             {
                 <td>@item.Food.Title</td>
             }
-            @*@foreach (var i in ViewBag.MondayFood)
-    {
-
-                @i.Title
-
-                <br />
-
-        
-    }
-    </td>
-    <td>
-     @foreach (var i in ViewBag.TuesdayFood)
-    {
-
-
-                @i.Title
-
-                <br />
-        
-    }
-    </td>
-    <td>
-     @foreach (var i in ViewBag.WednesdayFood)
-    {
-        
-                @i.Title
-
-                <br />
-
-        
-    }
-    </td>
-    <td>
-     @foreach (var i in ViewBag.ThursdayFood)
-    {
-        
-                @i.Title
-
-                <br />
-
-        
-    }
-    </td>
-    <td>
-     @foreach (var i in ViewBag.FridayFood)
-    {
-        
-                @i.Title
-
-                <br />
-
-        
-    }
-    </td>
-    <td>
-     @foreach (var i in ViewBag.SaturdayFood)
-    {
-        
-                @i.Title
-
-                <br />
-
+               
+        }
+    </tr>
+    <tr>
+         @foreach(var item in Model)
+        {
+            @if(item.ServedAt == "Launch")
+            {
+                <td>@item.Food.Title</td>
+            }
+               
+        }
+    </tr>
+    <tr>
+         @foreach(var item in Model)
+        {
+            @if(item.ServedAt == "Dinner")
+            {
+                <td>@item.Food.Title</td>
+            }
+               
+        }
+    </tr>
        
-    }
-    </td>
-    <td>
-     @foreach (var i in ViewBag.SundayFood)
-    {
-        
-                @i.Title
-
-                <br />
-
-        
-    }
-    </td>
-    </tr>*@
 </table> 
