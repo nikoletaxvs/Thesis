@@ -1,24 +1,35 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div class="hero-container" >
+<section name="hero" style="margin-bottom:10px;">
+    <div class="hero-container" >
    
     <div class="hero-title"><span style="color:#ED7812;font-weight:700;">Influence the menu</span><br> by rating <br>the food you enjoy.</div>
     <p class="desc">
-        Cafeteria stuff will take into consideration your<br> review when making the upcoming menus.<br />
-Your opinion matters to us. 
+        Cafeteria stuff will take into consideration your<br> review when making the upcoming menus.
     </p>
     <div class="buttons-container">
           
-            <a href="" class="btn-orange">Rate Food</a>
-            <a href="" class="btn-orange-outline">Create Account</a>
+            <a asp-area="Identity" asp-page="/Account/Register" class="btn-orange">Register</a>
+            <a asp-area="Identity" asp-page="/Account/Login" class="btn-orange-outline">Log in</a>
           
     </div>
         
     
 </div>
-<div class="container">
-    <div height="700" class=" row bg-black">
-        <div class="col">s</div>
+</section>
+
+<section name="About">
+    <div class="container m-2" style="z-index:100">
+        <div height="700" class=" row bg-black">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>

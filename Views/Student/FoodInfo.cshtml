@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "FoodInfo";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+@model Food
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<h1>Food Info</h1>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div>
+        >Hello @User.Identity?.Name!
+    </div>
+    <img src="~/@Model.ImageUrl" />
+    <p>@Model.Description</p>
+    <div>@Model.AvgRating</div>
+}
+else
+{
+    <div>Your session has timed out</div>
+}

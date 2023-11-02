@@ -42,7 +42,19 @@ namespace ThesisOct2023.Controllers
 			ViewBag.SaturdayFood = _foodRepository.getFoodOfDay(5, currentWeek);
 			ViewBag.SundayFood = _foodRepository.getFoodOfDay(6, currentWeek);
 
+			ViewBag.Role = "Student";
 			return View(model);
 		}
+		[HttpPost]
+		public IActionResult FoodReview(Food f)
+		{
+			return View(f);
+		}
+		[HttpPost]
+		public IActionResult FoodInfo(Food f)
+		{
+			return View(f);
+		}
+
 	}
 }

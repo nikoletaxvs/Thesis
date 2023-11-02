@@ -33,8 +33,25 @@
 
         </span>
         <div class="buttons-container-menu">
-            <a href="#" class="btn btn-rate-menu">Enable</a>
-            <a href="#" class="btn btn-info-menu">Info</a>
+            @if (ViewBag.Role == "Student")
+            {
+                <a asp-controller="Student" asp-action="FoodReview" class="btn btn-rate-menu">Rate</a>
+            }else{
+                <a href="#" class="btn btn-rate-menu">Enable</a>
+            }
+            <form asp-action="FoodInfo" method="POST">
+                <input type="hidden" asp-for="Id" value="@Model.Id" />
+                <input type="hidden" asp-for="Title" value="@Model.Title" />
+                <input type="hidden" asp-for="Description" value="@Model.Description" />
+                <input type="hidden" asp-for="Category" value="@Model.Category" />
+                <input type="hidden" asp-for="ImageUrl" value="@Model.ImageUrl" />
+                <input type="hidden" asp-for="AvgRating" value="@Model.AvgRating" />
+
+                <input type="hidden" asp-for="Id" value="Id" />
+                <button type="submit" class="btn btn-info-menu">Info</button>
+            </form>
+
+          
         </div>
 
     </div>
