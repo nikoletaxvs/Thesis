@@ -13,6 +13,8 @@ namespace ThesisOct2023.Data
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Food> Foods { get; set; }
         public DbSet<MenuItem> MenuItems { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Question> Questions { get; set; }  
         
     }
 }
