@@ -18,6 +18,7 @@ namespace ThesisOct2023.Models
         //Many to many relationship with Menu
         public List<MenuItem> MenuItems { get; } = new();
         public List<Menu> Menus { get; } = new();
+        public List<Review> Reviews { get; } = new();
 
 
     }

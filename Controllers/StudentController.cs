@@ -48,6 +48,10 @@ namespace ThesisOct2023.Controllers
 		[HttpPost]
 		public IActionResult FoodReview(Food f)
 		{
+			Review review = new Review();
+			review.FoodId = f.Id;
+			review.StudentEmail = User.Identity.Name;
+
 			return View(f);
 		}
 		[HttpPost]

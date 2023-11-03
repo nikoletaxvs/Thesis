@@ -12,8 +12,8 @@ using ThesisOct2023.Data;
 namespace ThesisOct2023.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231022150128_added_type_in_MenuItem")]
-    partial class added_type_in_MenuItem
+    [Migration("20231102120229_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -314,6 +314,78 @@ namespace ThesisOct2023.Migrations
                     b.ToTable("MenuItems");
                 });
 
+            modelBuilder.Entity("ThesisOct2023.Models.Question", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("ThesisOct2023.Models.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Comments")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FoodId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StudentEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FoodId");
+
+                    b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("ThesisOct2023.Models.ReviewQuestion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("Answer")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReviewId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionId");
+
+                    b.HasIndex("ReviewId");
+
+                    b.ToTable("ReviewQuestions");
+                });
+
             modelBuilder.Entity("FoodMenu", b =>
                 {
                     b.HasOne("ThesisOct2023.Models.Food", null)
@@ -399,14 +471,56 @@ namespace ThesisOct2023.Migrations
                     b.Navigation("Menu");
                 });
 
+            modelBuilder.Entity("ThesisOct2023.Models.Review", b =>
+                {
+                    b.HasOne("ThesisOct2023.Models.Food", "Food")
+                        .WithMany("Reviews")
+                        .HasForeignKey("FoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Food");
+                });
+
+            modelBuilder.Entity("ThesisOct2023.Models.ReviewQuestion", b =>
+                {
+                    b.HasOne("ThesisOct2023.Models.Question", "Question")
+                        .WithMany("ReviewQuestions")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ThesisOct2023.Models.Review", "Review")
+                        .WithMany("ReviewQuestions")
+                        .HasForeignKey("ReviewId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Question");
+
+                    b.Navigation("Review");
+                });
+
             modelBuilder.Entity("ThesisOct2023.Models.Food", b =>
                 {
                     b.Navigation("MenuItems");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("ThesisOct2023.Models.Menu", b =>
                 {
                     b.Navigation("MenuItems");
+                });
+
+            modelBuilder.Entity("ThesisOct2023.Models.Question", b =>
+                {
+                    b.Navigation("ReviewQuestions");
+                });
+
+            modelBuilder.Entity("ThesisOct2023.Models.Review", b =>
+                {
+                    b.Navigation("ReviewQuestions");
                 });
 #pragma warning restore 612, 618
         }

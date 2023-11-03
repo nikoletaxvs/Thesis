@@ -7,12 +7,14 @@ namespace ThesisOct2023.Models
     {
         [Key]
         public int Id { get; set; }
-        [ForeignKey("Food")]
-        public int FoodId { get; set; }
+        
         [Required]
         public string StudentEmail { get; set; }
-        public string? Comments { get; set; }    
-        public ICollection<Question> Questions { get; set; }
+        public string? Comments { get; set; }
+        [ForeignKey("Food")]
+        public int FoodId { get; set; }
         public Food Food { get; set; }
+
+        public List<ReviewQuestion> ReviewQuestions { get; } = new();
     }
 }

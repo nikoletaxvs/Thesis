@@ -319,23 +319,15 @@ namespace ThesisOct2023.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Answer")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ReviewId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ReviewId");
 
                     b.ToTable("Questions");
                 });
@@ -363,6 +355,32 @@ namespace ThesisOct2023.Migrations
                     b.HasIndex("FoodId");
 
                     b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("ThesisOct2023.Models.ReviewQuestion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("Answer")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReviewId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionId");
+
+                    b.HasIndex("ReviewId");
+
+                    b.ToTable("ReviewQuestions");
                 });
 
             modelBuilder.Entity("FoodMenu", b =>
@@ -450,21 +468,10 @@ namespace ThesisOct2023.Migrations
                     b.Navigation("Menu");
                 });
 
-            modelBuilder.Entity("ThesisOct2023.Models.Question", b =>
-                {
-                    b.HasOne("ThesisOct2023.Models.Review", "Review")
-                        .WithMany("Questions")
-                        .HasForeignKey("ReviewId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Review");
-                });
-
             modelBuilder.Entity("ThesisOct2023.Models.Review", b =>
                 {
                     b.HasOne("ThesisOct2023.Models.Food", "Food")
-                        .WithMany()
+                        .WithMany("Reviews")
                         .HasForeignKey("FoodId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -472,9 +479,30 @@ namespace ThesisOct2023.Migrations
                     b.Navigation("Food");
                 });
 
+            modelBuilder.Entity("ThesisOct2023.Models.ReviewQuestion", b =>
+                {
+                    b.HasOne("ThesisOct2023.Models.Question", "Question")
+                        .WithMany("ReviewQuestions")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ThesisOct2023.Models.Review", "Review")
+                        .WithMany("ReviewQuestions")
+                        .HasForeignKey("ReviewId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Question");
+
+                    b.Navigation("Review");
+                });
+
             modelBuilder.Entity("ThesisOct2023.Models.Food", b =>
                 {
                     b.Navigation("MenuItems");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("ThesisOct2023.Models.Menu", b =>
@@ -482,9 +510,14 @@ namespace ThesisOct2023.Migrations
                     b.Navigation("MenuItems");
                 });
 
+            modelBuilder.Entity("ThesisOct2023.Models.Question", b =>
+                {
+                    b.Navigation("ReviewQuestions");
+                });
+
             modelBuilder.Entity("ThesisOct2023.Models.Review", b =>
                 {
-                    b.Navigation("Questions");
+                    b.Navigation("ReviewQuestions");
                 });
 #pragma warning restore 612, 618
         }
