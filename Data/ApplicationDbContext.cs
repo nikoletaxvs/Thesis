@@ -4,7 +4,7 @@ using ThesisOct2023.Models;
 
 namespace ThesisOct2023.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -16,6 +16,7 @@ namespace ThesisOct2023.Data
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<ReviewQuestion> ReviewQuestions { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
     }
 }
