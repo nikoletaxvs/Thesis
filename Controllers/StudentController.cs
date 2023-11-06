@@ -4,6 +4,7 @@ using ThesisOct2023.Data;
 using ThesisOct2023.Repositories;
 using ThesisOct2023.Helpers;
 using ThesisOct2023.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace ThesisOct2023.Controllers
 {
@@ -11,9 +12,11 @@ namespace ThesisOct2023.Controllers
     public class StudentController : Controller
 	{
 		private IFoodRepository _foodRepository;
-		public StudentController(IFoodRepository _foodRepository) {
+		private readonly UserManager<ApplicationUser> _userManager;
+		public StudentController(IFoodRepository _foodRepository, UserManager<ApplicationUser> userManager) {
 			
 			this._foodRepository = _foodRepository;
+			this._userManager = userManager;
 		}
 		public IActionResult Index()
 		{
@@ -50,7 +53,7 @@ namespace ThesisOct2023.Controllers
 		{
 			Review review = new Review();
 			review.FoodId = f.Id;
-			review.StudentEmail = User.Identity.Name;
+			review.StudentId = _userManager.GetUserId(User);
 
 			return View(f);
 		}

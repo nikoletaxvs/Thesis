@@ -9,7 +9,7 @@ namespace ThesisOct2023.Models
         public int Id { get; set; }
         
         [Required]
-        public string StudentEmail { get; set; }
+        public string StudentId { get; set; }
         public string? Comments { get; set; }
         [ForeignKey("Food")]
         public int FoodId { get; set; }

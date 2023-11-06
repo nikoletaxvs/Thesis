@@ -1,31 +1,42 @@
 ﻿@{
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
     DateTime currentDateTime = DateTime.Now;
-   
+
 }
 @model IEnumerable<Food>
 <div class="container mt-4">
-    <div class="menu-date">@currentDateTime.ToString("dddd, dd MMMM yyyy")</div>
-    <div class="menu-header">Served Now</div>
-    <div class="cointainer">
-        <div class="row">
-            @foreach (var item in ViewBag.ServedNow)
-            {
-                 <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@item"></partial>
-            }
-            
-        </div>
-    </div>
-    <div class="container">
+    @if (Enumerable.Any(ViewBag.ServedNow))
+    {
         <div class="menu-date">@currentDateTime.ToString("dddd, dd MMMM yyyy")</div>
-        <div class="menu-header">Served Today</div>
-        <div class="row">
-            @foreach(var item in ViewBag.MondayFood)
-            {
-                <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@item"></partial>
-            }
+        <div class="menu-header">Served Now</div>
+        <div class="cointainer">
+            <div class="row">
+
+                @foreach (var item in ViewBag.ServedNow)
+                {
+                        <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@item"></partial>
+                }
+
+
+
+            </div>
         </div>
-    </div>
-</div>
+        <div class="container">
+            <div class="menu-date">@currentDateTime.ToString("dddd, dd MMMM yyyy")</div>
+            <div class="menu-header">Served Today</div>
+            <div class="row">
+
+                @foreach (var item in ViewBag.MondayFood)
+                {
+                        <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@item"></partial>
+                }
+
+        </div>
+        </div>
+    }
+    else
+    {
+        <div>No menu registered yet</div>
+    }
 </div>
 

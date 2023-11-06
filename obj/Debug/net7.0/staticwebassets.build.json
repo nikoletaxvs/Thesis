@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4vZcmYdyz2E5Vf/JIR7KtvdfW2jJY3+pddm9r2oH3ns=",
+  "Hash": "w0Xb7apB1EEPygN2XoUwd9QqGbbmyAKt8sZl2sJgkSg=",
   "Source": "ThesisOct2023",
   "BasePath": "_content/ThesisOct2023",
   "Mode": "Default",
@@ -1071,12 +1071,12 @@
       "OriginalItemSpec": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ThesisOct2023.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\4eeb22b1-b717-463e-b5b7-90c4190fbc20_apple.jpg",
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\0c4142e4-d107-4040-a3b4-c1c154cd0e37_salad.jpg",
       "SourceId": "ThesisOct2023",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
       "BasePath": "_content/ThesisOct2023",
-      "RelativePath": "4eeb22b1-b717-463e-b5b7-90c4190fbc20_apple.jpg",
+      "RelativePath": "0c4142e4-d107-4040-a3b4-c1c154cd0e37_salad.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1085,15 +1085,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\4eeb22b1-b717-463e-b5b7-90c4190fbc20_apple.jpg"
+      "OriginalItemSpec": "wwwroot\\0c4142e4-d107-4040-a3b4-c1c154cd0e37_salad.jpg"
     },
     {
-      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\5590e573-f04a-450c-a8de-19bcc539c6dc_mousaka.jpg",
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\0f3c53c8-c71f-4cbb-b732-e9f129a57e21_pizza.jpg",
       "SourceId": "ThesisOct2023",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
       "BasePath": "_content/ThesisOct2023",
-      "RelativePath": "5590e573-f04a-450c-a8de-19bcc539c6dc_mousaka.jpg",
+      "RelativePath": "0f3c53c8-c71f-4cbb-b732-e9f129a57e21_pizza.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1102,15 +1102,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\5590e573-f04a-450c-a8de-19bcc539c6dc_mousaka.jpg"
+      "OriginalItemSpec": "wwwroot\\0f3c53c8-c71f-4cbb-b732-e9f129a57e21_pizza.jpg"
     },
     {
-      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\7fd6de94-c8fd-4d74-958a-8aad0e7aac6c_filter coffee.jpg",
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\631fcb2a-65a5-4e59-ab85-8cb9d2357ccf_cereal.jpg",
       "SourceId": "ThesisOct2023",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
       "BasePath": "_content/ThesisOct2023",
-      "RelativePath": "7fd6de94-c8fd-4d74-958a-8aad0e7aac6c_filter coffee.jpg",
+      "RelativePath": "631fcb2a-65a5-4e59-ab85-8cb9d2357ccf_cereal.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1119,15 +1119,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\7fd6de94-c8fd-4d74-958a-8aad0e7aac6c_filter coffee.jpg"
+      "OriginalItemSpec": "wwwroot\\631fcb2a-65a5-4e59-ab85-8cb9d2357ccf_cereal.jpg"
     },
     {
-      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\b0bb225f-fc5e-4461-b966-4fb6b75fb3b0_pizza.jpg",
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\8781b892-37ee-4627-ad80-d600e06b1c6b_mousaka.jpg",
       "SourceId": "ThesisOct2023",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
       "BasePath": "_content/ThesisOct2023",
-      "RelativePath": "b0bb225f-fc5e-4461-b966-4fb6b75fb3b0_pizza.jpg",
+      "RelativePath": "8781b892-37ee-4627-ad80-d600e06b1c6b_mousaka.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1136,7 +1136,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\b0bb225f-fc5e-4461-b966-4fb6b75fb3b0_pizza.jpg"
+      "OriginalItemSpec": "wwwroot\\8781b892-37ee-4627-ad80-d600e06b1c6b_mousaka.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\a02f1d2d-e513-45ad-a8d2-a26e3702799f_filter coffee.jpg",
+      "SourceId": "ThesisOct2023",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
+      "BasePath": "_content/ThesisOct2023",
+      "RelativePath": "a02f1d2d-e513-45ad-a8d2-a26e3702799f_filter coffee.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\a02f1d2d-e513-45ad-a8d2-a26e3702799f_filter coffee.jpg"
     },
     {
       "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\css\\form.css",
