@@ -9,9 +9,9 @@ namespace ThesisOct2023.Repositories
         public QuestionRepository(ApplicationDbContext context) {
             this.context= context;
         }
-        public IEnumerable<Question> GetQuestions()
+        public List<Question> GetQuestions()
         {
-            return context.Questions;
+            return context.Questions.ToList();
         }
     }
 }

@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace ThesisOct2023.Controllers
 {
-   
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

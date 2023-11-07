@@ -7,8 +7,9 @@ namespace ThesisOct2023.Models
     {
         [Key]
         public int Id { get; set; }
-        
-        public int? Answer { get; set; }
+
+        [Required]
+        public int Answer { get; set; }
 
 
         [ForeignKey("Review")]

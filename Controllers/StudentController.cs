@@ -5,6 +5,8 @@ using ThesisOct2023.Repositories;
 using ThesisOct2023.Helpers;
 using ThesisOct2023.Models;
 using Microsoft.AspNetCore.Identity;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
 
 namespace ThesisOct2023.Controllers
 {
@@ -12,11 +14,16 @@ namespace ThesisOct2023.Controllers
     public class StudentController : Controller
 	{
 		private IFoodRepository _foodRepository;
+		private IQuestionRepository _questionRepository;
 		private readonly UserManager<ApplicationUser> _userManager;
-		public StudentController(IFoodRepository _foodRepository, UserManager<ApplicationUser> userManager) {
+		
+		public StudentController(IFoodRepository foodRepository, UserManager<ApplicationUser> userManager,IQuestionRepository questionRepository) {
 			
-			this._foodRepository = _foodRepository;
-			this._userManager = userManager;
+			_foodRepository = foodRepository;
+			_userManager = userManager;
+			_questionRepository = questionRepository;
+			
+
 		}
 		public IActionResult Index()
 		{
@@ -49,19 +56,57 @@ namespace ThesisOct2023.Controllers
 			return View(model);
 		}
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public IActionResult FoodReview(Food f)
 		{
+
+			
 			Review review = new Review();
 			review.FoodId = f.Id;
+			review.Food = f;
 			review.StudentId = _userManager.GetUserId(User);
 
-			return View(f);
+			ViewBag.Review = review;
+            string serializedReview = JsonConvert.SerializeObject(review);
+            HttpContext.Session.SetString("Review", serializedReview);
+            List<Question> questions = _questionRepository.GetQuestions();
+			ViewBag.Questions = questions;
+			return View();
 		}
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public IActionResult FoodInfo(Food f)
 		{
 			return View(f);
 		}
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+        public IActionResult SubmitReviewQuestions(IFormCollection iformCollection)
+		{
+            string reviewSerialized = HttpContext.Session.GetString("Review");
+            Review obj = JsonConvert.DeserializeObject<Review>(reviewSerialized);
+			
+            //int reviewId = Convert.ToInt32(iformCollection["ReviewId"]);
+			//this will change 
+			string[] questionId = iformCollection["QuestionId"];
 
-	}
+			string[] answer = iformCollection["Answer"];
+
+			for(int q= 0;q < questionId.Count();q++)
+			{
+				ReviewQuestion reviewQuestion = new ReviewQuestion()
+				{
+					ReviewId = obj.Id,
+					QuestionId = Convert.ToInt32(questionId[q]),
+					Answer = Convert.ToInt32(iformCollection["Answer_"+q])
+				};
+				
+			}
+			
+			
+			return View("Index");
+            
+		}
+
+    }
 }

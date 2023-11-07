@@ -1,6 +1,49 @@
-﻿
+﻿@model ReviewQuestion
+
 @{
     ViewData["Title"] = "FoodReview";
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
+    List<Question> questions = ViewBag.Questions;
+    Review review = ViewBag.Review;
 }
+
+
+
+<form method="post" asp-action="SubmitReviewQuestions">
+    <input type="hidden" asp-for="ReviewId"  name="ReviewId" value="@review.Id" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    
+    <div>
+        @for(int i = 0; i < questions.Count(); i++)
+        {
+            <input type="hidden" asp-for="QuestionId" name="QuestionId" value="@questions[@i].Id" />
+            <p>@questions[@i].Title: @questions[@i].Description</p>
+              @for (int j = 1; j <= 5; j++)
+                {
+                    @if (j == 1)
+                    {
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" asp-for="Answer" name="Answer_@i" value="@j" checked>
+                            <label class="form-check-label" for="inlineRadio1">@j</label>
+                            <span asp-validation-for="Answer" class="text-danger"></span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" asp-for="Answer" name="Answer_@i" value="@j">
+                            <label class="form-check-label" for="inlineRadio1">@j</label>
+                            <span asp-validation-for="Answer" class="text-danger"></span>
+                        </div>
+                    }
+                
+
+                }
+        }
+       
+      
+    </div>
+
+    <button type="submit">Submit</button>  
+</form>
 

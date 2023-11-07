@@ -21,22 +21,23 @@
 
             </div>
         </div>
-        <div class="container">
-            <div class="menu-date">@currentDateTime.ToString("dddd, dd MMMM yyyy")</div>
-            <div class="menu-header">Served Today</div>
-            <div class="row">
-
-                @foreach (var item in ViewBag.MondayFood)
-                {
-                        <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@item"></partial>
-                }
-
-        </div>
-        </div>
+        
+        
     }
     else
     {
-        <div>No menu registered yet</div>
+        <div>Currectly Closed</div>
     }
+    <div class="container">
+        <div class="menu-date">@currentDateTime.ToString("dddd, dd MMMM yyyy")</div>
+        <div class="menu-header">Served Today</div>
+        <div class="row">
+
+            @foreach (var item in ViewBag.MondayFood)
+            {
+                <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@item"></partial>
+            }
+
+        </div>
 </div>
 
