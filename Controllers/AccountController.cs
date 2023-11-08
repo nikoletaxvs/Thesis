@@ -43,11 +43,12 @@ namespace ThesisOct2023.Controllers
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
-
+               
                 if (result.Succeeded)
                 {
                     // User registration successful
                     // You can sign the user in if needed
+                    await _userManager.AddToRoleAsync(user, model.Role);
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
