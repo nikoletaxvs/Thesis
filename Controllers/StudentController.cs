@@ -7,6 +7,7 @@ using ThesisOct2023.Models;
 using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace ThesisOct2023.Controllers
 {
@@ -16,13 +17,15 @@ namespace ThesisOct2023.Controllers
 		private IFoodRepository _foodRepository;
 		private IQuestionRepository _questionRepository;
 		private readonly UserManager<ApplicationUser> _userManager;
-		
-		public StudentController(IFoodRepository foodRepository, UserManager<ApplicationUser> userManager,IQuestionRepository questionRepository) {
+		private IReviewRepository _reviewRepository;
+		private IReviewQuestionRepository _reviewQuestionRepository;
+		public StudentController(IFoodRepository foodRepository, UserManager<ApplicationUser> userManager,IQuestionRepository questionRepository,IReviewQuestionRepository reviewQuestionRepository, IReviewRepository reviewRepository) {
 			
 			_foodRepository = foodRepository;
 			_userManager = userManager;
 			_questionRepository = questionRepository;
-			
+			_reviewQuestionRepository = reviewQuestionRepository;
+			_reviewRepository = reviewRepository;
 
 		}
 		public IActionResult Index()
@@ -63,7 +66,7 @@ namespace ThesisOct2023.Controllers
 			
 			Review review = new Review();
 			review.FoodId = f.Id;
-			review.Food = f;
+			
 			review.StudentId = _userManager.GetUserId(User);
 
 			ViewBag.Review = review;
@@ -85,6 +88,20 @@ namespace ThesisOct2023.Controllers
 		{
             string reviewSerialized = HttpContext.Session.GetString("Review");
             Review obj = JsonConvert.DeserializeObject<Review>(reviewSerialized);
+			if (obj != null)
+			{
+                try
+                {
+                    _reviewRepository.AddReview(obj);
+                   
+                }
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    return View("Index");
+                }
+               
+            }
 			
             //int reviewId = Convert.ToInt32(iformCollection["ReviewId"]);
 			//this will change 
@@ -100,6 +117,17 @@ namespace ThesisOct2023.Controllers
 					QuestionId = Convert.ToInt32(questionId[q]),
 					Answer = Convert.ToInt32(iformCollection["Answer_"+q])
 				};
+				if(reviewQuestion != null)
+				{
+					try
+					{
+                        _reviewQuestionRepository.AddReviewQuestion(reviewQuestion);
+                    }catch(ValidationException ex)
+					{
+						ModelState.AddModelError(string.Empty, ex.Message);
+					}
+					
+				}
 				
 			}
 			

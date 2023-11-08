@@ -65,5 +65,6 @@ namespace ThesisOct2023.Repositories
                         select f;
             return query.ToList();
         }
+        
     }
 }

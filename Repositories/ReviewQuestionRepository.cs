@@ -15,5 +15,7 @@ namespace ThesisOct2023.Repositories
             context.ReviewQuestions.Add(reviewQuestion);
             context.SaveChanges();
         }
+
+       
     }
 }
