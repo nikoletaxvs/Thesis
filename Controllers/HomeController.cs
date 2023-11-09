@@ -40,25 +40,25 @@ namespace ThesisOct2023.Controllers
 
         public async Task<IActionResult> Privacy()
         {
-			//Calling the web API and populating the data in view using DataTable
-            DataTable dt = new DataTable();
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(baseURL);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage getData = await client.GetAsync("/foods/list");
+			////Calling the web API and populating the data in view using DataTable
+   //         DataTable dt = new DataTable();
+   //         using (var client = new HttpClient())
+   //         {
+   //             client.BaseAddress = new Uri(baseURL);
+   //             client.DefaultRequestHeaders.Accept.Clear();
+   //             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+   //             HttpResponseMessage getData = await client.GetAsync("/foods/list");
 
-                if (getData.IsSuccessStatusCode)
-                {
-                    string results = getData.Content.ReadAsStringAsync().Result;
-                    dt= JsonConvert.DeserializeObject<DataTable>(results);  
-                }
-                else
-                {
-                    Console.WriteLine($"Status code is {getData.StatusCode}");
-                }
-            }
+   //             if (getData.IsSuccessStatusCode)
+   //             {
+   //                 string results = getData.Content.ReadAsStringAsync().Result;
+   //                 dt= JsonConvert.DeserializeObject<DataTable>(results);  
+   //             }
+   //             else
+   //             {
+   //                 Console.WriteLine($"Status code is {getData.StatusCode}");
+   //             }
+   //         }
 
                 return View();
         }

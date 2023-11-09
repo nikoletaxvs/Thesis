@@ -11,7 +11,7 @@ namespace ThesisOct2023.Models
         //public string Day { get; set; } // Number in range 1-7 
         public string? Description { get; set; } 
         public string? Category{ get; set;}
-        public int? AvgRating { get; set; }
+        public double? AvgRating { get; set; }
         //public byte[] Photo { get; set; }
         [Required]
         public string ImageUrl { get; set; }

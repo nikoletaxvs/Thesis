@@ -45,7 +45,18 @@
                     <input type="hidden" asp-for="AvgRating" value="@Model.AvgRating" />
 
                     <input type="hidden" asp-for="Id" value="Id" />
-                    <button type="submit" class="btn btn-rate-menu">Rate</button>
+                    @if (ViewBag.Rated.Contains(Model.Id))
+                    {
+                        <button type="submit" class="btn btn-rate-menu" disabled>Rated</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-rate-menu">Rate</button>
+                    }
+
+                        
+                        
+                       
                 </form>
             }else{
                 <a href="#" class="btn btn-rate-menu">Enable</a>

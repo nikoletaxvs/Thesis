@@ -12,6 +12,13 @@ namespace ThesisOct2023.Repositories
         {
             context.Reviews.Add(review);
             context.SaveChanges();
+
+            
+        }
+        public IEnumerable<int> GetStudentReviewFoodId(string studentId)
+        {
+            var query= from review in context.Reviews where review.StudentId == studentId select review.FoodId;
+            return query.ToList();
         }
     }
 }

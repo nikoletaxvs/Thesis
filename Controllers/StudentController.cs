@@ -56,6 +56,8 @@ namespace ThesisOct2023.Controllers
 			ViewBag.SundayFood = _foodRepository.getFoodOfDay(6, currentWeek);
 
 			ViewBag.Role = "Student";
+
+			ViewBag.Rated = _reviewRepository.GetStudentReviewFoodId(_userManager.GetUserId(User));
 			return View(model);
 		}
 		[HttpPost]
@@ -87,12 +89,12 @@ namespace ThesisOct2023.Controllers
         public IActionResult SubmitReviewQuestions(IFormCollection iformCollection)
 		{
             string reviewSerialized = HttpContext.Session.GetString("Review");
-            Review obj = JsonConvert.DeserializeObject<Review>(reviewSerialized);
-			if (obj != null)
+            Review review = JsonConvert.DeserializeObject<Review>(reviewSerialized);
+			if (review != null)
 			{
                 try
                 {
-                    _reviewRepository.AddReview(obj);
+                    _reviewRepository.AddReview(review);
                    
                 }
                 catch (ValidationException ex)
@@ -113,7 +115,7 @@ namespace ThesisOct2023.Controllers
 			{
 				ReviewQuestion reviewQuestion = new ReviewQuestion()
 				{
-					ReviewId = obj.Id,
+					ReviewId = review.Id,
 					QuestionId = Convert.ToInt32(questionId[q]),
 					Answer = Convert.ToInt32(iformCollection["Answer_"+q])
 				};
@@ -122,6 +124,8 @@ namespace ThesisOct2023.Controllers
 					try
 					{
                         _reviewQuestionRepository.AddReviewQuestion(reviewQuestion);
+						var food = _foodRepository.GetFoodById(review.FoodId);
+
                     }catch(ValidationException ex)
 					{
 						ModelState.AddModelError(string.Empty, ex.Message);
