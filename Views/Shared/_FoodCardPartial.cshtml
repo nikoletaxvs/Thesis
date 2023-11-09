@@ -7,13 +7,13 @@
             <div class="card-info-small">Served at @Model.Category</div>
             @if (Model.AvgRating != null)
             {
-                <div class="rating-text mt-2">Rating @Model.AvgRating/5</div>
+                <div class="rating-text mt-2">Rating @((int)(Model.AvgRating))/5</div>
                 <div class="my-2 mb-3">
-                    @for (var i = 0; i < Model.AvgRating; i++)
+                    @for (var i = 0; i < (int)Model.AvgRating; i++)
                     {
                         <img src="~/lib/icons/star-orange.png" />
                     }
-                    @for (var j = 0; j < 5 - Model.AvgRating; j++)
+                    @for (var j = 0; j < 5 - (int)Model.AvgRating; j++)
                     {
                         <img src="~/lib/icons/star-black.png" />
                     }
@@ -45,16 +45,16 @@
                     <input type="hidden" asp-for="AvgRating" value="@Model.AvgRating" />
 
                     <input type="hidden" asp-for="Id" value="Id" />
-                    @if (ViewBag.Rated.Contains(Model.Id))
+                   @* @if (ViewBag.Rated.Contains(Model.Id))
                     {
                         <button type="submit" class="btn btn-rate-menu" disabled>Rated</button>
                     }
                     else
                     {
-                        <button type="submit" class="btn btn-rate-menu">Rate</button>
-                    }
+                <button type="submit" class="btn btn-rate-menu">Rate</button>
+                    }*@
 
-                        
+                    <button type="submit" class="btn btn-rate-menu">Rate</button>
                         
                        
                 </form>

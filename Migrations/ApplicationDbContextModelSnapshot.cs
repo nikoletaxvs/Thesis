@@ -255,8 +255,8 @@ namespace ThesisOct2023.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("AvgRating")
-                        .HasColumnType("int");
+                    b.Property<double?>("AvgRating")
+                        .HasColumnType("float");
 
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
@@ -377,7 +377,7 @@ namespace ThesisOct2023.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("Answer")
+                    b.Property<int>("Answer")
                         .HasColumnType("int");
 
                     b.Property<int>("QuestionId")

@@ -65,10 +65,23 @@ namespace ThesisOct2023.Repositories
                         select f;
             return query.ToList();
         }
-        public void updateFoodRating(Food food,int rating)
+        public void updateFoodRating(Food food,float rating)
         {
+            //Get number of reviews for this food
             int howmany = context.Reviews.Where(r => r.FoodId == food.Id).Count();
-            food.AvgRating = (food.AvgRating * howmany + rating) / (howmany + 1);
+            var r = food.AvgRating;
+            //if no reviews yet
+            if (r == null)
+            {
+                food.AvgRating = rating;
+            }
+            else
+            {
+                double res = (double)((r * howmany + rating) / (howmany + 1));
+                food.AvgRating = res;
+            }
+            
+            context.SaveChanges();
         }
         
     }

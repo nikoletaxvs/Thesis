@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace ThesisOct2023.Controllers
 {
@@ -125,7 +126,15 @@ namespace ThesisOct2023.Controllers
 					{
                         _reviewQuestionRepository.AddReviewQuestion(reviewQuestion);
 						var food = _foodRepository.GetFoodById(review.FoodId);
+						float sum = 0f;
+						for(int q2 = 0; q2 < questionId.Count(); q2++)
+						{
+							sum += Convert.ToInt32(iformCollection["Answer_" + q2]);
+                        }
 
+						sum = sum / questionId.Count();
+						_foodRepository.updateFoodRating(food, sum);
+						
                     }catch(ValidationException ex)
 					{
 						ModelState.AddModelError(string.Empty, ex.Message);
