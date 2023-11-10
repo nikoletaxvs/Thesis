@@ -37,8 +37,28 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\images\\friends-canteen.png",
+      "PackagePath": "staticwebassets\\images\\friends-canteen.png"
+    },
+    {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\images\\happy-cooking-team-wearing-uniform-standing-table-with-chopped-vegetables-posing-camera-restaurant-s-kitchen.jpg",
+      "PackagePath": "staticwebassets\\images\\happy-cooking-team-wearing-uniform-standing-table-with-chopped-vegetables-posing-camera-restaurant-s-kitchen.jpg"
+    },
+    {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\images\\professional-stainless-steel-kitchen-design-photo-was-made-restouraunt.jpg",
+      "PackagePath": "staticwebassets\\images\\professional-stainless-steel-kitchen-design-photo-was-made-restouraunt.jpg"
+    },
+    {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
     },
     {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\site.js",
