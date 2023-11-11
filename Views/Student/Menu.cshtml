@@ -7,8 +7,8 @@
 <div class="container mt-4">
     @if (Enumerable.Any(ViewBag.ServedNow))
     {
-        <div class="menu-date">@currentDateTime.ToString("dddd, dd MMMM yyyy")</div>
-        <div class="menu-header">Served Now</div>
+        <div class="text-uppercase small">@currentDateTime.ToString("dddd, dd MMMM yyyy")</div>
+        <h2>Served Now</h2>
         <div class="cointainer">
             <div class="row">
 
@@ -26,13 +26,13 @@
     }
     else
     {
-        <div>Currectly Closed</div>
+        <h3 class="section-padding">Currectly Closed</h3>
     }
 
 
     <div class="container">
-        <div class="menu-date">@currentDateTime.ToString("dddd, dd MMMM yyyy")</div>
-        <div class="menu-header">Served Today</div>
+        <div class="text-uppercase small">@currentDateTime.ToString("dddd, dd MMMM yyyy")</div>
+        <h2>Served Today</h2>
         <div class="row">
 
             @foreach (var item in ViewBag.MondayFood)

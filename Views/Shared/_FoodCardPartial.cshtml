@@ -1,80 +1,77 @@
 ﻿@model Food
-<div class="card m-2" style="width: 16rem;">
-    <img src="~/@Model.ImageUrl" class="card-img-top mt-4 mb-2" style="margin:auto;width:80px;height:80px;border-radius:30px;" alt="@Model.Title">
-    <div class="card-body">
-        <span id="food-card-text">
-            <div class="card-title-custom">@Model.Title</div>
-            <div class="card-info-small">Served at @Model.Category</div>
-            @if (Model.AvgRating != null)
-            {
-                <div class="rating-text mt-2">Rating @((int)(Model.AvgRating))/5</div>
-                <div class="my-2 mb-3">
-                    @for (var i = 0; i < (int)Model.AvgRating; i++)
+<div class="col-lg-4 col-sm-6 g-4 p-4 text-center" data-aos="fade-down" data-aos-delay="150">
+    <div class="foodcard theme-shadow p-lg-5 p-4">
+        <div class="">
+            <img src="~/@Model.ImageUrl" class="card-img-top mt-4 mb-2" style="margin:auto;width:80px;height:80px;border-radius:30px;" alt="@Model.Title">
+        </div>
+        <div>
+            <h5 class="mt-4 mb-3">@Model.Title</h5>
+            <p>Served at @Model.Category</p>
+        </div>
+        @if (Model.AvgRating != null)
+        {
+            <div class="rating-text mt-2">Rating @((int)(Model.AvgRating))/5</div>
+            <div class="my-2 mb-3">
+                @for (var i = 0; i < (int)Model.AvgRating; i++)
+                {
+                    <img src="~/lib/icons/star-orange.png" />
+                }
+                @for (var j = 0; j < 5 - (int)Model.AvgRating; j++)
+                {
+                    <img src="~/lib/icons/star-black.png" />
+                }
+            </div>
+        }
+        else
+        {
+            <div class="rating-text mt-2">Not Rated</div>
+            <div class="my-2 mb-3">
+                @for (var i = 0; i < 5; i++)
+                {
+                    <img src="~/lib/icons/star-black.png" />
+                }
+            </div>
+        }
+        <div class="d-flex flex-row justify-content-center">
+            
+                @if (ViewBag.Role == "Student")
+                {
+                    <form asp-action="FoodReview" method="POST">
+                        <input type="hidden" asp-for="Id" value="@Model.Id" />
+                        <input type="hidden" asp-for="Title" value="@Model.Title" />
+                        <input type="hidden" asp-for="Description" value="@Model.Description" />
+                        <input type="hidden" asp-for="Category" value="@Model.Category" />
+                        <input type="hidden" asp-for="ImageUrl" value="@Model.ImageUrl" />
+                        <input type="hidden" asp-for="AvgRating" value="@Model.AvgRating" />
+                        <input type="hidden" asp-for="Id" value="Id" />
+                        @* @if (ViewBag.Rated.Contains(Model.Id))
                     {
-                        <img src="~/lib/icons/star-orange.png" />
+                    <button type="submit" class="btn btn-rate-menu" disabled>Rated</button>
                     }
-                    @for (var j = 0; j < 5 - (int)Model.AvgRating; j++)
+                    else
                     {
-                        <img src="~/lib/icons/star-black.png" />
-                    }
-                </div>
-            }
-            else
-            {
-                <div class="rating-text mt-2">Not Rated</div>
-                <div class="my-2 mb-3">
-                    @for (var i = 0; i < 5; i++)
-                    {
-                        <img src="~/lib/icons/star-black.png" />
-                    }
-                </div>
-            }
-
-
-        </span>
-        <div class="buttons-container-menu">
-            @if (ViewBag.Role == "Student")
-            {
-                
-                <form asp-action="FoodReview" method="POST">
+                    <button type="submit" class="btn btn-rate-menu">Rate</button>
+                    }*@
+                        <div type="submit" class="btn btn-brand px-4 m-4">Rate</div>
+                    </form>
+                }
+                else
+                {
+                    <a href="#" class="btn btn-rate-menu">Enable</a>
+                }
+                <form asp-action="FoodInfo" method="POST">
                     <input type="hidden" asp-for="Id" value="@Model.Id" />
                     <input type="hidden" asp-for="Title" value="@Model.Title" />
                     <input type="hidden" asp-for="Description" value="@Model.Description" />
                     <input type="hidden" asp-for="Category" value="@Model.Category" />
                     <input type="hidden" asp-for="ImageUrl" value="@Model.ImageUrl" />
                     <input type="hidden" asp-for="AvgRating" value="@Model.AvgRating" />
-
                     <input type="hidden" asp-for="Id" value="Id" />
-                   @* @if (ViewBag.Rated.Contains(Model.Id))
-                    {
-                        <button type="submit" class="btn btn-rate-menu" disabled>Rated</button>
-                    }
-                    else
-                    {
-                <button type="submit" class="btn btn-rate-menu">Rate</button>
-                    }*@
-
-                    <button type="submit" class="btn btn-rate-menu">Rate</button>
-                        
-                       
+                    <div type="submit" class="btn btn-light px-4 m-4">Info</div>
                 </form>
-            }else{
-                <a href="#" class="btn btn-rate-menu">Enable</a>
-            }
-            <form asp-action="FoodInfo" method="POST">
-                <input type="hidden" asp-for="Id" value="@Model.Id" />
-                <input type="hidden" asp-for="Title" value="@Model.Title" />
-                <input type="hidden" asp-for="Description" value="@Model.Description" />
-                <input type="hidden" asp-for="Category" value="@Model.Category" />
-                <input type="hidden" asp-for="ImageUrl" value="@Model.ImageUrl" />
-                <input type="hidden" asp-for="AvgRating" value="@Model.AvgRating" />
-
-                <input type="hidden" asp-for="Id" value="Id" />
-                <button type="submit" class="btn btn-info-menu">Info</button>
-            </form>
-
-          
+            
+           
         </div>
-
     </div>
 </div>
+
