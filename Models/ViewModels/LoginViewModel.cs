@@ -14,8 +14,8 @@ namespace ThesisOct2023.Models.ViewModels
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me")]
-        public bool RememberMe { get; set; }
+        //[Display(Name = "Remember me")]
+        //public bool RememberMe { get; set; }
     }
 
 }

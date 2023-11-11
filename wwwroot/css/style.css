@@ -217,3 +217,46 @@ footer .line {
     background-color: var(--c-brand);
     color: white;
 }
+
+/*LOGIN*/
+.login {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    width: 500px;
+    height: 500px;
+}
+
+.login-title .line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--c-brand);
+    margin: 16px 0px 24px 0px;
+}
+
+#login {
+    background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.45)),url(../images/self-service-restaurant.jpg);
+    background-position: center;
+    background-size: cover;
+}
+/*LOGIN*/
+.register {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    width: 500px;
+    height: 600px;
+}
+
+.register-title .line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--c-brand);
+    margin: 16px 0px 24px 0px;
+}
+
+#register {
+    background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.45)),url(../images/self-service-restaurant.jpg);
+    background-position: center;
+    background-size: cover;
+}

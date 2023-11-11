@@ -69,7 +69,7 @@ namespace ThesisOct2023.Controllers
             if (ModelState.IsValid)
             {
                 ApplicationUser signeduser = await _userManager.FindByEmailAsync(model.Email);
-                var result = await _signInManager.PasswordSignInAsync(signeduser.UserName, model.Password, model.RememberMe, false);
+                var result = await _signInManager.PasswordSignInAsync(signeduser.UserName, model.Password, false, false);
                 //var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: model.RememberMe, lockoutOnFailure: true);
 
                 if (result.Succeeded)
