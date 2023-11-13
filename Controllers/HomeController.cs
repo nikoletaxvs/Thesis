@@ -5,18 +5,26 @@ using ThesisOct2023.Models;
 using System.Net.Http.Headers;
 using System.Data;
 using Newtonsoft.Json;
+using ThesisOct2023.Repositories;
+using Microsoft.AspNetCore.Identity;
 
 namespace ThesisOct2023.Controllers
 {
     [AllowAnonymous]
     public class HomeController : Controller
     {
+        private readonly IReviewRepository _reviewRepository;
+        private readonly IFoodRepository _foodRepository;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<HomeController> _logger;
         private readonly string baseURL = "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=jSMW58akzmQYtSjafRK5dFFrGn91Ng4hAkrFcrEr";
 
-		public HomeController(ILogger<HomeController> logger)
+		public HomeController(ILogger<HomeController> logger, IReviewRepository reviewRepository, IFoodRepository foodRepository,UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
+            _reviewRepository = reviewRepository;
+            _foodRepository = foodRepository;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -35,6 +43,9 @@ namespace ThesisOct2023.Controllers
             }else if (User.IsInRole("Student")){
                 return RedirectToAction("Index", "Student");
             }
+            ViewBag.TotalUsers = _userManager.Users.Count();
+            ViewBag.TotalFood = _foodRepository.GetAllFood().Count();
+            ViewBag.TotalReviews = _reviewRepository.GetReviews().Count();
             return View();
         }
 

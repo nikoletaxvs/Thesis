@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<string>
 
-<div class="container">
-    
-        <div class="row">
-            <div class="col-1">
+
+<div class="d-flex flex-row  flex-wrap bd-highlight mb-3">
+            <div class="p-2">
                 <a class="btn btn-outline-secondary" asp-action="Food"
                    asp-controller="Cook" asp-route-category="">
                     All
@@ -11,7 +10,7 @@
             </div>
             @foreach (string category in Model ?? Enumerable.Empty<string>())
             {
-                <div class="col-1">
+                <div class="p-2">
                 <a class="btn btn-outline-secondary"
                asp-action="Food" asp-controller="Cook"
                asp-route-category="@category"
@@ -22,4 +21,4 @@
             }
         </div>
    
-</div>
+

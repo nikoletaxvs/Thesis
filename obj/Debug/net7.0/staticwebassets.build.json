@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oAqi25q2u4KxoGIJUjL+EO6LiqvSglRFHYV9vlLCctA=",
+  "Hash": "4DycVOJsMWTg/AS5vKdbpZYEWQFWGqT4LdudMI/55x0=",
   "Source": "ThesisOct2023",
   "BasePath": "_content/ThesisOct2023",
   "Mode": "Default",
@@ -1309,6 +1309,23 @@
       "OriginalItemSpec": "wwwroot\\js\\main.js"
     },
     {
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\multistep-form.js",
+      "SourceId": "ThesisOct2023",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
+      "BasePath": "_content/ThesisOct2023",
+      "RelativePath": "js/multistep-form.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\multistep-form.js"
+    },
+    {
       "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\site.js",
       "SourceId": "ThesisOct2023",
       "SourceType": "Discovered",
@@ -2395,23 +2412,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
-    },
-    {
-      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\Scripts\\multistep-form.js",
-      "SourceId": "ThesisOct2023",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
-      "BasePath": "_content/ThesisOct2023",
-      "RelativePath": "Scripts/multistep-form.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Scripts\\multistep-form.js"
     }
   ]
 }

@@ -3,20 +3,23 @@
     Layout = "~/Views/Shared/_CookLayout.cshtml";
 }
 
-<h1>Menu</h1>
-
 @model IEnumerable<MenuItem>
-<table>
+<div class="table-responsive p-3">
+    <caption>This week's menu</caption>
+
+    <table class="table table-striped p-2">
     <tr>
-        <th>Moday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-        <th>Saturday</th>
-        <th>Sunday</th>
+            <th scope="col">#</th>
+            <th scope="col">Moday</th>
+            <th scope="col">Tuesday</th>
+            <th scope="col">Wednesday</th>
+            <th scope="col">Thursday</th>
+            <th scope="col">Friday</th>
+            <th scope="col">Saturday</th>
+            <th scope="col">Sunday</th>
     </tr>
     <tr>
+            <th scope="row">Breakfast</th>
         @foreach(var item in Model)
         {
             @if(item.ServedAt == "Breakfast")
@@ -27,6 +30,7 @@
         }
     </tr>
     <tr>
+            <th scope="row">Lunch</th>
          @foreach(var item in Model)
         {
             @if(item.ServedAt == "Launch")
@@ -37,6 +41,7 @@
         }
     </tr>
     <tr>
+            <th scope="row">Dinner</th>
          @foreach(var item in Model)
         {
             @if(item.ServedAt == "Dinner")
@@ -48,3 +53,4 @@
     </tr>
        
 </table> 
+</div>

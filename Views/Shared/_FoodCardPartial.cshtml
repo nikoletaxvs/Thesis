@@ -1,5 +1,5 @@
 ﻿@model Food
-<div class="col-lg-4 col-sm-6 g-4 p-4 text-center" data-aos="fade-down" data-aos-delay="150">
+<div class="col-lg-3 col-sm-4 g-4 p-4 text-center" data-aos="fade-down" data-aos-delay="150">
     <div class="foodcard theme-shadow p-lg-5 p-4">
         <div class="">
             <img src="~/@Model.ImageUrl" class="card-img-top mt-4 mb-2" style="margin:auto;width:80px;height:80px;border-radius:30px;" alt="@Model.Title">
@@ -52,7 +52,7 @@
                     {
                     <button type="submit" class="btn btn-rate-menu">Rate</button>
                     }*@
-                        <div type="submit" class="btn btn-brand px-4 m-4">Rate</div>
+                        <button type="submit" class="btn btn-brand px-4 m-4">Rate</button>
                     </form>
                 }
                 else
@@ -67,7 +67,7 @@
                     <input type="hidden" asp-for="ImageUrl" value="@Model.ImageUrl" />
                     <input type="hidden" asp-for="AvgRating" value="@Model.AvgRating" />
                     <input type="hidden" asp-for="Id" value="Id" />
-                    <div type="submit" class="btn btn-light px-4 m-4">Info</div>
+                    <button type="submit" class="btn btn-light px-4 m-4">Info</button>
                 </form>
             
            

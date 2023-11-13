@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using ThesisOct2023.Helpers;
 using NuGet.Protocol.Core.Types;
 using System.Drawing.Printing;
+using Microsoft.AspNetCore.Identity;
 
 namespace ThesisOct2023.Controllers
 {
@@ -15,15 +16,21 @@ namespace ThesisOct2023.Controllers
     {
         private readonly IFoodRepository _foodRepository;
         private readonly IMenuItemRepository _menuItemRepository;
-        private readonly int PageSize = 3;
-        public CookController(IFoodRepository foodRepository,IMenuItemRepository menuItemRepository)
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IReviewRepository _reviewRepository;
+        private readonly int PageSize = 8;
+        public CookController(IFoodRepository foodRepository,IMenuItemRepository menuItemRepository, UserManager<ApplicationUser> userManager, IReviewRepository reviewRepository)
         {
             _foodRepository = foodRepository;
             _menuItemRepository = menuItemRepository;
-            
+            _userManager = userManager;
+            _reviewRepository = reviewRepository;
         }
         public IActionResult Index()
         {
+            ViewBag.TotalUsers = _userManager.Users.Count();
+            ViewBag.TotalFood = _foodRepository.GetAllFood().Count();
+            ViewBag.TotalReviews = _reviewRepository.GetReviews().Count();
             return View();
         }
         public ViewResult Food(string? category, int productPage=1)

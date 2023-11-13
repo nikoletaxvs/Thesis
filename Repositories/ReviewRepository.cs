@@ -20,5 +20,10 @@ namespace ThesisOct2023.Repositories
             var query= from review in context.Reviews where review.StudentId == studentId select review.FoodId;
             return query.ToList();
         }
+
+        public IEnumerable<Review> GetReviews()
+        {
+            return context.Reviews.ToList();
+        }
     }
 }

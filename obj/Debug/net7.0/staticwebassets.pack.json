@@ -21,10 +21,6 @@
       "PackagePath": "staticwebassets\\8781b892-37ee-4627-ad80-d600e06b1c6b_mousaka.jpg"
     },
     {
-      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\Scripts\\multistep-form.js",
-      "PackagePath": "staticwebassets\\Scripts\\multistep-form.js"
-    },
-    {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\a02f1d2d-e513-45ad-a8d2-a26e3702799f_filter coffee.jpg",
       "PackagePath": "staticwebassets\\a02f1d2d-e513-45ad-a8d2-a26e3702799f_filter coffee.jpg"
     },
@@ -63,6 +59,10 @@
     {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\multistep-form.js",
+      "PackagePath": "staticwebassets\\js\\multistep-form.js"
     },
     {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\site.js",

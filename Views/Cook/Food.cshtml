@@ -3,13 +3,13 @@
     Layout = "~/Views/Shared/_CookLayout.cshtml";
    
 }
-<div id="categories" class="m-2">
+<div id="categories">
     <vc:navigation-categories/>
 </div>
 <div class="cointainer">
-    <div class="row m-2">
+    <div class="row">
         @foreach(var f in Model.Foods){
-            <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@f"></partial>
+            <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@f" ></partial>
         }
     </div>
 </div>
