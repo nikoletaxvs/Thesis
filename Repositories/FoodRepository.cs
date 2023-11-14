@@ -83,6 +83,12 @@ namespace ThesisOct2023.Repositories
             
             context.SaveChanges();
         }
+
+        public IEnumerable<Food> getAllByCategory(string category)
+        {
+            return context.Foods.Where(f => f.Category.ToUpper() == category.ToUpper()).ToList();
+        }
         
+
     }
 }

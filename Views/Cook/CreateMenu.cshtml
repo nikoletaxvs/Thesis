@@ -16,19 +16,20 @@
 </head>
 <!-- MultiStep Form -->
 <body>
-    <div class="row">
-        <div class="col-12">
-            <form id="msform" asp-controller="Cook" asp-action="PostMenu" method="post">
+    <div >
+        <div class="container">
+       
+            <form id="msform" asp-controller="Cook" asp-action="CreateMenu" method="post">
                 <!-- progressbar -->
-                <ul id="progressbar">
+                <ul id="progressbar" class="d-flex flex-wrap justify-content-around">
                     @foreach(var weekday in weekDays)
                     {
                         if(weekDays[0] == weekday)
                         {
-                            <li class="active">@weekday</li>
+                            <li class="active g-2 flex-fill bd-highlight">@weekday</li>
                             continue;
                         }
-                        <li>@weekday</li>
+                        <li class="g-2 flex-fill bd-highlight">@weekday</li>
 
                     }
                    
@@ -42,11 +43,11 @@
                         <h3 class="fs-subtitle">What will be in @weekDays[counter]'s menu?'</h3>
                         <input type="hidden" asp-for="SelectedItems[counter].Day" value="@counter"/>
                         <label class="form-label">Select Breakfast</label>
-                        <select class="form-select" asp-items="ViewBag.MenuItems" asp-for="SelectedItems[counter].BreakFast"></select>
+                        <select class="form-select" asp-items="ViewBag.BreakfastItems" asp-for="SelectedItems[counter].BreakFast"></select>
                         <label class="form-label">Select Lunch</label>
-                        <select class="form-select" asp-items="ViewBag.MenuItems" asp-for="SelectedItems[counter].Launch"></select>
+                        <select class="form-select" asp-items="ViewBag.LunchItems" asp-for="SelectedItems[counter].Launch"></select>
                         <label class="form-label">Select Dinner</label>
-                        <select class="form-select" asp-items="ViewBag.MenuItems" asp-for="SelectedItems[counter].Dinner"></select>
+                        <select class="form-select" asp-items="ViewBag.DinnerItems" asp-for="SelectedItems[counter].Dinner"></select>
                         
                         @if (counter != 0)
                         {
@@ -55,7 +56,7 @@
                         <input type="button" name="next" class="next action-button" value="Next" />
                         @if(counter == 6)
                         {
-                            <button type="submit">Submit</button>
+                            <button class="btn btn-brand" type="submit">Submit</button>
                         }
 
                     </fieldset>
@@ -76,9 +77,9 @@
             
    
         </div>
-    </div>
+   
 
- 
+    </div>
 
 </body>
 

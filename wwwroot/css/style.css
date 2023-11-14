@@ -8,12 +8,13 @@
 /* counter image :Image by fxquadro</a> on Freepik*/
 
 /*VARIABLES*/
-:root{
+:root {
     --c-dark: #212529;
-    --c-brand:#4357d4;
-    --c-brand-light:#6979dd;
+    --c-brand: #4357d4;
+    --c-brand-light: #6979dd;
+    --c-brand-gray: #d3d3d3; 
     --c-brand-rgb:78,87,212;
-    --c-body:#727272;
+    --c-body: #727272;
     --font-base: 'Lato', sans-serif;
     --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
     --transition: all 0.5s ease;
@@ -544,7 +545,7 @@ footer .line {
 
 #progressbar li {
     list-style-type: none;
-    color: black;
+    color: var(--c-body);
     text-transform: uppercase;
     font-size: 12px;
     width: 12.33%;
@@ -552,7 +553,11 @@ footer .line {
     position: relative;
     letter-spacing: 1px;
 }
-
+@media screen and (max-width: 600px) {
+    #progressbar li {
+        display:none;
+    }
+}
 #progressbar li:before {
     content: counter(step);
     counter-increment: step;
@@ -562,7 +567,7 @@ footer .line {
     display: block;
     font-size: 16px;
     color: #fff;
-    background: black;
+    background: var(--c-brand-gray);
     border-radius: 25px;
     margin: 0 auto 10px auto;
 }
@@ -572,7 +577,7 @@ progressbar connectors*/
     content: '';
     width: 100%;
     height: 3px;
-    background: black;
+    background: var(--c-brand-gray);
     position: absolute;
     left: -50%;
     top: 15px;

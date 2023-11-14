@@ -10,6 +10,7 @@ namespace ThesisOct2023.Repositories
         }
         public void AddReview(Review review)
         {
+
             context.Reviews.Add(review);
             context.SaveChanges();
 
@@ -25,5 +26,7 @@ namespace ThesisOct2023.Repositories
         {
             return context.Reviews.ToList();
         }
+
+        
     }
 }

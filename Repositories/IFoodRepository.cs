@@ -11,5 +11,6 @@ namespace ThesisOct2023.Repositories
         public IEnumerable<Food> getFoodByWeek(int week);
         public IEnumerable<Food> getFoodSevedNow(string timeOfDay, int week, int day);
         public void updateFoodRating(Food food, float rating);
+        public IEnumerable<Food> getAllByCategory(string category);
     }
 }

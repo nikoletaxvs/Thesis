@@ -20,6 +20,7 @@ namespace ThesisOct2023.Controllers
 		private readonly UserManager<ApplicationUser> _userManager;
 		private IReviewRepository _reviewRepository;
 		private IReviewQuestionRepository _reviewQuestionRepository;
+
 		public StudentController(IFoodRepository foodRepository, UserManager<ApplicationUser> userManager,IQuestionRepository questionRepository,IReviewQuestionRepository reviewQuestionRepository, IReviewRepository reviewRepository) {
 			
 			_foodRepository = foodRepository;

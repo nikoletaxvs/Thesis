@@ -13,5 +13,11 @@ namespace ThesisOct2023.Repositories
         {
             return context.Questions.ToList();
         }
-    }
+		public void AddQuestion(Question question)
+        {
+            context.Questions.Add(question);
+            context.SaveChanges();
+        }
+
+	}
 }

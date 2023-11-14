@@ -57,6 +57,28 @@ namespace ThesisOct2023.Repositories
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
 
+        public IEnumerable<int> DistinctWeeks()
+        {
+            return context.Menus.Select(x => x.week).Distinct().ToList();
+        }
 
+        public void DeleteMenu(int menuId) {
+            //Get menu item with given Id
+            Menu menu = context.Menus.Find(menuId);
+            if (menu != null)
+            {
+                //Get its menu items and delete them one by one
+                List<MenuItem> query=context.MenuItems.Where(menuItem => menuItem.MenuId == menuId).ToList();
+                if(query.Any()) { 
+                    foreach(var item in query)
+                    {
+                        context.MenuItems.Remove(item);
+                    }
+                }
+                //Finally Delete Menu 
+                context.Menus.Remove(menu);
+                context.SaveChanges();
+            }
+        }
     }
 }

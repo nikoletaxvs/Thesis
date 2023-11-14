@@ -10,10 +10,12 @@ namespace ThesisOct2023.Controllers
     {
         private IFoodRepository _foodRepository;
         private IWebHostEnvironment _webHostEnvironment;
-        public AdminController(IFoodRepository foodRepository, IWebHostEnvironment webHostEnvironment)
+        private IQuestionRepository _questionRepository;
+        public AdminController(IFoodRepository foodRepository, IWebHostEnvironment webHostEnvironment,IQuestionRepository questionRepository)
         {
             _foodRepository = foodRepository;
             _webHostEnvironment = webHostEnvironment;
+            _questionRepository = questionRepository;
         }
         public IActionResult Index()
         {
@@ -51,5 +53,23 @@ namespace ThesisOct2023.Controllers
             }
             return View();
         }
-    }
+        public IActionResult Questions()
+        {
+            IEnumerable<Question> questions= _questionRepository.GetQuestions();
+            return View(questions);
+        }
+        //GET
+        public IActionResult CreateQuestion()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateQuestion(Question question)
+        {
+            _questionRepository.AddQuestion(question);
+            return RedirectToAction("Index");   
+        }
+
+	}
 }
