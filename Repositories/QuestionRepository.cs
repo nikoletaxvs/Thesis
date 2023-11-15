@@ -18,6 +18,16 @@ namespace ThesisOct2023.Repositories
             context.Questions.Add(question);
             context.SaveChanges();
         }
+		public Question GetQuestion(int? id)
+        {
+            return context.Questions.Find(id);
+        }
+
+		public void DeleteQuestion(Question question)
+        {
+            context.Questions.Remove(question);
+            context.SaveChanges();
+        }
 
 	}
 }

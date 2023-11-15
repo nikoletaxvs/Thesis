@@ -6,5 +6,7 @@ namespace ThesisOct2023.Repositories
     {
         public List<Question> GetQuestions();
         public void AddQuestion(Question question);
+        public Question GetQuestion(int? id);
+        public void DeleteQuestion(Question question);
     }
 }

@@ -70,6 +70,35 @@ namespace ThesisOct2023.Controllers
             _questionRepository.AddQuestion(question);
             return RedirectToAction("Index");   
         }
+        //Get
+        public IActionResult DeleteQuestion(int? id)
+        {
+            if (id != null && id !=0)
+            {
+                Question question =_questionRepository.GetQuestion((int)id);
+                return View(question);
+            }
+            else
+            {
+                return NotFound();
+            }
+           
+        }
+		[HttpPost, ActionName("Delete")]
+		[ValidateAntiForgeryToken]
+		public IActionResult DeleteQuestionPOST(int? id)
+        {
+            var question = _questionRepository.GetQuestion(id);
+			if (question == null)
+			{
+				return NotFound();
+			}
 
+			_questionRepository.DeleteQuestion(question);
+			
+			TempData["success"] = "Category deleted successfully";
+			return RedirectToAction("Index");
+			
+        }
 	}
 }
