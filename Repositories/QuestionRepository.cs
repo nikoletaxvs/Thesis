@@ -29,5 +29,11 @@ namespace ThesisOct2023.Repositories
             context.SaveChanges();
         }
 
+        public void UpdateQuestion(Question question)
+        {
+            context.Questions.Update(question);
+            context.SaveChanges();
+        }
+
 	}
 }
