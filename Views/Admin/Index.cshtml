@@ -16,7 +16,7 @@
             labels: ['Admins', 'Cooks', 'Students'],
             datasets: [{
                 label: '# of Users',
-                data: [1, 2, 3],
+                data: [@ViewBag.AdminsCounter, @ViewBag.CooksCounter, @ViewBag.StudentsCounter],
                 borderWidth: 1
             }]
         },

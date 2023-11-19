@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ThesisOct2023.Models;
 using ThesisOct2023.Repositories;
@@ -11,14 +12,19 @@ namespace ThesisOct2023.Controllers
         private IFoodRepository _foodRepository;
         private IWebHostEnvironment _webHostEnvironment;
         private IQuestionRepository _questionRepository;
-        public AdminController(IFoodRepository foodRepository, IWebHostEnvironment webHostEnvironment,IQuestionRepository questionRepository)
+        private UserManager<ApplicationUser> _userManager;
+        public AdminController(IFoodRepository foodRepository, IWebHostEnvironment webHostEnvironment,IQuestionRepository questionRepository, UserManager<ApplicationUser> userManager)
         {
             _foodRepository = foodRepository;
             _webHostEnvironment = webHostEnvironment;
             _questionRepository = questionRepository;
+            _userManager = userManager;
         }
         public IActionResult Index()
         {
+            ViewBag.StudentsCounter= _userManager.Users.Where(x=> x.UserRole.ToUpper() =="STUDENT").Count(); 
+            ViewBag.AdminsCounter= _userManager.Users.Where(x=> x.UserRole.ToUpper() =="ADMIN").Count(); 
+            ViewBag.CooksCounter= _userManager.Users.Where(x=> x.UserRole.ToUpper() =="COOK").Count(); 
             return View();
         }
         public IActionResult Food() {
