@@ -69,25 +69,33 @@ namespace ThesisOct2023.Controllers
             if (ModelState.IsValid)
             {
                 ApplicationUser signeduser = await _userManager.FindByEmailAsync(model.Email);
-                var result = await _signInManager.PasswordSignInAsync(signeduser.UserName, model.Password, false, false);
-                //var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: model.RememberMe, lockoutOnFailure: true);
 
-                if (result.Succeeded)
+                if (signeduser != null)
                 {
-                    return RedirectToAction("Index", "Home");
-                }
+                    var result = await _signInManager.PasswordSignInAsync(signeduser.UserName, model.Password, false, false);
 
-                if (result.RequiresTwoFactor)
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+
+                    if (result.RequiresTwoFactor)
+                    {
+                        // Handle two-factor authentication
+                    }
+
+                    if (result.IsLockedOut)
+                    {
+                        // Handle locked-out user
+                    }
+
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                }
+                else
                 {
-                    // Handle two-factor authentication
+                    // Handle the case where the email doesn't exist
+                    ModelState.AddModelError(string.Empty, "Email not found. Please check your credentials.");
                 }
-
-                if (result.IsLockedOut)
-                {
-                    // Handle locked-out user
-                }
-
-                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
             }
 
             return View(model);

@@ -76,4 +76,5 @@ new
 });
 app.MapRazorPages();
 app.MapDefaultControllerRoute();
+app.Seed();
 app.Run();
