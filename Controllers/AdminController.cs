@@ -24,7 +24,32 @@ namespace ThesisOct2023.Controllers
         {
             ViewBag.StudentsCounter= _userManager.Users.Where(x=> x.UserRole.ToUpper() =="STUDENT").Count(); 
             ViewBag.AdminsCounter= _userManager.Users.Where(x=> x.UserRole.ToUpper() =="ADMIN").Count(); 
-            ViewBag.CooksCounter= _userManager.Users.Where(x=> x.UserRole.ToUpper() =="COOK").Count(); 
+            ViewBag.CooksCounter= _userManager.Users.Where(x=> x.UserRole.ToUpper() =="COOK").Count();
+
+            ViewBag.UsersOverTime =_userManager.Users.GroupBy(x => x.RegistrationDate.Year)
+                .Select(group => new { 
+                    RegisterDateName = group.Key,
+                    HeadCount = group.Count(),
+                })
+                .OrderBy(dc=>dc.RegisterDateName)
+                .ToList();
+            List<string> dates = new List<string>();
+            List<int> headcounts = new List<int>();
+
+            foreach (var d in ViewBag.UsersOverTime)
+            {
+                
+                string formattedDate = d.RegisterDateName.ToString();
+                dates.Add(formattedDate);
+               
+            }
+            foreach (var h in ViewBag.UsersOverTime)
+            {
+                headcounts.Add(h.HeadCount);
+            }
+            ViewBag.dates = dates;
+            ViewBag.headcounts = headcounts;
+
             return View();
         }
         public IActionResult Food() {

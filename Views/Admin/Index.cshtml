@@ -1,8 +1,9 @@
 ﻿@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    
 }
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<h4>Analytical Dashboard @TempData["success"]</h4>
+<h4>Analytical Dashboard </h4>
 <div class="container">
     <div class="row">
         <div class="theme-shadow bg-white col-lg-3 col-sm-10 g-4 m-2 p-2">
@@ -90,9 +91,9 @@
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
-            labels: [1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
+            labels: @Html.Raw(Json.Serialize(ViewBag.dates)),
             datasets: [{
-                data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478],
+                data: @Html.Raw(Json.Serialize(ViewBag.headcounts)),
                 label: "Total Users",
                 borderColor: "#6979dd",
                 fill: true
