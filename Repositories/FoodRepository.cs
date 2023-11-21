@@ -104,5 +104,9 @@ namespace ThesisOct2023.Repositories
             context.Foods.Update(food1);
             context.SaveChanges();
         }
+        public List<Food> getAllEnabledFood()
+        {
+            return context.Foods.Where(f => f.Enabled == true).ToList();
+        }
     }
 }

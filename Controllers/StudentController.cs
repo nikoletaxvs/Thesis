@@ -77,7 +77,7 @@ namespace ThesisOct2023.Controllers
 
             return View(new FoodListViewModel
             {
-                Foods = _foodRepository.GetAllFood()
+                Foods = _foodRepository.getAllEnabledFood()
              .Where(p => category == null || p.Category.ToUpper() == category.ToUpper())
             .OrderBy(p => p.Id)
             .Skip((productPage - 1) * PageSize)
@@ -87,8 +87,8 @@ namespace ThesisOct2023.Controllers
                     CurrentPage = productPage,
                     ItemsPerPage = PageSize,
                     TotalItems = category == null
-            ? _foodRepository.GetAllFood().Count()
-            : _foodRepository.GetAllFood().Where(e =>
+            ? _foodRepository.getAllEnabledFood().Count()
+            : _foodRepository.getAllEnabledFood().Where(e =>
             e.Category.ToUpper() == category.ToUpper()).Count()
                 },
                 CurrentCategory = category

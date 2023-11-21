@@ -14,5 +14,6 @@ namespace ThesisOct2023.Repositories
         public IEnumerable<Food> getAllByCategory(string category);
         public void Enable(int foodId);
         public void Disable(int foodId);
+        public List<Food> getAllEnabledFood();
     }
 }
