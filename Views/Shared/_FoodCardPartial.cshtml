@@ -1,6 +1,8 @@
 ﻿@model Food
 <div class="col-lg-3 col-sm-4 g-4 p-4 text-center" data-aos="fade-down" data-aos-delay="150">
-    <div class="foodcard theme-shadow ">
+   
+    <div id="foodCard" class="foodcard theme-shadow ">
+
         <div class="">
             <img src="~/@Model.ImageUrl" class="card-img-top mt-4 mb-2" style="margin:auto;width:80px;height:80px;border-radius:30px;" alt="@Model.Title">
         </div>
@@ -33,10 +35,33 @@
             </div>
         }
         <div class="d-flex flex-row justify-content-center">
-            
-                @if (ViewBag.Role == "Student")
+            <!--Display Rate button for students and Enable/Disable button for cooks--> 
+            @if (User.IsInRole("Student"))
+            {
+                <form asp-action="FoodReview" method="POST">
+                    <input type="hidden" asp-for="Id" value="@Model.Id" />
+                    <input type="hidden" asp-for="Title" value="@Model.Title" />
+                    <input type="hidden" asp-for="Description" value="@Model.Description" />
+                    <input type="hidden" asp-for="Category" value="@Model.Category" />
+                    <input type="hidden" asp-for="ImageUrl" value="@Model.ImageUrl" />
+                    <input type="hidden" asp-for="AvgRating" value="@Model.AvgRating" />
+                    <input type="hidden" asp-for="Id" value="Id" />
+                    @if (ViewBag.Rated.Contains(Model.Id))
+                    {
+                        <button type="submit" class="btn btn-light" disabled>Rated</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-brand px-4 m-4">Rate</button>
+                    }
+                   
+                </form>
+            }
+            else
+            {
+                @if (Model.Enabled ==true)
                 {
-                    <form asp-action="FoodReview" method="POST">
+                    <form asp-action="Disable" method="POST">
                         <input type="hidden" asp-for="Id" value="@Model.Id" />
                         <input type="hidden" asp-for="Title" value="@Model.Title" />
                         <input type="hidden" asp-for="Description" value="@Model.Description" />
@@ -44,21 +69,27 @@
                         <input type="hidden" asp-for="ImageUrl" value="@Model.ImageUrl" />
                         <input type="hidden" asp-for="AvgRating" value="@Model.AvgRating" />
                         <input type="hidden" asp-for="Id" value="Id" />
-                        @* @if (ViewBag.Rated.Contains(Model.Id))
-                    {
-                    <button type="submit" class="btn btn-rate-menu" disabled>Rated</button>
-                    }
-                    else
-                    {
-                    <button type="submit" class="btn btn-rate-menu">Rate</button>
-                    }*@
-                        <button type="submit" class="btn btn-brand px-4 m-4">Rate</button>
+                       
+                        <button type="submit" class="btn btn-brand-danger px-4 m-4">Disable</button>
                     </form>
+
+                }else{
+                    
+                   <form asp-action="Enable" method="POST">
+                        <input type="hidden" asp-for="Id" value="@Model.Id" />
+                        <input type="hidden" asp-for="Title" value="@Model.Title" />
+                        <input type="hidden" asp-for="Description" value="@Model.Description" />
+                        <input type="hidden" asp-for="Category" value="@Model.Category" />
+                        <input type="hidden" asp-for="ImageUrl" value="@Model.ImageUrl" />
+                        <input type="hidden" asp-for="AvgRating" value="@Model.AvgRating" />
+                        <input type="hidden" asp-for="Id" value="Id" />
+                       
+                        <button type="submit" class="btn btn-brand px-4 m-4">Enable</button>
+                    </form>
+
                 }
-                else
-                {
-                    <a href="#" class="btn btn-rate-menu">Enable</a>
-                }
+                
+            }
                 <form asp-action="FoodInfo" method="POST">
                     <input type="hidden" asp-for="Id" value="@Model.Id" />
                     <input type="hidden" asp-for="Title" value="@Model.Title" />
@@ -69,8 +100,6 @@
                     <input type="hidden" asp-for="Id" value="Id" />
                     <button type="submit" class="btn btn-light px-4 m-4">Info</button>
                 </form>
-            
-           
         </div>
     </div>
 </div>

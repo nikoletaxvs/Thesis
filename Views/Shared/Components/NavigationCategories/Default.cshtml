@@ -2,23 +2,56 @@
 
 
 <div class="d-flex flex-row  flex-wrap bd-highlight mb-3">
-            <div class="p-2">
-                <a class="btn btn-outline-secondary" asp-action="Food"
-                   asp-controller="Cook" asp-route-category="">
+
+            <div  class="p-2 category">
+             @if (User.IsInRole("Student"))
+            {
+            <a onclick="SetActive()" class="btn btn-outline-secondary" asp-action="Food"
+               asp-controller="Student" asp-route-category="">
                     All
                 </a>
+            }
+            else
+            {
+                <a class="btn btn-outline-secondary" asp-action="Food"
+               asp-controller="Cook" asp-route-category="">
+                    All
+                </a>
+            }
+                
             </div>
             @foreach (string category in Model ?? Enumerable.Empty<string>())
             {
-                <div class="p-2">
-                <a class="btn btn-outline-secondary"
-               asp-action="Food" asp-controller="Cook"
-               asp-route-category="@category"
-               asp-route-productPage="1">
-                    @category
-                </a>
-                </div>
+                <div onclick="SetActive()" class="p-2 category">
+                    @if (User.IsInRole("Student"))
+                    {
+                        <a class="btn btn-outline-secondary"
+                           asp-action="Food" asp-controller="Student"
+                           asp-route-category="@category"
+                           asp-route-productPage="1">
+                                    @category
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-outline-secondary"
+                           asp-action="Food" asp-controller="Cook"
+                           asp-route-category="@category"
+                           asp-route-productPage="1">
+                                    @category
+                        </a>
+                    }
+           
+                 </div>
             }
-        </div>
+            <script>
+                function SetActive(){
+                    let categoryBtns = document.getElementsByClassName('category');
+                    categoryBtns.classList.toggle("visible");
+             
+
+                }
+            </script>
+</div>
    
 

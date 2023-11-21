@@ -9,6 +9,8 @@ using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Drawing.Printing;
+using ThesisOct2023.Models.ViewModels;
 
 namespace ThesisOct2023.Controllers
 {
@@ -20,8 +22,9 @@ namespace ThesisOct2023.Controllers
 		private readonly UserManager<ApplicationUser> _userManager;
 		private IReviewRepository _reviewRepository;
 		private IReviewQuestionRepository _reviewQuestionRepository;
+        private readonly int PageSize = 8;
 
-		public StudentController(IFoodRepository foodRepository, UserManager<ApplicationUser> userManager,IQuestionRepository questionRepository,IReviewQuestionRepository reviewQuestionRepository, IReviewRepository reviewRepository) {
+        public StudentController(IFoodRepository foodRepository, UserManager<ApplicationUser> userManager,IQuestionRepository questionRepository,IReviewQuestionRepository reviewQuestionRepository, IReviewRepository reviewRepository) {
 			
 			_foodRepository = foodRepository;
 			_userManager = userManager;
@@ -30,11 +33,13 @@ namespace ThesisOct2023.Controllers
 			_reviewRepository = reviewRepository;
 
 		}
+		
 		public IActionResult Index()
 		{
             ViewBag.TotalUsers = _userManager.Users.Count();
             ViewBag.TotalFood = _foodRepository.GetAllFood().Count();
             ViewBag.TotalReviews = _reviewRepository.GetReviews().Count();
+			
             return View();
 		}
 		public IActionResult Menu()
@@ -65,7 +70,33 @@ namespace ThesisOct2023.Controllers
 			ViewBag.Rated = _reviewRepository.GetStudentReviewFoodId(_userManager.GetUserId(User));
 			return View(model);
 		}
-		[HttpPost]
+        //Get
+        public ViewResult Food(string? category, int productPage = 1)
+		{
+            ViewBag.Rated = _reviewRepository.GetStudentReviewFoodId(_userManager.GetUserId(User));
+
+            return View(new FoodListViewModel
+            {
+                Foods = _foodRepository.GetAllFood()
+             .Where(p => category == null || p.Category.ToUpper() == category.ToUpper())
+            .OrderBy(p => p.Id)
+            .Skip((productPage - 1) * PageSize)
+            .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = productPage,
+                    ItemsPerPage = PageSize,
+                    TotalItems = category == null
+            ? _foodRepository.GetAllFood().Count()
+            : _foodRepository.GetAllFood().Where(e =>
+            e.Category.ToUpper() == category.ToUpper()).Count()
+                },
+                CurrentCategory = category
+            });
+        }
+
+        
+        [HttpPost]
 		[ValidateAntiForgeryToken]
 		public IActionResult FoodReview(Food f)
 		{

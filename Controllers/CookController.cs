@@ -200,5 +200,31 @@ namespace ThesisOct2023.Controllers
 
            return RedirectToAction("Index");
         }
+        [HttpPost, ActionName("Enable")]
+        [ValidateAntiForgeryToken]
+        public IActionResult EnablePost(Food food)
+        {
+           
+           _foodRepository.Enable(food.Id);
+           
+            return RedirectToAction("Food");
+
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Disable(Food food)
+        {
+            try
+            {
+                _foodRepository.Disable(food.Id);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return RedirectToAction("Food");
+        }
+
     }
 }

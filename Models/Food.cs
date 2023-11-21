@@ -16,6 +16,8 @@ namespace ThesisOct2023.Models
         //public byte[] Photo { get; set; }
         [Required]
         public string ImageUrl { get; set; }
+        [Required]
+        public bool Enabled { get; set; } = true;
         //Many to many relationship with Menu
         public List<MenuItem> MenuItems { get; } = new();
         public List<Menu> Menus { get; } = new();

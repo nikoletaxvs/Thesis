@@ -12,8 +12,10 @@
     --c-dark: #212529;
     --c-brand: #4357d4;
     --c-brand-light: #6979dd;
-    --c-brand-gray: #d3d3d3; 
-    --c-brand-rgb:78,87,212;
+    --c-brand-danger: #ff3232;
+    --c-brand-danger-light: #ff9999;
+    --c-brand-gray: #d3d3d3;
+    --c-brand-rgb: 78,87,212;
     --c-body: #727272;
     --font-base: 'Lato', sans-serif;
     --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
@@ -90,6 +92,18 @@ img {
 .btn-brand:hover {
     background-color: var(--c-brand-light);
     border-color: var(--c-brand-light);
+    color: white;
+}
+
+.btn-brand-danger {
+    background-color: var(--c-brand-danger);
+    border-color: var(--c-brand-danger);
+    color: white;
+}
+
+.btn-brand-danger:hover {
+    background-color: var(--c-brand-danger-light);
+    border-color: var(--c-brand-danger-light);
     color: white;
 }
 /*HERO*/
@@ -616,3 +630,4 @@ progressbar connectors*/
     background: #C5C5F1;
     text-decoration: none;
 }
+

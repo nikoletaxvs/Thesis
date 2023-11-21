@@ -88,7 +88,21 @@ namespace ThesisOct2023.Repositories
         {
             return context.Foods.Where(f => f.Category.ToUpper() == category.ToUpper()).ToList();
         }
-        
 
+        public void Enable(int foodId)
+        {
+            Food food1 = context.Foods.Find(foodId);
+            food1.Enabled = true;
+            context.Foods.Update(food1);
+            context.SaveChanges();
+        }
+
+        public void Disable(int foodId)
+        {
+            Food food1 = context.Foods.Find(foodId);
+            food1.Enabled = false;
+            context.Foods.Update(food1);
+            context.SaveChanges();
+        }
     }
 }
