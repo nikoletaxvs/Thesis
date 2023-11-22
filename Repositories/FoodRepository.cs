@@ -119,17 +119,21 @@ namespace ThesisOct2023.Repositories
                               join rq in context.ReviewQuestions on r.Id equals rq.ReviewId
                               where r.FoodId == f.Id
                               select rq;
-                list.Add(new FoodChartViewModel()
+                if (answers.Any())
                 {
-                    Id=f.Id,
-                    Title=f.Title,
-                    ones= answers.Where(a=>a.Answer==1).Count(),
-                    twes= answers.Where(a=>a.Answer==2).Count(),
-                    threes= answers.Where(a => a.Answer == 3).Count(),
-                    fours= answers.Where(a => a.Answer == 4).Count(),
-                    fives= answers.Where(a => a.Answer == 5).Count()
+                    list.Add(new FoodChartViewModel()
+                    {
+                        Id = f.Id,
+                        Title = f.Title,
+                        ones = answers.Where(a => a.Answer == 1).Count(),
+                        twes = answers.Where(a => a.Answer == 2).Count(),
+                        threes = answers.Where(a => a.Answer == 3).Count(),
+                        fours = answers.Where(a => a.Answer == 4).Count(),
+                        fives = answers.Where(a => a.Answer == 5).Count()
 
-                });
+                    });
+                }
+                
             }
             return list;
             

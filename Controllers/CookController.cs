@@ -102,7 +102,7 @@ namespace ThesisOct2023.Controllers
             ViewBag.BreakFastItems = breakfastitems.ItemsSelectList;
             ViewBag.LunchItems = lunchfastitems.ItemsSelectList;
             ViewBag.DinnerItems = dinnerfastitems.ItemsSelectList;
-
+            
             return View();
         }
         [HttpPost]
@@ -154,8 +154,9 @@ namespace ThesisOct2023.Controllers
                     }
                     //return RedirectToAction("Index");
                 }
-                //return RedirectToAction("Index");
-                return Ok();
+                TempData["Notification"] = "Successfully created this week's menu";
+                return RedirectToAction("Index");
+               
             }
             else
             {
@@ -207,7 +208,7 @@ namespace ThesisOct2023.Controllers
         {
            
            _foodRepository.Enable(food.Id);
-           
+            TempData["Notification"] = "Successfully enabled "+ food.Title;
             return RedirectToAction("Food");
 
 
@@ -219,6 +220,7 @@ namespace ThesisOct2023.Controllers
             try
             {
                 _foodRepository.Disable(food.Id);
+                TempData["Notification"] = "Successfully disabled " + food.Title;
             }
             catch (Exception ex)
             {

@@ -2,54 +2,35 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     
 }
+@model IEnumerable<FoodChartViewModel>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<h4>Analytical Dashboard </h4>
-<div class="container">
-    <div class="row">
-        <div class="theme-shadow bg-white col-lg-3 col-sm-4 g-4 m-2 p-2">
-            <h6 class="p-2">Total users for each role</h6>
-            <canvas id="myChart" height="300"></canvas>
-        </div>
-        <div class="theme-shadow bg-white col-lg-8 col-sm-8  g-4 m-2">
-            <h6 class="p-2">Total users for each role</h6>
-            <canvas id="line-chart"></canvas>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="theme-shadow bg-white col-lg-3 col-sm-4 g-4 m-2 p-2">
-            <h6 class="p-2">Total users for each role</h6>
-            <canvas id="doughnut-chart"></canvas>
-        </div>
-        <div class="theme-shadow bg-white col-lg-3 col-sm-4 g-4 m-2 p-2">
-            <h6 class="p-2">Total users for each role</h6>
-            <canvas id="doughnut-chart2"></canvas>
-        </div>
-    </div>
-</div>
-<script>
-    new Chart(document.getElementById("doughnut-chart"), {
-        type: 'doughnut',
-        data: {
-            labels: ["Users", "Asia", "Europe", "Latin America", "North America"],
-            datasets: [
-                {
-                    label: "Population (millions)",
-                    backgroundColor: ["#4357d4", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                    data: [2478, 5267, 734, 784, 433]
-                }
-            ]
-        },
-        options: {
-            title: {
-                display: true,
-                text: 'Predicted world population (millions) in 2050'
-            }
-        }
-    });
 
-</script>
+<div class="container">
+    <div class="row">
+        <h4 class="py-4">Analytical Dashboard </h4>
+        <h6>Users Analytics</h6>
+        <div class="theme-shadow bg-white col-lg-4 col-sm-4 g-4 m-2 p-2">
+           
+            <h6 class="p-2">Total users for each role</h6>
+            <canvas id="myChart" ></canvas>
+        </div>
+         <div class="theme-shadow bg-white col-lg-7 col-sm-10 g-4 m-2 p-2">
+            <h6 class="p-2">Total users over time</h6>
+            <canvas id="line-chart" ></canvas>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+         <h6 class="pt-4">Food Rating Analytics</h6>
+        @foreach(var f in Model)
+        {
+             <partial name="~/Views/Admin/_PieChartPartial.cshtml" model="@f"></partial>
+        }
+           
+    </div>
+</div>
+
 <script>
     const ctx = document.getElementById('myChart');
 
@@ -59,6 +40,7 @@
             labels: ['Admins', 'Cooks', 'Students'],
             datasets: [{
                 label: '# of Users',
+                backgroundColor: ["#6979dd"],
                 data: [@ViewBag.AdminsCounteρ+1, @ViewBag.CooksCounter+2, @ViewBag.StudentsCounter+10],
                 borderWidth: 1
             }]

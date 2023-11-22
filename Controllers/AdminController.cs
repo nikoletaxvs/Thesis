@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ThesisOct2023.Models;
+using ThesisOct2023.Models.ViewModels;
 using ThesisOct2023.Repositories;
 
 namespace ThesisOct2023.Controllers
@@ -49,8 +50,8 @@ namespace ThesisOct2023.Controllers
             }
             ViewBag.dates = dates;
             ViewBag.headcounts = headcounts;
-
-            return View();
+            IEnumerable<FoodChartViewModel> model = _foodRepository.GetFoodCharts();
+            return View(model);
         }
         public IActionResult Food() {
             return View();
@@ -80,8 +81,10 @@ namespace ThesisOct2023.Controllers
 
                 }
                 _foodRepository.AddFood(obj);
+                TempData["Notification"] = "Successfully Added new Food";
                 return RedirectToAction("Index");
             }
+            TempData["Notification"] = "There was a problem";
             return View();
         }
         public IActionResult Questions()
@@ -99,6 +102,7 @@ namespace ThesisOct2023.Controllers
         public IActionResult CreateQuestion(Question question)
         {
             _questionRepository.AddQuestion(question);
+            TempData["Notification"] = "Successfully Added A New Question";
             return RedirectToAction("Index");   
         }
         //Get
@@ -107,6 +111,7 @@ namespace ThesisOct2023.Controllers
             if (id != null && id !=0)
             {
                 Question question =_questionRepository.GetQuestion((int)id);
+               
                 return View(question);
             }
             else
@@ -126,9 +131,9 @@ namespace ThesisOct2023.Controllers
 			}
 
 			_questionRepository.DeleteQuestion(question);
-			
-			TempData["success"] = "Category deleted successfully";
-			return RedirectToAction("Index");
+
+            TempData["Notification"] = "Successfully deleted a question about " + question.Title;
+            return RedirectToAction("Index");
 			
         }
         public IActionResult EditQuestion(int? id)
@@ -152,6 +157,7 @@ namespace ThesisOct2023.Controllers
 			if(ModelState.IsValid)
             {
 				_questionRepository.UpdateQuestion(obj);
+                TempData["Notification"] = "Successfully edited a question about " + obj.Title;
             }
             else
             {

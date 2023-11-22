@@ -10,7 +10,7 @@ namespace ThesisOct2023.Models
         
         [Required]
         public string StudentId { get; set; }
-        public string? Comments { get; set; }
+        //public string? Comments { get; set; }
         [ForeignKey("Food")]
         public int FoodId { get; set; }
         public Food Food { get; set; }

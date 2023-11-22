@@ -19,6 +19,7 @@ namespace ThesisOct2023.Models
         [ForeignKey("Question")]
         public int QuestionId { get; set; }
         public Question Question { get; set; } = null!;
+        public string Comment { get; set; } = null;
 
     }
 }

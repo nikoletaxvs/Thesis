@@ -146,6 +146,7 @@ namespace ThesisOct2023.Controllers
 			string[] questionId = iformCollection["QuestionId"];
 
 			string[] answer = iformCollection["Answer"];
+			string comment = iformCollection["Comment"];
 
 			for(int q= 0;q < questionId.Count();q++)
 			{
@@ -153,7 +154,8 @@ namespace ThesisOct2023.Controllers
 				{
 					ReviewId = review.Id,
 					QuestionId = Convert.ToInt32(questionId[q]),
-					Answer = Convert.ToInt32(iformCollection["Answer_"+q])
+					Answer = Convert.ToInt32(iformCollection["Answer_"+q]),
+					Comment = comment
 				};
 				if(reviewQuestion != null)
 				{
@@ -169,8 +171,9 @@ namespace ThesisOct2023.Controllers
 
 						sum = sum / questionId.Count();
 						_foodRepository.updateFoodRating(food, sum);
-						
-                    }catch(ValidationException ex)
+						TempData["Notification"] = "Successfully added review";
+                    }
+                    catch(ValidationException ex)
 					{
 						ModelState.AddModelError(string.Empty, ex.Message);
 					}

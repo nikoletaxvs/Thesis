@@ -105,14 +105,6 @@
       "PackagePath": "staticwebassets\\js\\multistep-form.js"
     },
     {
-      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\notification.js",
-      "PackagePath": "staticwebassets\\js\\notification.js"
-    },
-    {
-      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
-    },
-    {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

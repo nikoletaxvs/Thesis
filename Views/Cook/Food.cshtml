@@ -9,6 +9,7 @@
 <div class="cointainer">
     <div class="row">
         @foreach(var f in Model.Foods){
+            
             <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@f" ></partial>
         }
     </div>

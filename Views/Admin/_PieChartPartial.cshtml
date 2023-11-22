@@ -1,26 +1,27 @@
-﻿
+﻿@model FoodChartViewModel
 
-<div class="theme-shadow bg-white col-lg-8 col-sm-8  g-4 m-2">
-    <h6 class="p-2">Total users for each role</h6>
-    <canvas id="line-chart"></canvas>
+<div class="theme-shadow bg-white col-lg-3 col-sm-4 g-4 m-2 p-2">
+
+    <h6 class="p-2">@Model.Title</h6>
+    <canvas id="@Model.Id"></canvas>
 </div>
 <script>
-    new Chart(document.getElementById("doughnut-chart"), {
+    new Chart(document.getElementById(@Model.Id), {
         type: 'doughnut',
         data: {
-            labels: ["Users", "Asia", "Europe", "Latin America", "North America"],
+            labels: ["Ones", "Twos", "Threes", "Fours", "Fives"],
             datasets: [
                 {
-                    label: "Population (millions)",
-                    backgroundColor: ["#4357d4", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                    data: [2478, 5267, 734, 784, 433]
+                    label: "# Ratings",
+                    backgroundColor: [" #ff3232", "#ff9999", "#d3d3d3", "#6979dd", "#4357d4"],
+                    data: [@Model.ones, @Model.twes, @Model.threes, @Model.fours, @Model.fives]
                 }
             ]
         },
         options: {
             title: {
                 display: true,
-                text: 'Predicted world population (millions) in 2050'
+                text: 'Stats from student reviews'
             }
         }
     });
