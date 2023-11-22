@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using ThesisOct2023.Data;
 using ThesisOct2023.Models;
+using ThesisOct2023.Models.ViewModels;
 
 namespace ThesisOct2023.Repositories
 {
@@ -107,6 +108,31 @@ namespace ThesisOct2023.Repositories
         public List<Food> getAllEnabledFood()
         {
             return context.Foods.Where(f => f.Enabled == true).ToList();
+        }
+        public List<FoodChartViewModel> GetFoodCharts()
+        {
+            List<FoodChartViewModel> list= new List<FoodChartViewModel>();
+            IEnumerable<Food> foods = context.Foods.ToList();
+            foreach(Food f in foods)
+            {
+                var answers = from r in context.Reviews
+                              join rq in context.ReviewQuestions on r.Id equals rq.ReviewId
+                              where r.FoodId == f.Id
+                              select rq;
+                list.Add(new FoodChartViewModel()
+                {
+                    Id=f.Id,
+                    Title=f.Title,
+                    ones= answers.Where(a=>a.Answer==1).Count(),
+                    twes= answers.Where(a=>a.Answer==2).Count(),
+                    threes= answers.Where(a => a.Answer == 3).Count(),
+                    fours= answers.Where(a => a.Answer == 4).Count(),
+                    fives= answers.Where(a => a.Answer == 5).Count()
+
+                });
+            }
+            return list;
+            
         }
     }
 }

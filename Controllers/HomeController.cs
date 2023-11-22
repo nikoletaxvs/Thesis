@@ -43,7 +43,7 @@ namespace ThesisOct2023.Controllers
             }else if (User.IsInRole("Student")){
                 return RedirectToAction("Index", "Student");
             }
-            ViewBag.TotalUsers = _userManager.Users.Count();
+           // ViewBag.TotalUsers = _userManager.Users.Count();
             ViewBag.TotalFood = _foodRepository.GetAllFood().Count();
             ViewBag.TotalReviews = _reviewRepository.GetReviews().Count();
             return View();

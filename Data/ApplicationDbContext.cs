@@ -17,6 +17,6 @@ namespace ThesisOct2023.Data
         public DbSet<Question> Questions { get; set; }
         public DbSet<ReviewQuestion> ReviewQuestions { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-
+        
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ThesisOct2023.Models;
+using ThesisOct2023.Models.ViewModels;
 
 namespace ThesisOct2023.Repositories
 {
@@ -15,5 +16,6 @@ namespace ThesisOct2023.Repositories
         public void Enable(int foodId);
         public void Disable(int foodId);
         public List<Food> getAllEnabledFood();
+        public List<FoodChartViewModel> GetFoodCharts();
     }
 }
