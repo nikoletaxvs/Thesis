@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZhB4Xoc8lECVYp0P30v1UdZC8zU5mUF7IWkhV8NZScE=",
+  "Hash": "Qvwa9saP/SjO4fBxx/x421HkZWCNx01bqBcgh6Ytbd0=",
   "Source": "ThesisOct2023",
   "BasePath": "_content/ThesisOct2023",
   "Mode": "Default",
@@ -1239,6 +1239,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\a213013f-caeb-411c-953e-741b244cd142_cake.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\c8ca0d00-3f36-4c9e-9e16-c0ce4c3d4af1_gigantes.jpg",
+      "SourceId": "ThesisOct2023",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
+      "BasePath": "_content/ThesisOct2023",
+      "RelativePath": "c8ca0d00-3f36-4c9e-9e16-c0ce4c3d4af1_gigantes.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\c8ca0d00-3f36-4c9e-9e16-c0ce4c3d4af1_gigantes.jpg"
     },
     {
       "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\ce44813d-e5cd-4056-aa97-14646fe5a533_salmon.jpg",

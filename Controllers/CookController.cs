@@ -154,7 +154,8 @@ namespace ThesisOct2023.Controllers
                     }
                     //return RedirectToAction("Index");
                 }
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+                return Ok();
             }
             else
             {
