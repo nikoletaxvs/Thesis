@@ -20,35 +20,10 @@
         </div>
     </div>
 </div>
-<div class="container pt-3">
 
-    <div class="row height d-flex ">
 
-        <div class="col-11">
+<partial name="~/Views/Admin/FoodCharts.cshtml" model="@Model"></partial>
 
-            <div class="search">
-                <i class="fa fa-search"></i>
-                <form asp-action="SearchFood">
-                    <input type="text" class="form-control"name="term" placeholder="Search Food...">
-                    <button class="btn btn-primary" type="submit">Search</button>
-                </form>
-               
-            </div>
-
-        </div>
-
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-         <h6 class="pt-4">Food Rating Analytics</h6>
-        @foreach(var f in Model)
-        {
-             <partial name="~/Views/Admin/_PieChartPartial.cshtml" model="@f"></partial>
-        }
-           
-    </div>
-</div>
 
 <script>
     const ctx = document.getElementById('myChart');

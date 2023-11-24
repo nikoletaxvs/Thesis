@@ -50,8 +50,19 @@ namespace ThesisOct2023.Controllers
             }
             ViewBag.dates = dates;
             ViewBag.headcounts = headcounts;
+           
+
             IEnumerable<FoodChartViewModel> model = _foodRepository.GetFoodCharts();
             return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(string term="")
+        {
+            term = string.IsNullOrEmpty(term) ? "" : term.ToLower();
+            var foodData = new FoodChartViewModel();
+            var charts = _foodRepository.GetFoodChartsContainingTerm(term);
+            return View(charts);
         }
         public IActionResult Food() {
             return View();
@@ -171,13 +182,13 @@ namespace ThesisOct2023.Controllers
 			
         }
 
-        public IActionResult SearchFood(string term="")
-        {
-            term = string.IsNullOrEmpty(term) ? "" : term.ToLower();
-            var foodData = new FoodChartViewModel();
-            var charts = _foodRepository.GetFoodChartsContainingTerm(term);
-            return View(charts);
-        }
+        //public IActionResult FoodCharts(string term="")
+        //{
+        //    term = string.IsNullOrEmpty(term) ? "" : term.ToLower();
+        //    var foodData = new FoodChartViewModel();
+        //    var charts = _foodRepository.GetFoodChartsContainingTerm(term);
+        //    return View(charts);
+        //}
 
     }
 }
