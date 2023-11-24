@@ -20,6 +20,25 @@
         </div>
     </div>
 </div>
+<div class="container pt-3">
+
+    <div class="row height d-flex ">
+
+        <div class="col-11">
+
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <form asp-action="SearchFood">
+                    <input type="text" class="form-control"name="term" placeholder="Search Food...">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </form>
+               
+            </div>
+
+        </div>
+
+    </div>
+</div>
 <div class="container">
     <div class="row">
          <h6 class="pt-4">Food Rating Analytics</h6>
@@ -53,29 +72,7 @@
             }
         }
     });
-</script>
-
-
-<script>
-    new Chart(document.getElementById("doughnut-chart2"), {
-        type: 'doughnut',
-        data: {
-            labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-            datasets: [
-                {
-                    label: "Population (millions)",
-                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                    data: [2478, 5267, 734, 784, 433]
-                }
-            ]
-        },
-        options: {
-            title: {
-                display: true,
-                text: 'Predicted world population (millions) in 2050'
-            }
-        }
-    });
+  
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {

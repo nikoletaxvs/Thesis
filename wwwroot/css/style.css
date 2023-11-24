@@ -28,7 +28,7 @@ body {
     color: var(--c-body);
 }
 
-h1, h2, h3,h4, h5, h6,
+h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 600;
     color: var(--c-dark);
@@ -40,9 +40,9 @@ a {
     transition: var(--transition);
 }
 
-a:hover {
-    color: var(--c-brand-light);
-}
+    a:hover {
+        color: var(--c-brand-light);
+    }
 
 img {
     max-width: 100%;
@@ -69,9 +69,9 @@ img {
     color: var(--c-dark);
 }
 
-.navbar-nav .nav-link.active {
-    color: var(--c-brand);
-}
+    .navbar-nav .nav-link.active {
+        color: var(--c-brand);
+    }
 
 
 /* BTN */
@@ -89,11 +89,11 @@ img {
     color: white;
 }
 
-.btn-brand:hover {
-    background-color: var(--c-brand-light);
-    border-color: var(--c-brand-light);
-    color: white;
-}
+    .btn-brand:hover {
+        background-color: var(--c-brand-light);
+        border-color: var(--c-brand-light);
+        color: white;
+    }
 
 .btn-brand-danger {
     background-color: var(--c-brand-danger);
@@ -101,83 +101,86 @@ img {
     color: white;
 }
 
-.btn-brand-danger:hover {
-    background-color: var(--c-brand-danger-light);
-    border-color: var(--c-brand-danger-light);
-    color: white;
-}
+    .btn-brand-danger:hover {
+        background-color: var(--c-brand-danger-light);
+        border-color: var(--c-brand-danger-light);
+        color: white;
+    }
 /*HERO*/
-#hero{
+#hero {
     background: linear-gradient(rgba(0,0,0,0.607),rgba(0,0,0,0.438)),url(/images/friends-canteen.png);
     background-position: center;
     background-size: cover;
 }
 
 /*SECTION TITLE*/
-.section-title{
+.section-title {
     margin-bottom: 40px;
 }
 
-.section-title .line{
-    width:60px;
-    height:4px;
-    background-color: var(--c-brand);
-    margin:16px auto 24px auto;
-}
+    .section-title .line {
+        width: 60px;
+        height: 4px;
+        background-color: var(--c-brand);
+        margin: 16px auto 24px auto;
+    }
 
-.section-title p{
-    max-width:500px;
-    margin-left: auto;
-    margin-right:auto;
-}
+    .section-title p {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 /*ICONBOX*/
-.iconbox{
-    width:60px;
+.iconbox {
+    width: 60px;
     height: 60px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     background: rgba(var(--c-brand-rgb),0.1);
-    color:var(--c-brand);
+    color: var(--c-brand);
     font-size: 34px;
-    flex:none;
+    flex: none;
 }
 
 /*SERVICE*/
-.service{
+.service {
     position: relative;
-    overflow:hidden;
+    overflow: hidden;
     z-index: 2;
 }
-.service::after{
-    content: "";
-    width: 40px;
-    height: 40px;
-    background:rgba(var(--c-brand-rgb),0.2);
-    position: absolute;
-    bottom: 0;
-    right:0;
-    transition: var(--transition);
-}
-.service:hover::after{
-    width: 100%;
-    height:100%;
-    background: var(--c-brand);
-    z-index: -1;
-}
 
-.service:hover h5,
-.service:hover p{
-    color:white;
-}
-.service:hover .iconbox{
-    background-color: rgba(255, 255, 255, 0.2);
-    color:white;
-}
+    .service::after {
+        content: "";
+        width: 40px;
+        height: 40px;
+        background: rgba(var(--c-brand-rgb),0.2);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transition: var(--transition);
+    }
+
+    .service:hover::after {
+        width: 100%;
+        height: 100%;
+        background: var(--c-brand);
+        z-index: -1;
+    }
+
+    .service:hover h5,
+    .service:hover p {
+        color: white;
+    }
+
+    .service:hover .iconbox {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
 
 /*COUNTER*/
-#counter{
+#counter {
     background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.45)),url(/images/professional-stainless-steel-kitchen-design-photo-was-made-restouraunt.jpg);
     background-position: center;
     background-size: cover;
@@ -228,10 +231,10 @@ footer .line {
     border-radius: 100px;
 }
 
-.social-icons a:hover {
-    background-color: var(--c-brand);
-    color: white;
-}
+    .social-icons a:hover {
+        background-color: var(--c-brand);
+        color: white;
+    }
 
 /*LOGIN*/
 .login {
@@ -280,12 +283,12 @@ footer .line {
     position: relative;
     overflow: hidden;
     z-index: 2;
-   /* transition: all .2s ease-in-out;*/
+    /* transition: all .2s ease-in-out;*/
 }
 
-.foodcard:hover {
-   /* transform: scale(1.1);*/
-}
+    .foodcard:hover {
+        /* transform: scale(1.1);*/
+    }
 
 
 /*form styles*/
@@ -351,9 +354,9 @@ footer .line {
         margin: 10px 5px;
     }
 
-    #msform .action-button:hover, #msform .action-button:focus {
-        box-shadow: 0 0 0 2px white, 0 0 0 3px #ee0979;
-    }
+        #msform .action-button:hover, #msform .action-button:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #ee0979;
+        }
 
     #msform .action-button-previous {
         width: 100px;
@@ -361,15 +364,14 @@ footer .line {
         font-weight: bold;
         color: white;
         border: 0 none;
-      
         cursor: pointer;
         padding: 10px 5px;
         margin: 10px 5px;
     }
 
-    #msform .action-button-previous:hover, #msform .action-button-previous:focus {
-        box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
-    }
+        #msform .action-button-previous:hover, #msform .action-button-previous:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+        }
 
 /*headings*/
 .fs-title {
@@ -392,27 +394,29 @@ footer .line {
 #progressbar {
     margin-bottom: 30px;
     overflow: hidden;
-/*CSS counters to number the steps*/
+    /*CSS counters to number the steps*/
     counter-reset: step;
     margin: 0 10%;
     padding: 20px 30px;
 }
 
-#progressbar li {
-    list-style-type: none;
-    color: var(--c-body);
-    text-transform: uppercase;
-    font-size: 12px;
-    width: 12.33%;
-    float: left;
-    position: relative;
-    letter-spacing: 1px;
-}
+    #progressbar li {
+        list-style-type: none;
+        color: var(--c-body);
+        text-transform: uppercase;
+        font-size: 12px;
+        width: 12.33%;
+        float: left;
+        position: relative;
+        letter-spacing: 1px;
+    }
+
 @media screen and (max-width: 600px) {
     #progressbar li {
-        display:none;
+        display: none;
     }
 }
+
 #progressbar li:before {
     content: counter(step);
     counter-increment: step;
@@ -440,7 +444,7 @@ progressbar connectors*/
 }
 
 #progressbar li:first-child:after {
-/*connector not needed before the first step*/
+    /*connector not needed before the first step*/
     content: none;
 }
 
@@ -456,20 +460,52 @@ progressbar connectors*/
     text-align: center;
 }
 
-.dme_link a {
-    background: #FFF;
-    font-weight: bold;
-    color: #ee0979;
-    border: 0 none;
-    border-radius: 25px;
-    cursor: pointer;
-    padding: 5px 25px;
-    font-size: 12px;
+    .dme_link a {
+        background: #FFF;
+        font-weight: bold;
+        color: #ee0979;
+        border: 0 none;
+        border-radius: 25px;
+        cursor: pointer;
+        padding: 5px 25px;
+        font-size: 12px;
+    }
+
+        .dme_link a:hover, .dme_link a:focus {
+            background: #C5C5F1;
+            text-decoration: none;
+        }
+
+
+/*SEARCH BAR*/
+.search {
+    position: relative;
+    box-shadow:var(--box-shadow);
 }
 
-.dme_link a:hover, .dme_link a:focus {
-    background: #C5C5F1;
-    text-decoration: none;
+.search input {
+height: 60px;
+text-indent: 25px;
+/* border: 2px solid #d6d4d4;*/
 }
 
 
+.search input:focus {
+    box-shadow: none;
+    border: 1px solid var(--c-brand);
+}
+
+.search .fa-search {
+position: absolute;
+top: 20px;
+left: 16px;
+}
+
+.search button {
+position: absolute;
+top: 5px;
+right: 5px;
+height: 50px;
+width: 110px;
+background: var(--c-brand);
+}

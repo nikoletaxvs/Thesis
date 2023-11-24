@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using NuGet.Packaging.Signing;
+using System.Drawing;
 using ThesisOct2023.Data;
 using ThesisOct2023.Models;
 using ThesisOct2023.Models.ViewModels;
@@ -138,5 +139,43 @@ namespace ThesisOct2023.Repositories
             return list;
             
         }
+
+        public List<FoodChartViewModel> GetFoodChartsContainingTerm(string term)
+        {
+           var list = new List<FoodChartViewModel>();
+            var foods = (from f in context.Foods
+                            where term == "" || f.Title.StartsWith(term)
+                            select new Food
+                            {
+                                Id = f.Id,
+                                Title = f.Title,
+                                Description = f.Description
+                            });
+            
+            foreach (Food f in foods)
+            {
+                var answers = from r in context.Reviews
+                                join rq in context.ReviewQuestions on r.Id equals rq.ReviewId
+                                where r.FoodId == f.Id
+                                select rq;
+                if (answers.Any())
+                {
+                    list.Add(new FoodChartViewModel()
+                    {
+                        Id = f.Id,
+                        Title = f.Title,
+                        ones = answers.Where(a => a.Answer == 1).Count(),
+                        twes = answers.Where(a => a.Answer == 2).Count(),
+                        threes = answers.Where(a => a.Answer == 3).Count(),
+                        fours = answers.Where(a => a.Answer == 4).Count(),
+                        fives = answers.Where(a => a.Answer == 5).Count()
+
+                    });
+                }
+
+            }
+            return list;
+        }
+        
     }
 }

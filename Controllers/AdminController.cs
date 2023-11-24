@@ -23,10 +23,12 @@ namespace ThesisOct2023.Controllers
         }
         public IActionResult Index()
         {
+            //First Diagram - Total users of each role
             ViewBag.StudentsCounter= _userManager.Users.Where(x=> x.UserRole.ToUpper() =="STUDENT").Count(); 
             ViewBag.AdminsCounter= _userManager.Users.Where(x=> x.UserRole.ToUpper() =="ADMIN").Count(); 
             ViewBag.CooksCounter= _userManager.Users.Where(x=> x.UserRole.ToUpper() =="COOK").Count();
 
+            //Second Diagram - Registered Users over time
             ViewBag.UsersOverTime =_userManager.Users.GroupBy(x => x.RegistrationDate.Year)
                 .Select(group => new { 
                     RegisterDateName = group.Key,
@@ -39,10 +41,8 @@ namespace ThesisOct2023.Controllers
 
             foreach (var d in ViewBag.UsersOverTime)
             {
-                
                 string formattedDate = d.RegisterDateName.ToString();
                 dates.Add(formattedDate);
-               
             }
             foreach (var h in ViewBag.UsersOverTime)
             {
@@ -170,5 +170,14 @@ namespace ThesisOct2023.Controllers
 			return RedirectToAction("Index");
 			
         }
-	}
+
+        public IActionResult SearchFood(string term="")
+        {
+            term = string.IsNullOrEmpty(term) ? "" : term.ToLower();
+            var foodData = new FoodChartViewModel();
+            var charts = _foodRepository.GetFoodChartsContainingTerm(term);
+            return View(charts);
+        }
+
+    }
 }

@@ -17,5 +17,6 @@ namespace ThesisOct2023.Repositories
         public void Disable(int foodId);
         public List<Food> getAllEnabledFood();
         public List<FoodChartViewModel> GetFoodCharts();
+        public List<FoodChartViewModel> GetFoodChartsContainingTerm(string term);
     }
 }
