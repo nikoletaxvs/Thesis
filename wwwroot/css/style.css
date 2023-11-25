@@ -260,10 +260,10 @@ footer .line {
 /*LOGIN*/
 .register {
     position: relative;
-    overflow: hidden;
     z-index: 2;
     width: 500px;
-    height: 600px;
+    height: 650px;
+   
 }
 
 .register-title .line {
