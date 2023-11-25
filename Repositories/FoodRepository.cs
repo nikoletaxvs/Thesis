@@ -88,7 +88,12 @@ namespace ThesisOct2023.Repositories
 
         public IEnumerable<Food> getAllByCategory(string category)
         {
-            return context.Foods.Where(f => f.Category.ToUpper() == category.ToUpper()).ToList();
+            var query = context.Foods
+                .Where(f => f.Category.ToUpper() == category.ToUpper())
+                .OrderByDescending(f => f.AvgRating)
+                .ToList();
+           
+            return query;
         }
 
         public void Enable(int foodId)

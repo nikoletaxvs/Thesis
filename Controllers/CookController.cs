@@ -73,7 +73,7 @@ namespace ThesisOct2023.Controllers
         public IActionResult CreateMenu()
         {
            
-
+            //Getting food by each category. Sorted by average rating.
             var breakfast = _foodRepository.getAllByCategory("breakfast");
             var lunch = _foodRepository.getAllByCategory("lunch");
             var dinner = _foodRepository.getAllByCategory("dinner");
@@ -88,15 +88,18 @@ namespace ThesisOct2023.Controllers
 
             foreach (var item in breakfast)
             {
-                breakfastitems.ItemsSelectList.Add(new SelectListItem { Text = item.Title, Value = item.Id.ToString() });
+                var score = item.AvgRating != null ? ((int)item.AvgRating).ToString() : "None";
+                breakfastitems.ItemsSelectList.Add(new SelectListItem { Text = item.Title +" (Rating:"+score +")" , Value = item.Id.ToString() });
             }
             foreach (var item in lunch)
             {
-                lunchfastitems.ItemsSelectList.Add(new SelectListItem { Text = item.Title, Value = item.Id.ToString() });
+                var score = item.AvgRating != null ? ((int)item.AvgRating).ToString() : "None";
+                lunchfastitems.ItemsSelectList.Add(new SelectListItem { Text = item.Title + " (Rating:" + score + ")", Value = item.Id.ToString() });
             }
             foreach (var item in dinner)
             {
-                dinnerfastitems.ItemsSelectList.Add(new SelectListItem { Text = item.Title, Value = item.Id.ToString() });
+                var score = item.AvgRating != null ? ((int)item.AvgRating).ToString() : "None";
+                dinnerfastitems.ItemsSelectList.Add(new SelectListItem { Text = item.Title + " (Rating:" + score + ")", Value = item.Id.ToString() });
             }
 
             ViewBag.BreakFastItems = breakfastitems.ItemsSelectList;
