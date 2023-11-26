@@ -3,9 +3,21 @@
     Layout = "~/Views/Shared/_CookLayout.cshtml";
    
 }
-<div id="categories">
-    <vc:navigation-categories/>
+<div class="container">
+    <div class="row">
+        <div id="categories">
+            <vc:navigation-categories />
+        </div>
+        <div class="search">
+            <i class="fa fa-search"></i>
+            <form asp-action="">
+                <input type="text" class="form-control" name="term" placeholder="Search Food...">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
 </div>
+
 <div class="cointainer">
     <div class="row">
         @foreach(var f in Model.Foods){

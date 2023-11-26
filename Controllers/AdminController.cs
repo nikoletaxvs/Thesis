@@ -62,6 +62,7 @@ namespace ThesisOct2023.Controllers
             term = string.IsNullOrEmpty(term) ? "" : term.ToLower();
             var foodData = new FoodChartViewModel();
             var charts = _foodRepository.GetFoodChartsContainingTerm(term);
+            TempData["term"] = term;
             return View(charts);
         }
         public IActionResult Food() {
