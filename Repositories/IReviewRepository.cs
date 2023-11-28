@@ -7,5 +7,6 @@ namespace ThesisOct2023.Repositories
         public void AddReview(Review review);
         public IEnumerable<int> GetStudentReviewFoodId(string studentId);
         public IEnumerable<Review> GetReviews();
+        public List<Review> GetReviewsByFoodId(int foodId);
     }
 }

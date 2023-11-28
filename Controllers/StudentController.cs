@@ -151,7 +151,13 @@ namespace ThesisOct2023.Controllers
 		[ValidateAntiForgeryToken]
 		public IActionResult FoodInfo(Food f)
 		{
-			return View(f);
+
+			//Get food object and its reviews 
+			FoodReviewView model = new FoodReviewView();
+			model.food = f;
+			model.reviews = _reviewRepository.GetReviewsByFoodId(f.Id);
+			
+			return View(model);
 		}
 		
 		//POST /Student/SubmitReviewQuestions

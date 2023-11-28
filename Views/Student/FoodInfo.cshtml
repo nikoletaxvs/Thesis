@@ -3,12 +3,55 @@
     ViewData["Title"] = "FoodInfo";
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
-@model Food
+@model FoodReviewView
 
-<h1>Food Info</h1>
+<section id="FoodInfo">
+    <div class="container pt-4">
+        <div class="row">
+            <div class="col">
+                <img class="col-lg-12" src="~/@Model.food.ImageUrl" />
+            </div>
+            <div class="col">
+                <h2>@Model.food.Title</h2>
+                <p>@Model.food.Description</p>
+                @if (Model.food.AvgRating != null)
+                {
+                <h3 class="rating-text mt-2">Rating @((int)(Model.food.AvgRating))/5</h3>
+                <div class="my-2 mb-3">
+                        @for (var i = 0; i < (int)Model.food.AvgRating; i++)
+                        {
+                            <img src="~/lib/icons/star-orange.png" />
+                        }
+                        @for (var j = 0; j < 5 - (int)Model.food.AvgRating; j++)
+                        {
+                            <img src="~/lib/icons/star-black.png" />
+                        }
+                </div>
+                }
+                else
+                {
+                <div class="rating-text mt-2">Not Rated</div>
+                <div class="my-2 mb-3">
+                        @for (var i = 0; i < 5; i++)
+                        {
+                            <img src="~/lib/icons/star-black.png" />
+                        }
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
 
-
-    
-    <img src="~/@Model.ImageUrl" />
-    <p>@Model.Description</p>
-    <div>@Model.AvgRating</div>
+<section id="comments">
+    <div class="container">
+        <div class="row">
+            @foreach(var review in Model.reviews)
+            {
+                <div>
+                    @review.ReviewQuestions.
+                </div>
+            }
+        </div>
+    </div>
+</section>

@@ -27,6 +27,9 @@ namespace ThesisOct2023.Repositories
             return context.Reviews.ToList();
         }
 
-        
+        public List<Review> GetReviewsByFoodId(int foodId)
+        {
+            return context.Reviews.Where(r => r.FoodId == foodId).ToList();
+        }
     }
 }

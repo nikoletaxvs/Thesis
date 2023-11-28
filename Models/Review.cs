@@ -14,6 +14,7 @@ namespace ThesisOct2023.Models
         [ForeignKey("Food")]
         public int FoodId { get; set; }
         public Food Food { get; set; }
+        public int? SumScore { get; set; } = null;
 
         public List<ReviewQuestion> ReviewQuestions { get; } = new();
     }
