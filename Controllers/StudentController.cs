@@ -34,6 +34,7 @@ namespace ThesisOct2023.Controllers
 
 		}
 		
+		//GET /Student
 		public IActionResult Index()
 		{
             ViewBag.TotalUsers = _userManager.Users.Count();
@@ -42,6 +43,8 @@ namespace ThesisOct2023.Controllers
 			
             return View();
 		}
+
+		//GET /Student/Menu
 		public IActionResult Menu()
 		{
             string timeOfDay = DayPoints.GetTimeOfDay();
@@ -70,7 +73,8 @@ namespace ThesisOct2023.Controllers
 			ViewBag.Rated = _reviewRepository.GetStudentReviewFoodId(_userManager.GetUserId(User));
 			return View(model);
 		}
-        //Get
+        
+		//GET /Student/Food
         public ViewResult Food(string? category, int productPage = 1)
 		{
             ViewBag.Rated = _reviewRepository.GetStudentReviewFoodId(_userManager.GetUserId(User));
@@ -95,7 +99,7 @@ namespace ThesisOct2023.Controllers
             });
         }
 
-        
+        //POST /Student/FoodReview
         [HttpPost]
 		[ValidateAntiForgeryToken]
 		public IActionResult FoodReview(Food f)
@@ -114,12 +118,16 @@ namespace ThesisOct2023.Controllers
 			ViewBag.Questions = questions;
 			return View();
 		}
+
+		//POST /Student/FoodInfo
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public IActionResult FoodInfo(Food f)
 		{
 			return View(f);
 		}
+		
+		//POST /Student/SubmitReviewQuestions
 		[HttpPost]
 		[ValidateAntiForgeryToken]
         public IActionResult SubmitReviewQuestions(IFormCollection iformCollection)

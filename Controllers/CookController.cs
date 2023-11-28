@@ -28,6 +28,8 @@ namespace ThesisOct2023.Controllers
             _reviewRepository = reviewRepository;
             _menuRepository= menuRepository;
         }
+       
+        //GET /Cook
         public IActionResult Index()
         {
             ViewBag.TotalUsers = _userManager.Users.Count();
@@ -35,6 +37,8 @@ namespace ThesisOct2023.Controllers
             ViewBag.TotalReviews = _reviewRepository.GetReviews().Count();
             return View();
         }
+        
+        //GET /Cook/Food
         public ViewResult Food(string? category, int productPage=1)
 
         => View(new FoodListViewModel {
@@ -53,6 +57,8 @@ namespace ThesisOct2023.Controllers
             },
             CurrentCategory = category
             });
+
+        //POST /Cook/Food
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Food(string term = "",int productPage=1,string category="")
@@ -77,6 +83,8 @@ namespace ThesisOct2023.Controllers
             TempData["term"] = term;
             return View(model);
         }
+
+        //GET /Cook/WeeksMenu
         public IActionResult WeeksMenu()
             {
 
@@ -94,6 +102,8 @@ namespace ThesisOct2023.Controllers
             ViewBag.SundayFood = _foodRepository.getFoodOfDay(6, currentWeek);
             return View(model);
         }
+      
+        //GET /Cook/CreateMenu
         public IActionResult CreateMenu()
         {
            
@@ -132,6 +142,8 @@ namespace ThesisOct2023.Controllers
             
             return View();
         }
+
+        //POST /Cook/CreateMenu
         [HttpPost]
         public IActionResult CreateMenu(MenuFormView model)
         {
@@ -191,6 +203,8 @@ namespace ThesisOct2023.Controllers
             }
 
         }
+
+        //GET /Cook/MenuHistory
         public IActionResult MenuHistory(int productPage = 1)
         {
             IEnumerable<int> distinctWeeks = _menuRepository.DistinctWeeks();
@@ -219,6 +233,8 @@ namespace ThesisOct2023.Controllers
             return View(menus);
            
         }
+        
+        //GET /Cook/DeleteMenu
         public IActionResult DeleteMenu(int? id)
         {
             if(id != null)
@@ -229,6 +245,8 @@ namespace ThesisOct2023.Controllers
 
            return RedirectToAction("Index");
         }
+
+        //POST /Cook/Enable
         [HttpPost, ActionName("Enable")]
         [ValidateAntiForgeryToken]
         public IActionResult EnablePost(Food food)
@@ -240,6 +258,8 @@ namespace ThesisOct2023.Controllers
 
 
         }
+
+        //POST /Cook/Disable
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Disable(Food food)

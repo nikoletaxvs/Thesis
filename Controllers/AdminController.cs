@@ -21,6 +21,8 @@ namespace ThesisOct2023.Controllers
             _questionRepository = questionRepository;
             _userManager = userManager;
         }
+
+        //GET /Admin
         public IActionResult Index()
         {
             //First Diagram - Total users of each role
@@ -55,6 +57,8 @@ namespace ThesisOct2023.Controllers
             IEnumerable<FoodChartViewModel> model = _foodRepository.GetFoodCharts();
             return View(model);
         }
+       
+        //POST /Admin
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(string term="")
@@ -65,15 +69,19 @@ namespace ThesisOct2023.Controllers
             TempData["term"] = term;
             return View(charts);
         }
-        public IActionResult Food() {
-            return View();
-        }
-        //Get 
+       
+        ////GET Admin/Food
+        //public IActionResult Food() {
+        //    return View();
+        //}
+
+        //GET Admin/PostFood
         public IActionResult PostFood()
         {
             return View();
         }
-        //Post
+
+        //POST Admin/PostFood
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> PostFood(FoodHelper obj)
@@ -99,17 +107,21 @@ namespace ThesisOct2023.Controllers
             TempData["Notification"] = "There was a problem";
             return View();
         }
+
+        //GET Admin/Questions
         public IActionResult Questions()
         {
             IEnumerable<Question> questions= _questionRepository.GetQuestions();
             return View(questions);
         }
-        //GET
+       
+        //GET Admin/CreateQuestion
         public IActionResult CreateQuestion()
         {
             return View();
         }
 
+        //POST Admin/CreateQuestion
         [HttpPost]
         public IActionResult CreateQuestion(Question question)
         {
@@ -117,7 +129,8 @@ namespace ThesisOct2023.Controllers
             TempData["Notification"] = "Successfully Added A New Question";
             return RedirectToAction("Index");   
         }
-        //Get
+
+        //GET Admin/DeleteQuestion
         public IActionResult DeleteQuestion(int? id)
         {
             if (id != null && id !=0)
@@ -132,6 +145,8 @@ namespace ThesisOct2023.Controllers
             }
            
         }
+
+        //DELETE Admin/Delete
 		[HttpPost, ActionName("Delete")]
 		[ValidateAntiForgeryToken]
 		public IActionResult DeleteQuestionPOST(int? id)
@@ -148,6 +163,8 @@ namespace ThesisOct2023.Controllers
             return RedirectToAction("Index");
 			
         }
+
+        //GET Admin/EditQuestion
         public IActionResult EditQuestion(int? id)
 		{
 			if (id != null && id != 0)
@@ -161,6 +178,8 @@ namespace ThesisOct2023.Controllers
 			}
 
 		}
+
+        //POST Admin/Edit
 		[HttpPost, ActionName("Edit")]
 		[ValidateAntiForgeryToken]
 		public IActionResult EditQuestionPOST(Question obj)
