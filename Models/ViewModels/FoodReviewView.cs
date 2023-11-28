@@ -4,5 +4,6 @@
     {
         public Food food { get; set; }
         public List<Review> reviews { get; set;}
+        public List<string> Comments { get; set;}
     }
 }

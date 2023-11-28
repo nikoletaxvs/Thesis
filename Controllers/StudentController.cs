@@ -156,8 +156,12 @@ namespace ThesisOct2023.Controllers
 			FoodReviewView model = new FoodReviewView();
 			model.food = f;
 			model.reviews = _reviewRepository.GetReviewsByFoodId(f.Id);
-			
-			return View(model);
+			foreach(var r in model.reviews)
+			{
+                model.Comments = _reviewQuestionRepository.getDistinctCommentByFoodId(f.Id);
+
+            }
+            return View(model);
 		}
 		
 		//POST /Student/SubmitReviewQuestions

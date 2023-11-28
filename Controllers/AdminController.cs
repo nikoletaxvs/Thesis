@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Drawing.Printing;
 using ThesisOct2023.Models;
 using ThesisOct2023.Models.ViewModels;
 using ThesisOct2023.Repositories;
@@ -13,17 +14,20 @@ namespace ThesisOct2023.Controllers
         private IFoodRepository _foodRepository;
         private IWebHostEnvironment _webHostEnvironment;
         private IQuestionRepository _questionRepository;
+        private IReviewRepository _reviewRepository;
         private UserManager<ApplicationUser> _userManager;
-        public AdminController(IFoodRepository foodRepository, IWebHostEnvironment webHostEnvironment,IQuestionRepository questionRepository, UserManager<ApplicationUser> userManager)
+        public int PageSize = 6;
+        public AdminController(IReviewRepository reviewRepository, IFoodRepository foodRepository, IWebHostEnvironment webHostEnvironment,IQuestionRepository questionRepository, UserManager<ApplicationUser> userManager)
         {
             _foodRepository = foodRepository;
             _webHostEnvironment = webHostEnvironment;
             _questionRepository = questionRepository;
             _userManager = userManager;
+            _reviewRepository = reviewRepository;
         }
 
         //GET /Admin
-        public IActionResult Index()
+        public IActionResult Index(int productPage = 1)
         {
             //First Diagram - Total users of each role
             ViewBag.StudentsCounter= _userManager.Users.Where(x=> x.UserRole.ToUpper() =="STUDENT").Count(); 
@@ -52,10 +56,28 @@ namespace ThesisOct2023.Controllers
             }
             ViewBag.dates = dates;
             ViewBag.headcounts = headcounts;
-           
+
+            ViewBag.TotalUsers = _userManager.Users.Count();
+            ViewBag.TotalFood = _foodRepository.GetAllFood().Count();
+            ViewBag.TotalReviews = _reviewRepository.GetReviews().Count();
 
             IEnumerable<FoodChartViewModel> model = _foodRepository.GetFoodCharts();
-            return View(model);
+
+            var m = new ChartsView
+            {
+                charts = _foodRepository.GetFoodCharts()
+                                        .OrderBy(p => p.Id)
+                                        .Skip((productPage - 1) * PageSize)
+                                        .Take(PageSize),
+                                        PagingInfo = new PagingInfo
+                                        {
+                                            CurrentPage = productPage,
+                                            ItemsPerPage = PageSize,
+                                            TotalItems = _foodRepository.GetFoodCharts().Count()
+                                        }
+
+            };
+            return View(m);
         }
        
         //POST /Admin

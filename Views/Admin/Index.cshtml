@@ -2,27 +2,52 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     
 }
-@model IEnumerable<FoodChartViewModel>
+@model ChartsView
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div class="container">
-    <div class="row">
+    <div class="row d-flex justify-content-between">
         <h4 class="py-4">Analytical Dashboard </h4>
         <h6>Users Analytics</h6>
-        <div class="theme-shadow bg-white col-lg-4 col-sm-4 g-4 m-2 p-2">
+        <div class="theme-shadow bg-white col-lg-4 col-sm-4 ">
            
             <h6 class="p-2">Total users for each role</h6>
             <canvas id="myChart" ></canvas>
         </div>
-         <div class="theme-shadow bg-white col-lg-7 col-sm-10 g-4 m-2 p-2">
+         <div class="theme-shadow bg-white col-lg-7 col-sm-10 ">
             <h6 class="p-2">Total users over time</h6>
             <canvas id="line-chart" ></canvas>
         </div>
     </div>
 </div>
+@*<!--COUNTER-->
+   <div id="counterAdmin" class="section-padding-small">
+    <div class="container text-center ">
+        <div class="row  d-flex justify-content-between">
+          <div class="col-lg-3 col-sm-2 theme-shadow p-5 counter-admin" >
+                <h3 class="">@ViewBag.TotalUsers+</h3>
+            <h6 class="text-uppercase  mt-3 mb-0">Total Users</h6>
+          </div>
+            <div class="col-lg-3 col-sm-2 theme-shadow p-5">
+                <h3 class=" ">@ViewBag.TotalReviews+</h3>
+            <h6 class="text-uppercase mt-3 mb-0">Total Reviews</h6>
+          </div>
+          <div class="col-lg-3 col-sm-2 theme-shadow p-5" >
+                <h3 class="">@ViewBag.TotalFood+</h3>
+            <h6 class="text-uppercase mt-3 mb-0">Dishes Available</h6>
+          </div>
+        </div>
+      </div>
+    </div>*@
 
-
-<partial name="~/Views/Admin/FoodCharts.cshtml" model="@Model"></partial>
+<partial name="~/Views/Admin/FoodCharts.cshtml" model="@Model.charts"></partial>
+<div class="p-2" page-model="@Model.PagingInfo" page-action="Index"
+     page-classes-enabled="true" page-class="btn"
+     page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary"
+    
+     class="btn-group pull-right m-1">
+</div>
 
 
 <script>
