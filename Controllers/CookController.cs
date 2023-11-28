@@ -53,6 +53,30 @@ namespace ThesisOct2023.Controllers
             },
             CurrentCategory = category
             });
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Food(string term = "",int productPage=1,string category="")
+        {
+            term = string.IsNullOrEmpty(term) ? "" : term.ToLower();
+            var model = new FoodListViewModel
+            {
+                Foods = _foodRepository.GetAllFood()
+             .Where(p=>p.Title.ToUpper().StartsWith(term.ToUpper()))
+            .OrderBy(p => p.Id)
+            .Skip((productPage - 1) * PageSize)
+            .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = productPage,
+                    ItemsPerPage = PageSize,
+                    TotalItems =  _foodRepository.GetAllFood().Where(p => p.Title.ToUpper() == term.ToUpper()).Count()
+                },
+                CurrentCategory = ""
+            };
+          
+            TempData["term"] = term;
+            return View(model);
+        }
         public IActionResult WeeksMenu()
             {
 

@@ -1,0 +1,511 @@
+/*Imports*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+/*Images Sources*/
+/* hero-img-big: Image by Freepik */
+/* happy cooking team: Image by fxquadro on Freepik */
+/*https://remixicon.com/ Open source icons*/
+/* counter image :Image by fxquadro</a> on Freepik*/
+
+/*VARIABLES*/
+:root {
+    --c-dark: #212529;
+    --c-brand: #4357d4;
+    --c-brand-light: #6979dd;
+    --c-brand-danger: #ff3232;
+    --c-brand-danger-light: #ff9999;
+    --c-brand-gray: #d3d3d3;
+    --c-brand-rgb: 78,87,212;
+    --c-body: #727272;
+    --font-base: 'Lato', sans-serif;
+    --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+    --transition: all 0.5s ease;
+}
+/* RESET & HELPERS */
+body {
+    font-family: var(--font-base);
+    line-height: 1.7;
+    color: var(--c-body);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: 600;
+    color: var(--c-dark);
+}
+
+a {
+    text-decoration: none;
+    color: var(--c-brand);
+    transition: var(--transition);
+}
+
+    a:hover {
+        color: var(--c-brand-light);
+    }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.section-padding {
+    padding-top: 140px;
+    padding-bottom: 140px;
+}
+
+.theme-shadow {
+    box-shadow: var(--box-shadow);
+}
+
+
+/* NAVBAR */
+.navbar {
+    box-shadow: var(--box-shadow);
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: var(--c-dark);
+}
+
+    .navbar-nav .nav-link.active {
+        color: var(--c-brand);
+    }
+
+
+/* BTN */
+.btn {
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 0;
+    padding: 10px 24px;
+}
+
+.btn-brand {
+    background-color: var(--c-brand);
+    border-color: var(--c-brand);
+    color: white;
+}
+
+    .btn-brand:hover {
+        background-color: var(--c-brand-light);
+        border-color: var(--c-brand-light);
+        color: white;
+    }
+
+.btn-brand-danger {
+    background-color: var(--c-brand-danger);
+    border-color: var(--c-brand-danger);
+    color: white;
+}
+
+    .btn-brand-danger:hover {
+        background-color: var(--c-brand-danger-light);
+        border-color: var(--c-brand-danger-light);
+        color: white;
+    }
+/*HERO*/
+#hero {
+    background: linear-gradient(rgba(0,0,0,0.607),rgba(0,0,0,0.438)),url(/images/friends-canteen.png);
+    background-position: center;
+    background-size: cover;
+}
+
+/*SECTION TITLE*/
+.section-title {
+    margin-bottom: 40px;
+}
+
+    .section-title .line {
+        width: 60px;
+        height: 4px;
+        background-color: var(--c-brand);
+        margin: 16px auto 24px auto;
+    }
+
+    .section-title p {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+/*ICONBOX*/
+.iconbox {
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--c-brand-rgb),0.1);
+    color: var(--c-brand);
+    font-size: 34px;
+    flex: none;
+}
+
+/*SERVICE*/
+.service {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+    .service::after {
+        content: "";
+        width: 40px;
+        height: 40px;
+        background: rgba(var(--c-brand-rgb),0.2);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transition: var(--transition);
+    }
+
+    .service:hover::after {
+        width: 100%;
+        height: 100%;
+        background: var(--c-brand);
+        z-index: -1;
+    }
+
+    .service:hover h5,
+    .service:hover p {
+        color: white;
+    }
+
+    .service:hover .iconbox {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+/*COUNTER*/
+#counter {
+    background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.45)),url(/images/professional-stainless-steel-kitchen-design-photo-was-made-restouraunt.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+/* FOOTER */
+footer {
+    padding-top: 120px;
+}
+
+.footer-top {
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-bottom {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+
+footer li,
+footer p,
+footer a {
+    color: rgba(255,255,255,0.7);
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer .line {
+    width: 40px;
+    height: 4px;
+    background-color: var(--c-brand);
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 100px;
+}
+
+    .social-icons a:hover {
+        background-color: var(--c-brand);
+        color: white;
+    }
+
+/*LOGIN*/
+.login {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    width: 500px;
+    height: 500px;
+}
+
+.login-title .line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--c-brand);
+    margin: 16px 0px 24px 0px;
+}
+
+#login {
+    background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.45)),url(../images/self-service-restaurant.jpg);
+    background-position: center;
+    background-size: cover;
+}
+/*LOGIN*/
+.register {
+    position: relative;
+    z-index: 2;
+    width: 500px;
+    height: 650px;
+   
+}
+
+.register-title .line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--c-brand);
+    margin: 16px 0px 24px 0px;
+}
+
+#register {
+    background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.45)),url(../images/self-service-restaurant.jpg);
+    background-position: center;
+    background-size: cover;
+}
+/*FOODCARD*/
+.foodcard {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    /* transition: all .2s ease-in-out;*/
+}
+
+    .foodcard:hover {
+        /* transform: scale(1.1);*/
+    }
+
+
+/*form styles*/
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+}
+
+
+    #msform fieldset {
+        background: white;
+        border: 0 none;
+        border-radius: 20px;
+        box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+        padding: 20px 30px;
+        box-sizing: border-box;
+        width: 80%;
+        margin: 0 10%;
+        /*stacking fieldsets above each other*/
+        position: relative;
+    }
+
+        /*Hide all except first fieldset*/
+        #msform fieldset:not(:first-of-type) {
+            display: none;
+        }
+
+    /*inputs*/
+    #msform input, #msform textarea {
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 0px;
+        margin-bottom: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: montserrat;
+        color: #2C3E50;
+        font-size: 13px;
+    }
+
+        #msform input:focus, #msform textarea:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border: 1px solid #ee0979;
+            outline-width: 0;
+            transition: All 0.5s ease-in;
+            -webkit-transition: All 0.5s ease-in;
+            -moz-transition: All 0.5s ease-in;
+            -o-transition: All 0.5s ease-in;
+        }
+
+    /*buttons*/
+    #msform .action-button {
+        width: 100px;
+        background: var(--c-brand);
+        font-weight: bold;
+        color: white;
+        border: 0 none;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 5px;
+    }
+
+        #msform .action-button:hover, #msform .action-button:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #ee0979;
+        }
+
+    #msform .action-button-previous {
+        width: 100px;
+        background: var(--c-brand-light);
+        font-weight: bold;
+        color: white;
+        border: 0 none;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 5px;
+    }
+
+        #msform .action-button-previous:hover, #msform .action-button-previous:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+        }
+
+/*headings*/
+.fs-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/*progressbar*/
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+    margin: 0 10%;
+    padding: 20px 30px;
+}
+
+    #progressbar li {
+        list-style-type: none;
+        color: var(--c-body);
+        text-transform: uppercase;
+        font-size: 12px;
+        width: 12.33%;
+        float: left;
+        position: relative;
+        letter-spacing: 1px;
+    }
+
+@media screen and (max-width: 600px) {
+    #progressbar li {
+        display: none;
+    }
+}
+
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    font-size: 16px;
+    color: #fff;
+    background: var(--c-brand-gray);
+    border-radius: 25px;
+    margin: 0 auto 10px auto;
+}
+/*
+progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background: var(--c-brand-gray);
+    position: absolute;
+    left: -50%;
+    top: 15px;
+    z-index: -1; /*put it behind the numbers*/
+}
+
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before, #progressbar li.active:after {
+    background: var(--c-brand);
+    color: white;
+}
+/* Not relevant to this form */
+.dme_link {
+    margin-top: 30px;
+    text-align: center;
+}
+
+    .dme_link a {
+        background: #FFF;
+        font-weight: bold;
+        color: #ee0979;
+        border: 0 none;
+        border-radius: 25px;
+        cursor: pointer;
+        padding: 5px 25px;
+        font-size: 12px;
+    }
+
+        .dme_link a:hover, .dme_link a:focus {
+            background: #C5C5F1;
+            text-decoration: none;
+        }
+
+
+/*SEARCH BAR*/
+.search {
+    position: relative;
+    box-shadow:var(--box-shadow);
+}
+
+.search input {
+height: 60px;
+text-indent: 25px;
+/* border: 2px solid #d6d4d4;*/
+}
+
+
+.search input:focus {
+    box-shadow: none;
+    border: 1px solid var(--c-brand);
+}
+
+.search .fa-search {
+position: absolute;
+top: 20px;
+left: 16px;
+}
+
+.search button {
+position: absolute;
+top: 5px;
+right: 5px;
+height: 50px;
+width: 110px;
+background: var(--c-brand);
+}

@@ -1,0 +1,156 @@
+/*Imports*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+/*Custom CSS*/
+.nav-title {
+    font-family: 'Montserrat',sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration:none;
+    color:white;
+}
+.nav-title:hover{
+    color:white;
+}
+.hero-container {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../lib/images/Background.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    z-index:1;
+}
+.hero-title {
+    font-family: 'Montserrat',sans-serif;
+    font-size: 51px;
+    width: 100%;
+    line-height: 59px;
+    margin-left: 12%;
+    margin-top: 16%;
+    color: #F5F5F5;
+    font-weight:700;
+}
+.desc {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    line-height: 28.8px;
+    margin-left: 12.5%;
+    margin-top: 2%;
+    color: #F5F5F5;
+}
+.btn-orange {
+    background-color: #ED7812;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border: 2px solid;
+    border-color: #ED7812;
+    width: 130px;
+    text-align: center;
+    line-height: 28px;
+}
+    .btn-orange:hover {
+        color: #E27D36;
+        background-color: white;
+        border: 2px solid;
+        border-color: #ED7812;
+    }
+.btn-orange-outline {
+    width: 130px;
+    text-align: center;
+    line-height: 28px;
+    color: #F5F5F5;
+    background-color: transparent;
+    border: 2px solid;
+    border-color: #F5F5F5;
+    padding: 10px;
+    text-decoration: none;
+    margin-left: 40px;
+}
+.btn-orange-outline:hover {
+    background-color: #E27D36;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+.buttons-container{
+    margin-top:20px;
+    display:flex;
+    margin-left:12.5%;
+}
+
+/*Student Area CSS*/
+.menu-date {
+    text-transform: uppercase;
+    color: #E27D36;
+    font-size:10px;
+}
+.menu-header {
+    font-size: 24px;
+}
+.btn-rate-menu {
+    background-color: #ED7812;
+    color: white;
+    padding: 10px 20px 10px 20px;
+}
+.btn-info-menu {
+    background-color: #A8D5D5;
+    color: white;
+    padding: 10px 20px 10px 20px;
+}
+.buttons-container-menu {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 10px 10px 10px;
+}
+.card-title-custom{
+    font-size:14px;
+    font-weight:bold;
+}
+.card-info-small{
+    font-size:12px;
+}
+#food-card-text{
+    margin:auto;
+    text-align:center;
+}
+
+.rating-text{
+    font-size:14px;
+}
+th, td {
+    padding: 15px;
+}
