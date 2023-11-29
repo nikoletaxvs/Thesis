@@ -18,6 +18,9 @@ namespace ThesisOct2023.Models
         public string ImageUrl { get; set; }
         [Required]
         public bool Enabled { get; set; } = true;
+
+        [Required]
+        public int healthValue { get; set; } = 3;
         //Many to many relationship with Menu
         public List<MenuItem> MenuItems { get; } = new();
         public List<Menu> Menus { get; } = new();

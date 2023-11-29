@@ -114,30 +114,50 @@ namespace ThesisOct2023.Controllers
             var lunch = _foodRepository.getAllByCategory("lunch");
             var dinner = _foodRepository.getAllByCategory("dinner");
 
+            //Initializing ItemSelectLists
             var breakfastitems = new ItemSelectList();
             var lunchfastitems = new ItemSelectList();
             var dinnerfastitems = new ItemSelectList();
 
+            //Initializing Selectlists for each item type
             breakfastitems.ItemsSelectList = new List<SelectListItem>();
             lunchfastitems.ItemsSelectList = new List<SelectListItem>();
             dinnerfastitems.ItemsSelectList = new List<SelectListItem>();
 
+            //Setting values for each time of day, ordered by their scores
             foreach (var item in breakfast)
             {
+                //Adding score to the view 
                 var score = item.AvgRating != null ? ((int)item.AvgRating).ToString() : "None";
-                breakfastitems.ItemsSelectList.Add(new SelectListItem { Text = item.Title +" (Rating:"+score +")" , Value = item.Id.ToString() });
+
+                //Adding health value to the view
+                var health = item.healthValue;
+
+                //Constructing SelectList items , each contains a {Title} paired with {Rating} & {Health Value} and is assosiated with an id
+                breakfastitems.ItemsSelectList.Add(new SelectListItem { Text = item.Title +" (Rating:"+score +" ,Health:"+health+ ")" , Value = item.Id.ToString() });
             }
             foreach (var item in lunch)
             {
+                //Adding score to the view 
                 var score = item.AvgRating != null ? ((int)item.AvgRating).ToString() : "None";
-                lunchfastitems.ItemsSelectList.Add(new SelectListItem { Text = item.Title + " (Rating:" + score + ")", Value = item.Id.ToString() });
+
+                //Adding health value to the view
+                var health = item.healthValue;
+
+                lunchfastitems.ItemsSelectList.Add(new SelectListItem { Text = item.Title +" (Rating:" + score + " ,Health:" + health + ")", Value = item.Id.ToString() });
             }
             foreach (var item in dinner)
             {
+                //Adding score to the view 
                 var score = item.AvgRating != null ? ((int)item.AvgRating).ToString() : "None";
-                dinnerfastitems.ItemsSelectList.Add(new SelectListItem { Text = item.Title + " (Rating:" + score + ")", Value = item.Id.ToString() });
+
+                //Adding health value to the view
+                var health = item.healthValue;
+
+                dinnerfastitems.ItemsSelectList.Add(new SelectListItem { Text = item.Title +" (Rating:" + score + " ,Health:" + health + ")", Value = item.Id.ToString() });
             }
 
+            //Storing selectlists in viewbags
             ViewBag.BreakFastItems = breakfastitems.ItemsSelectList;
             ViewBag.LunchItems = lunchfastitems.ItemsSelectList;
             ViewBag.DinnerItems = dinnerfastitems.ItemsSelectList;

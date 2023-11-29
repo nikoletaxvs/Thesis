@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ThesisOct2023.Data;
 
@@ -11,9 +12,11 @@ using ThesisOct2023.Data;
 namespace ThesisOct2023.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231129101035_HealthValueOnFoodTable")]
+    partial class HealthValueOnFoodTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -293,12 +296,6 @@ namespace ThesisOct2023.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("avgHealthValue")
-                        .HasColumnType("int");
-
-                    b.Property<int>("avgSatisfactionValue")
-                        .HasColumnType("int");
 
                     b.Property<int>("week")
                         .HasColumnType("int");

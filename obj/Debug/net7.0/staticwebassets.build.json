@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OY/j2jnQtT5LnmnoF8lJBiJdVC1oaG9jcTyki8/2upI=",
+  "Hash": "bSfprJr13FegJLVpZ7FhULWeYuFhT30+cn2H2pvd7+I=",
   "Source": "ThesisOct2023",
   "BasePath": "_content/ThesisOct2023",
   "Mode": "Default",
@@ -1358,6 +1358,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\d75762c0-80e4-4019-9b7a-a9c3ce7820d9_arakas.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\dec3ac49-dc0e-4b60-95a9-28d45e6bf6b6_pancka.jpg",
+      "SourceId": "ThesisOct2023",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
+      "BasePath": "_content/ThesisOct2023",
+      "RelativePath": "dec3ac49-dc0e-4b60-95a9-28d45e6bf6b6_pancka.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dec3ac49-dc0e-4b60-95a9-28d45e6bf6b6_pancka.jpg"
     },
     {
       "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\favicon.ico",

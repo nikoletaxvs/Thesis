@@ -31,6 +31,7 @@ namespace ThesisOct2023.Repositories
                 Title= foodhelper.Title,
                 Description= foodhelper.Description,
                 Category= foodhelper.Category,
+                healthValue=foodhelper.healthValue,
                 ImageUrl = foodhelper.ImageUrl
             };
             context.Foods.Add(food);
