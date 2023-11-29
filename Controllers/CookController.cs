@@ -19,14 +19,16 @@ namespace ThesisOct2023.Controllers
         private readonly IMenuRepository _menuRepository;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IReviewRepository _reviewRepository;
+        private readonly IReviewQuestionRepository _reviewQuestionRepository;
         private readonly int PageSize = 8;
-        public CookController(IFoodRepository foodRepository,IMenuItemRepository menuItemRepository, UserManager<ApplicationUser> userManager, IReviewRepository reviewRepository, IMenuRepository menuRepository)
+        public CookController(IReviewQuestionRepository reviewQuestionRepository, IFoodRepository foodRepository,IMenuItemRepository menuItemRepository, UserManager<ApplicationUser> userManager, IReviewRepository reviewRepository, IMenuRepository menuRepository)
         {
             _foodRepository = foodRepository;
             _menuItemRepository = menuItemRepository;
             _userManager = userManager;
             _reviewRepository = reviewRepository;
             _menuRepository= menuRepository;
+            _reviewQuestionRepository= reviewQuestionRepository;
         }
        
         //GET /Cook
@@ -275,6 +277,25 @@ namespace ThesisOct2023.Controllers
             }
             return RedirectToAction("Food");
         }
+
+        //POST /Cook/FoodInfo
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult FoodInfo(Food f)
+        {
+
+            //Get food object and its reviews 
+            FoodReviewView model = new FoodReviewView();
+            model.food = f;
+            model.reviews = _reviewRepository.GetReviewsByFoodId(f.Id);
+            foreach (var r in model.reviews)
+            {
+                model.Comments = _reviewQuestionRepository.getDistinctCommentByFoodId(f.Id);
+
+            }
+            return View(model);
+        }
+
 
     }
 }

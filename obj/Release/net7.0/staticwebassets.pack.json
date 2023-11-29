@@ -97,6 +97,10 @@
       "PackagePath": "staticwebassets\\images\\self-service-restaurant.jpg"
     },
     {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\images\\userImg.png",
+      "PackagePath": "staticwebassets\\images\\userImg.png"
+    },
+    {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
     },
