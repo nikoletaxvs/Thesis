@@ -5,7 +5,7 @@ window.addEventListener("load", function () {
         loader.style.width = "100%";
         loader.style.borderRadius = "50%";
         loader.style.visibility = "hidden";
-    }, 250);
+    }, 200);
    
    
 });
