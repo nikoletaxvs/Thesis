@@ -91,7 +91,7 @@ namespace ThesisOct2023.Repositories
         {
             var query = context.Foods
                 .Where(f => f.Category.ToUpper() == category.ToUpper())
-                .OrderByDescending(f => f.AvgRating)
+                .OrderByDescending(f => f.AvgRating+ f.healthValue)
                 .ToList();
            
             return query;

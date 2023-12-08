@@ -86,8 +86,14 @@ namespace ThesisOct2023.Controllers
         public IActionResult Index(string term="")
         {
             term = string.IsNullOrEmpty(term) ? "" : term.ToLower();
-            var foodData = new FoodChartViewModel();
-            var charts = _foodRepository.GetFoodChartsContainingTerm(term);
+            var foodData = _foodRepository.GetFoodChartsContainingTerm(term);
+            var charts = new ChartsView { charts = foodData , PagingInfo = new PagingInfo
+            {
+                CurrentPage = 1,
+                ItemsPerPage = PageSize,
+                TotalItems = foodData.Count()
+            }
+            };
             TempData["term"] = term;
             return View(charts);
         }

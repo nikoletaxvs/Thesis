@@ -114,6 +114,7 @@ namespace ThesisOct2023.Controllers
             var lunch = _foodRepository.getAllByCategory("lunch");
             var dinner = _foodRepository.getAllByCategory("dinner");
 
+            
             //Initializing ItemSelectLists
             var breakfastitems = new ItemSelectList();
             var lunchfastitems = new ItemSelectList();

@@ -18,10 +18,10 @@
 
     <div class="container">
         <div class="d-flex justify-content-center">
-            <div class=" p-2 fw-bold text-primary">
+            <div id="satisfactionScore" class=" p-2 fw-bold text-primary">
                 Satisfaction: 80%
             </div>
-            <div class=" p-2 fw-bold text-success">
+            <div id="healthScore" class=" p-2 fw-bold text-success">
                 Health: 60%
             </div>
         </div>
@@ -51,9 +51,9 @@
                     <fieldset>
                         <h2 class="fs-title">@weekDays[counter]</h2>
                         <h3 class="fs-subtitle">What will be in @weekDays[counter]'s menu?'</h3>
-                        <input type="hidden" asp-for="SelectedItems[counter].Day" value="@counter"/>
+                        <input type="hidden" asp-for="SelectedItems[counter].Day" value="@counter"  />
                         <label class="form-label">Select Breakfast</label>
-                        <select class="form-select" asp-items="ViewBag.BreakfastItems" asp-for="SelectedItems[counter].BreakFast"></select>
+                        <select class="form-select" asp-items="ViewBag.BreakfastItems" asp-for="SelectedItems[counter].BreakFast" onclick="updateScores(this)"></select>
                         <label class="form-label">Select Lunch</label>
                         <select class="form-select" asp-items="ViewBag.LunchItems" asp-for="SelectedItems[counter].Launch"></select>
                         <label class="form-label">Select Dinner</label>
@@ -94,7 +94,12 @@
    
 
     </div>
-
+    <script>
+        function updateScores(event){
+            let satScore = document.getElementById('satisfactionScore');
+            satScore.innerHTML = event.options[event.selectedIndex].text;
+        }
+    </script>
 </body>
 
 <!-- /.MultiStep Form -->
