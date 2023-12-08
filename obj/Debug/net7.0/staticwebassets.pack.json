@@ -89,6 +89,14 @@
       "PackagePath": "staticwebassets\\images\\happy-cooking-team-wearing-uniform-standing-table-with-chopped-vegetables-posing-camera-restaurant-s-kitchen.jpg"
     },
     {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\images\\loader.gif",
+      "PackagePath": "staticwebassets\\images\\loader.gif"
+    },
+    {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\images\\loading-waiting.gif",
+      "PackagePath": "staticwebassets\\images\\loading-waiting.gif"
+    },
+    {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\images\\professional-stainless-steel-kitchen-design-photo-was-made-restouraunt.jpg",
       "PackagePath": "staticwebassets\\images\\professional-stainless-steel-kitchen-design-photo-was-made-restouraunt.jpg"
     },
@@ -103,6 +111,10 @@
     {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\images\\userImg.png",
       "PackagePath": "staticwebassets\\images\\userImg.png"
+    },
+    {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\loader-js.js",
+      "PackagePath": "staticwebassets\\js\\loader-js.js"
     },
     {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\main.js",

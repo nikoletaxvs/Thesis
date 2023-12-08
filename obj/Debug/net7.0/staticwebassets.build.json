@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bSfprJr13FegJLVpZ7FhULWeYuFhT30+cn2H2pvd7+I=",
+  "Hash": "EF4BgfpIVxjJ5bRLRv3hHIwY84dq5cubfxMMBbhfRD0=",
   "Source": "ThesisOct2023",
   "BasePath": "_content/ThesisOct2023",
   "Mode": "Default",
@@ -1428,6 +1428,40 @@
       "OriginalItemSpec": "wwwroot\\images\\happy-cooking-team-wearing-uniform-standing-table-with-chopped-vegetables-posing-camera-restaurant-s-kitchen.jpg"
     },
     {
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\images\\loader.gif",
+      "SourceId": "ThesisOct2023",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
+      "BasePath": "_content/ThesisOct2023",
+      "RelativePath": "images/loader.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\loader.gif"
+    },
+    {
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\images\\loading-waiting.gif",
+      "SourceId": "ThesisOct2023",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
+      "BasePath": "_content/ThesisOct2023",
+      "RelativePath": "images/loading-waiting.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\loading-waiting.gif"
+    },
+    {
       "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\images\\professional-stainless-steel-kitchen-design-photo-was-made-restouraunt.jpg",
       "SourceId": "ThesisOct2023",
       "SourceType": "Discovered",
@@ -1494,6 +1528,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\userImg.png"
+    },
+    {
+      "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\loader-js.js",
+      "SourceId": "ThesisOct2023",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\",
+      "BasePath": "_content/ThesisOct2023",
+      "RelativePath": "js/loader-js.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\loader-js.js"
     },
     {
       "Identity": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\js\\main.js",
