@@ -1,9 +1,8 @@
-﻿
-@{
+﻿@{
 
     ViewData["Title"] = "CreateMenu";
     Layout = "~/Views/Shared/_CookLayout.cshtml";
-    List<string> weekDays = new List<string>() {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
+    List<string> weekDays = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 }
 @model MenuFormView
 
@@ -26,15 +25,15 @@
             </div>
         </div>
     </div>
-    <div >
+    <div>
         <div class="container">
-       
+
             <form id="msform" asp-controller="Cook" asp-action="CreateMenu" method="post">
                 <!-- progressbar -->
                 <ul id="progressbar" class="d-flex flex-wrap justify-content-around">
-                    @foreach(var weekday in weekDays)
+                    @foreach (var weekday in weekDays)
                     {
-                        if(weekDays[0] == weekday)
+                        if (weekDays[0] == weekday)
                         {
                             <li class="active g-2 flex-fill bd-highlight">@weekday</li>
                             continue;
@@ -42,33 +41,33 @@
                         <li class="g-2 flex-fill bd-highlight">@weekday</li>
 
                     }
-                   
-                    
+
+
                 </ul>
                 <!-- fieldsets -->
-                @for (int counter = 0;counter < weekDays.Count;counter++)
-                 {
+                @for (int counter = 0; counter < weekDays.Count; counter++)
+                {
                     <fieldset>
                         <h2 class="fs-title">@weekDays[counter]</h2>
                         <h3 class="fs-subtitle">What will be in @weekDays[counter]'s menu?'</h3>
-                        <input type="hidden" asp-for="SelectedItems[counter].Day" value="@counter"  />
+                        <input type="hidden" asp-for="SelectedItems[counter].Day" value="@counter" />
                         <label class="form-label">Select Breakfast</label>
                         <select class="form-select" asp-items="ViewBag.BreakfastItems" asp-for="SelectedItems[counter].BreakFast" onclick="updateScores(this)"></select>
                         <label class="form-label">Select Lunch</label>
                         <select class="form-select" asp-items="ViewBag.LunchItems" asp-for="SelectedItems[counter].Launch"></select>
                         <label class="form-label">Select Dinner</label>
                         <select class="form-select" asp-items="ViewBag.DinnerItems" asp-for="SelectedItems[counter].Dinner"></select>
-                        
+
                         @if (counter != 0)
                         {
                             <input type="button" name="previous" class="previous action-button" value="Previous" />
                         }
-                        @if(counter != 6)
+                        @if (counter != 6)
                         {
-                              <input type="button" name="next" class="next action-button" value="Next" />
+                            <input type="button" name="next" class="next action-button" value="Next" />
 
                         }
-                        @if(counter == 6)
+                        @if (counter == 6)
                         {
                             <button class="btn btn-brand next action-button" type="submit">Submit</button>
                         }
@@ -76,7 +75,7 @@
                     </fieldset>
                     @if (counter == 6)
                     {
-                        <fieldset >
+                        <fieldset>
                             <h2 class="fs-title">Done</h2>
                             <h3 class="fs-subtitle">Successfully submitted</h3>
 
@@ -85,17 +84,11 @@
                         </fieldset>
                     }
                 }
-                
-                
             </form>
-            
-   
         </div>
-   
-
     </div>
     <script>
-        function updateScores(event){
+        function updateScores(event) {
             let satScore = document.getElementById('satisfactionScore');
             satScore.innerHTML = event.options[event.selectedIndex].text;
         }
