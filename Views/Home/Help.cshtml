@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Help";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h1>Cafeteria System Help Manual</h1>
+
+    <h2>Cafeteria Cook</h2>
+
+    <h3>Primary Path</h3>
+    <ol>
+        <li>The Cook views the weekly menu.</li>
+        <li>The Cook chooses to create a new menu from the list of available foods (sorted by student preference scores).</li>
+        <li>The Cook reviews and records the menu.</li>
+        <li>The Cook enables the option to rate a meal.</li>
+        <li>The Cook disables the option to rate a meal.</li>
+        <li>The use case is successfully completed.</li>
+    </ol>
+
+    <h3>Alternate Paths</h3>
+    <ol>
+        <li>If the menu for the week has already been entered, proceed from step 4 of the primary path.</li>
+        <li>If the Cook chooses to automatically generate the menu, proceed from step 4 of the primary path.</li>
+        <li>If the Cook chooses to use the menu from the previous week, proceed from step 4 of the primary path.</li>
+    </ol>
+
+    <h2>Student</h2>
+
+    <h3>Primary Path</h3>
+    <ol>
+        <li>The Student views the menu and available cafeteria meals.</li>
+        <li>The Student chooses to rate a specific meal, opening the rating form.</li>
+        <li>The Student reviews and submits the form.</li>
+        <li>The use case is successfully completed.</li>
+    </ol>
+
+    <h3>Alternate Paths</h3>
+    <ol>
+        <li>If the Student leaves fields blank in the form, proceed from step 3 of the primary path.</li>
+    </ol>
+
+    <h2>Admin</h2>
+
+    <h3>Primary Path</h3>
+    <ol>
+        <li>The Admin views the ratings graphs for each meal on the home page.</li>
+        <li>The Admin views students (encrypted for anonymity) on the respective page.</li>
+        <li>The Admin views the rating form for each meal on the respective page.</li>
+        <li>The Admin chooses to edit the rating form.</li>
+        <li>The use case is successfully completed.</li>
+    </ol>
+
+    <h3>Alternate Paths</h3>
+    <ol>
+        <li>If the Admin leaves fields blank in the form or enters incorrect characters, proceed from step 4 of the primary path.</li>
+    </ol>

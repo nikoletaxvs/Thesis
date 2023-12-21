@@ -1,0 +1,127 @@
+﻿@{
+
+    ViewData["Title"] = "CreateMenu";
+    Layout = "~/Views/Shared/_CookLayout.cshtml";
+    List<string> weekDays = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+}
+@model MenuFormView
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<!-- MultiStep Form -->
+<body>
+
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div id="satisfactionScore" class=" p-2 fw-bold text-primary">
+                Satisfaction: 0
+            </div>
+            <div id="healthScore" class=" p-2 fw-bold text-success">
+                Health: compromised
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+
+            <form id="msform" asp-controller="Cook" asp-action="CreateMenu" method="post">
+                <!-- progressbar -->
+                <ul id="progressbar" class="d-flex flex-wrap justify-content-around">
+                    @foreach (var weekday in weekDays)
+                    {
+                        if (weekDays[0] == weekday)
+                        {
+                            <li class="active g-2 flex-fill bd-highlight">@weekday</li>
+                            continue;
+                        }
+                        <li class="g-2 flex-fill bd-highlight">@weekday</li>
+
+                    }
+
+
+                </ul>
+                <!-- fieldsets -->
+                @for (int counter = 0; counter < weekDays.Count; counter++)
+                {
+                    <fieldset>
+                        <h2 class="fs-title">@weekDays[counter]</h2>
+                        <h3 class="fs-subtitle">What will be in @weekDays[counter]'s menu?'</h3>
+                        <input type="hidden" asp-for="SelectedItems[counter].Day" value="@counter" />
+                        <label class="form-label">Select Breakfast</label>
+                        <select class="form-select" asp-items="ViewBag.BreakfastItems" asp-for="SelectedItems[counter].BreakFast" onclick="updateScores(this)"></select>
+                        <label class="form-label">Select Lunch</label>
+                        <select class="form-select" asp-items="ViewBag.LunchItems" asp-for="SelectedItems[counter].Launch" onclick="updateScores(this)"></select>
+                        <label class="form-label">Select Dinner</label>
+                        <select class="form-select" asp-items="ViewBag.DinnerItems" asp-for="SelectedItems[counter].Dinner" onclick="updateScores(this)"></select>
+
+                        @if (counter != 0)
+                        {
+                            <input type="button" name="previous" class="previous action-button" value="Previous" />
+                        }
+                        @if (counter != 6)
+                        {
+                            <input type="button" name="next" class="next action-button" value="Next" />
+
+                        }
+                        @if (counter == 6)
+                        {
+                            <button class="btn btn-brand next action-button" type="submit">Submit</button>
+                        }
+
+                    </fieldset>
+                    @if (counter == 6)
+                    {
+                        <fieldset>
+                            <h2 class="fs-title">Done</h2>
+                            <h3 class="fs-subtitle">Successfully submitted</h3>
+
+
+
+                        </fieldset>
+                    }
+                }
+            </form>
+        </div>
+    </div>
+    <script>
+        const selectedOptionsByDay = [];
+        function updateScores(event) {
+            // let satScore = document.getElementById('satisfactionScore');
+            // const option = event.options[event.selectedIndex].text;
+            // //check if option is valid
+            // if (option != null && option.length >0) {
+            //     var fields = option.split(':');
+            //     let satScoreNumber = (satScore.innerText).split(':')
+            //     let result = parseInt(satScoreNumber[1]) + parseInt(fields[1][0]) * 0.95;
+            //     satScore.innerHTML = `Satisfaction:${result}`;
+            // }
+            // Find the closest fieldset to the changed select element
+            const fieldset = event.closest('fieldset');
+
+            // Get all select elements within the fieldset
+            const selects = fieldset.querySelectorAll('select');
+
+            // Create an array to store selected options for the current day
+            const selectedOptions = [];
+
+            // Iterate through each select element and collect the selected option
+            selects.forEach(select => {
+                const selectedOption = select.options[select.selectedIndex].text;
+                selectedOptions.push(selectedOption);
+            });
+
+            // Store the selected options for the current day in the global array
+            const dayIndex = parseInt(fieldset.querySelector('input[type="hidden"]').value);
+            selectedOptionsByDay[dayIndex] = selectedOptions;
+
+            // Log the array of selected options for all days
+            console.log(selectedOptionsByDay);
+        }
+    </script>
+</body>
+
+<!-- /.MultiStep Form -->

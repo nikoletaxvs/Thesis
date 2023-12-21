@@ -1,0 +1,36 @@
+﻿@model FoodListViewModel
+@{
+    Layout = "~/Views/Shared/_CookLayout.cshtml";
+   
+}
+<div class="container">
+    <div class="row">
+        <div id="categories" class="col">
+            <vc:navigation-categories />
+        </div>
+        <div class="col-lg-4 col-sm-10 p-2">
+            <form class="d-flex" asp-action="Food">
+                <input type="hidden" name="category" value="@Model.CurrentCategory" />
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="term" value="@TempData["term"]">
+                <button class="btn btn-brand" type="submit">Search</button>
+            </form>
+        </div>
+      
+    </div>
+</div>
+
+<div class="cointainer">
+    <div class="row">
+        @foreach(var f in Model.Foods){
+            
+            <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@f" ></partial>
+        }
+    </div>
+</div>
+<div page-model="@Model.PagingInfo" page-action="Food"
+     page-classes-enabled="true" page-class="btn"
+     page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary"
+     page-url-category="@Model.CurrentCategory!"
+     class="btn-group pull-right m-1">
+</div>

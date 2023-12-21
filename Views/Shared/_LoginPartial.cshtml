@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using ThesisOct2023.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+<ul class="navbar-nav">
+
+@if (SignInManager.IsSignedIn(User))
+{
+   @* <li class="nav-item">
+        <a  class="nav-link text-white" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name</a>
+    </li>*@
+    <li class="nav-item mx-2">
+        <form  class="form-inline" asp-controller="Account" asp-action="Logout">
+                <button type="submit" class="btn btn-light">Logout<i class="ri-logout-box-fill"></i></button>
+        </form>
+    </li>
+}
+@*else
+{
+    <li class="nav-item">
+            <a  asp-controller="Account" asp-action="Register" class="nav-link text-white text-decoration-none bg-warning p-3">Register</a>
+       
+    </li>
+    <li class="nav-item">
+            <a  asp-controller="Account" asp-action="Login" class="nav-link text-white text-decoration-none bg-warning p-3">Login</a>
+       
+    </li>
+   
+}*@
+</ul>

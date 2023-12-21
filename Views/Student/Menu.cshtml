@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+    DateTime currentDateTime = DateTime.Now;
+
+}
+@model IEnumerable<Food>
+<div class="container mt-4">
+    @if (Enumerable.Any(ViewBag.ServedNow))
+    {
+        <div class="text-uppercase small">@currentDateTime.ToString("dddd, dd MMMM yyyy")</div>
+        <h2>Served Now</h2>
+        <div class="cointainer">
+            <div class="row">
+
+                @foreach (var item in ViewBag.ServedNow)
+                {
+                        <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@item"></partial>
+                }
+
+
+
+            </div>
+        </div>
+        
+        
+    }
+    else
+    {
+        <h5 class="py-4">Oops... we are currectly closed</h5>
+    }
+
+
+    <div class="container">
+        <div class="text-uppercase small">@currentDateTime.ToString("dddd, dd MMMM yyyy")</div>
+        <h2>Served Today</h2>
+        <div class="row">
+
+            @foreach (var item in ViewBag.MondayFood)
+            {
+                <partial name="~/Views/Shared/_FoodCardPartial.cshtml" model="@item"></partial>
+            }
+
+        </div>
+</div>
+
+
+

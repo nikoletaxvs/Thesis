@@ -1,0 +1,29 @@
+﻿@model FoodChartViewModel
+
+<div class="theme-shadow bg-white col-lg-4 col-sm-4 g-1 m-1" style="width:30%;">
+
+    <h6 class="p-2">@Model.Title</h6>
+    <canvas class="m-4" id="@Model.Id"></canvas>
+</div>
+<script>
+    new Chart(document.getElementById(@Model.Id), {
+        type: 'doughnut',
+        data: {
+            labels: ["Ones", "Twos", "Threes", "Fours", "Fives"],
+            datasets: [
+                {
+                    label: "# Ratings",
+                    backgroundColor: [" #ff3232", "#ff9999", "#d3d3d3", "#6979dd", "#4357d4"],
+                    data: [@Model.ones, @Model.twes, @Model.threes, @Model.fours, @Model.fives]
+                }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Stats from student reviews'
+            }
+        }
+    });
+
+</script>
