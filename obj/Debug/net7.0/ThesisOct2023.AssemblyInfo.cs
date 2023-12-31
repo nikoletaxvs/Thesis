@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThesisOct2023")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+514b7b51ceea49a7769ddec31227404df7ce2298")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThesisOct2023")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThesisOct2023")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
