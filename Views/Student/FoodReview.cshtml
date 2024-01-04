@@ -47,9 +47,12 @@
 
 
         </div>
-        <label asp-for="Comment">Comments</label><br />
-        <textarea asp-for="Comment" name="Comment" id="Comment" rows="5" cols="50">Food was decent.</textarea><br />
-        <button type="submit">Submit</button>
+        <div class="py-4 m-4">
+            <label asp-for="Comment">Comments</label><br />
+            <textarea asp-for="Comment" name="Comment" id="Comment" rows="5" cols="50">Food was decent.</textarea><br />
+            <button type="submit" class="mt-4 btn btn-brand">Submit</button>
+        </div>
+        
     </form>
 </div>
 

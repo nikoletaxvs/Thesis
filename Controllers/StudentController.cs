@@ -108,17 +108,17 @@ namespace ThesisOct2023.Controllers
             var model = new FoodListViewModel
             {
                 Foods = _foodRepository.GetAllFood()
-             .Where(p => p.Title.ToUpper().StartsWith(term.ToUpper()))
-            .OrderBy(p => p.Id)
-            .Skip((productPage - 1) * PageSize)
-            .Take(PageSize),
-                PagingInfo = new PagingInfo
-                {
-                    CurrentPage = productPage,
-                    ItemsPerPage = PageSize,
-                    TotalItems = _foodRepository.GetAllFood().Where(p => p.Title.ToUpper() == term.ToUpper()).Count()
-                },
-                CurrentCategory = ""
+					.Where(p => p.Title.ToUpper().StartsWith(term.ToUpper()) && p.Enabled)
+					.OrderBy(p => p.Id)
+					.Skip((productPage - 1) * PageSize)
+					.Take(PageSize),
+					PagingInfo = new PagingInfo
+					{
+						CurrentPage = productPage,
+						ItemsPerPage = PageSize,
+						TotalItems = _foodRepository.GetAllFood().Where(p => p.Title.ToUpper() == term.ToUpper()).Count()
+					},
+					CurrentCategory = ""
             };
 
             TempData["term"] = term;
@@ -183,7 +183,6 @@ namespace ThesisOct2023.Controllers
                     ModelState.AddModelError(string.Empty, ex.Message);
                     return View("Index");
                 }
-               
             }
 			
             //int reviewId = Convert.ToInt32(iformCollection["ReviewId"]);
@@ -222,14 +221,9 @@ namespace ThesisOct2023.Controllers
 					{
 						ModelState.AddModelError(string.Empty, ex.Message);
 					}
-					
 				}
-				
 			}
-			
-			
 			return View("Index");
-            
 		}
 
     }

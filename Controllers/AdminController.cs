@@ -97,11 +97,6 @@ namespace ThesisOct2023.Controllers
             TempData["term"] = term;
             return View(charts);
         }
-       
-        ////GET Admin/Food
-        //public IActionResult Food() {
-        //    return View();
-        //}
 
         //GET Admin/PostFood
         public IActionResult PostFood()
@@ -153,9 +148,17 @@ namespace ThesisOct2023.Controllers
         [HttpPost]
         public IActionResult CreateQuestion(Question question)
         {
-            _questionRepository.AddQuestion(question);
-            TempData["Notification"] = "Successfully Added A New Question";
-            return RedirectToAction("Index");   
+            if (ModelState.IsValid)
+            {
+				_questionRepository.AddQuestion(question);
+				TempData["Notification"] = "Successfully Added A New Question";
+				return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(question);
+            }
+           
         }
 
         //GET Admin/DeleteQuestion
@@ -220,7 +223,7 @@ namespace ThesisOct2023.Controllers
             }
             else
             {
-                return NotFound();
+                return View(obj);
             }
 
 			
@@ -230,13 +233,6 @@ namespace ThesisOct2023.Controllers
 			
         }
 
-        //public IActionResult FoodCharts(string term="")
-        //{
-        //    term = string.IsNullOrEmpty(term) ? "" : term.ToLower();
-        //    var foodData = new FoodChartViewModel();
-        //    var charts = _foodRepository.GetFoodChartsContainingTerm(term);
-        //    return View(charts);
-        //}
-
+        
     }
 }
