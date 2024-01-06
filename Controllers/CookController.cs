@@ -170,10 +170,15 @@ namespace ThesisOct2023.Controllers
         [HttpPost]
         public IActionResult CreateMenu(MenuFormView model)
         {
-            //check if menu is already submitted
+            //If a menu for that week already exists delete it
+            if (_menuRepository.GetMenuByWeek(Iso8601WeekOfYear.GetIso8601WeekOfYear(DateTime.Now)) != null) {
+                Menu menuToDelete = _menuRepository.GetMenuByWeek(Iso8601WeekOfYear.GetIso8601WeekOfYear(DateTime.Now));
+                _menuRepository.DeleteMenu(menuToDelete.Id);
+            }
+
+            //If deleting the menu was successful then create a new one for that week
             if (_menuRepository.GetMenuByWeek(Iso8601WeekOfYear.GetIso8601WeekOfYear(DateTime.Now)) == null)
             {
-
                 bool allDaysAreFilled = model.SelectedItems.Count == 7;
                 if (allDaysAreFilled)
                 {
@@ -230,29 +235,40 @@ namespace ThesisOct2023.Controllers
         //GET /Cook/MenuHistory
         public IActionResult MenuHistory(int productPage = 1)
         {
-            IEnumerable<int> distinctWeeks = _menuRepository.DistinctWeeks();
+            int pageSizeMenuHistory = 3;
+            IEnumerable<int> distinctWeekIds = _menuRepository.DistinctWeeks();// week id's 
+            int totalWeeks = distinctWeekIds.Count();
             List<MenuViewModel> menus = new List<MenuViewModel>();
-            foreach(var w in distinctWeeks)
+          
+            for(int i=(productPage-1)* pageSizeMenuHistory; i< (productPage - 1) * pageSizeMenuHistory + pageSizeMenuHistory; i++)
             {
-                menus.Add(new MenuViewModel()
+                if(totalWeeks > i)   //check that array index exists
                 {
-                    weekId=w,
-                    Monday = (List<Food>)_foodRepository.getFoodOfDay(0, w),
-                    Tuesday = (List<Food>)_foodRepository.getFoodOfDay(1, w),
-                    Wednesday = (List<Food>)_foodRepository.getFoodOfDay(2, w),
-                    Thursday = (List<Food>)_foodRepository.getFoodOfDay(3, w),
-                    Friday = (List<Food>)_foodRepository.getFoodOfDay(4, w),
-                    Saturady = (List<Food>)_foodRepository.getFoodOfDay(5, w),
-                    Sunday = (List<Food>)_foodRepository.getFoodOfDay(6, w),
-                    PagingInfo=new PagingInfo
+                    var w = ((List<int>)distinctWeekIds)[i];
+                    menus.Add(new MenuViewModel()
                     {
-                        CurrentPage = productPage,
-                        ItemsPerPage = PageSize,
-                        TotalItems = distinctWeeks.Count()
-                    }
+                        weekId = w,
+                        Monday = (List<Food>)_foodRepository.getFoodOfDay(0, w),
+                        Tuesday = (List<Food>)_foodRepository.getFoodOfDay(1, w),
+                        Wednesday = (List<Food>)_foodRepository.getFoodOfDay(2, w),
+                        Thursday = (List<Food>)_foodRepository.getFoodOfDay(3, w),
+                        Friday = (List<Food>)_foodRepository.getFoodOfDay(4, w),
+                        Saturady = (List<Food>)_foodRepository.getFoodOfDay(5, w),
+                        Sunday = (List<Food>)_foodRepository.getFoodOfDay(6, w),
+                        PagingInfo = new PagingInfo
+                        {
+                            CurrentPage = productPage,
+                            ItemsPerPage = pageSizeMenuHistory,
+                            TotalItems = totalWeeks
+                        }
                     });
+                }
+                else
+                {
+                    break;
+                }
+                
             }
-           
             return View(menus);
            
         }
@@ -264,8 +280,8 @@ namespace ThesisOct2023.Controllers
             {
                 _menuRepository.DeleteMenu((int)id);
             }
-            
 
+           TempData["Notification"] = "Menu of the current week has been deleted";
            return RedirectToAction("Index");
         }
 

@@ -4,12 +4,20 @@
 }
 
 @model IEnumerable<MenuItem>
+<div class="container"> 
 @if (Model.Any())
 {
     <div class="table-responsive p-3">
-        <caption>This week's menu</caption>
-        <a asp-controller="Cook" asp-action="DeleteMenu" asp-route-id="@Model.First().MenuId" class="btn btn-danger mx-2"><i class="bi bi-trash-fill"></i> Delete</a>
-         
+        <div class="d-flex justify-content-between">
+            <div class="p-2">
+                <caption>This week's menu</caption>
+            </div>
+            <div class="p-2">
+                <a asp-controller="Cook" asp-action="DeleteMenu" asp-route-id="@Model.First().MenuId" class="btn btn-danger mx-2"><i class="bi bi-trash-fill"></i> Delete</a>
+            </div>
+
+        </div>
+       
        
         <table class="table table-striped p-2">
             <tr>
@@ -65,3 +73,4 @@ else
         <h1 class="py-4 my-4">Menu submission is pending</h1>
     </div>
 }
+</div>

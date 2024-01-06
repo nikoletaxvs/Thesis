@@ -82,20 +82,18 @@ namespace ThesisOct2023.Controllers
             return View(new FoodListViewModel
             {
                 Foods = _foodRepository.getAllEnabledFood()
-             .Where(p => category == null || p.Category.ToUpper() == category.ToUpper())
-            .OrderBy(p => p.Id)
-            .Skip((productPage - 1) * PageSize)
-            .Take(PageSize),
-                PagingInfo = new PagingInfo
-                {
-                    CurrentPage = productPage,
-                    ItemsPerPage = PageSize,
-                    TotalItems = category == null
-            ? _foodRepository.getAllEnabledFood().Count()
-            : _foodRepository.getAllEnabledFood().Where(e =>
-            e.Category.ToUpper() == category.ToUpper()).Count()
-                },
-                CurrentCategory = category
+					.Where(p => category == null || p.Category.ToUpper() == category.ToUpper())
+					.OrderBy(p => p.Id)
+					.Skip((productPage - 1) * PageSize)
+					.Take(PageSize),
+					PagingInfo = new PagingInfo
+					{
+						CurrentPage = productPage,
+						ItemsPerPage = PageSize,
+						TotalItems = category == null ? _foodRepository.getAllEnabledFood().Count() : _foodRepository.getAllEnabledFood().Where(e =>
+						e.Category.ToUpper() == category.ToUpper()).Count()
+					},
+					CurrentCategory = category
             });
         }
 

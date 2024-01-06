@@ -47,21 +47,33 @@
 
 <section id="comments" >
     <div class="container theme-shadow bg-white p-2 comments-container">
-        <h3 class="p-4">  Reviews (@Model.reviews.Count())</h3>
+        @if(Model.Comments != null)
+        {
+            <h3 class="p-4">  Reviews (@Model.Comments.Where(c => c.Length > 1 && c != null).Count())</h3>
+        }
+        else
+        {
+            <h3 class="p-4">  Reviews (0)</h3>
+        }
+       
         <div class="row">
             @if (Model.Comments != null)
             {
                 @foreach (var c in Model.Comments)
                 {
-                    <div class="container ">
-                        <div class="row p-4">
-                            <div>
-                                <img src="~/images/userImg.png" width="30" height="30" />
-                                <span class="fw-bold" style="color:#4357d4;">Anonymous_Student</span>
+                    @if(c.Length > 1 && c !=null)
+                    {
+                        <div class="container ">
+                            <div class="row p-4">
+                                <div>
+                                    <img src="~/images/userImg.png" width="30" height="30" />
+                                    <span class="fw-bold" style="color:#4357d4;">Anonymous_Student</span>
+                                </div>
+                                <div class="px-4 py-2">@c</div>
                             </div>
-                            <div class="px-4 py-2">@c</div>
                         </div>
-                    </div>
+                    }
+                   
                             
                 }
             }

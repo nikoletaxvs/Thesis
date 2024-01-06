@@ -81,6 +81,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\images\\SquareLoader.gif",
+      "PackagePath": "staticwebassets\\images\\SquareLoader.gif"
+    },
+    {
       "Id": "C:\\Users\\vvlac\\source\\repos\\ThesisOct2023\\wwwroot\\images\\friends-canteen.png",
       "PackagePath": "staticwebassets\\images\\friends-canteen.png"
     },
