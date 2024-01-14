@@ -223,6 +223,8 @@ namespace ThesisOct2023.Controllers
 			}
 			return View("Index");
 		}
+		public IActionResult HelpStudent() => View();
+		
 
     }
 }

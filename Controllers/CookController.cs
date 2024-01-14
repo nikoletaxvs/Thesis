@@ -332,7 +332,8 @@ namespace ThesisOct2023.Controllers
             }
             return View(model);
         }
-
+        public IActionResult Help()=>View();
+        
 
     }
 }

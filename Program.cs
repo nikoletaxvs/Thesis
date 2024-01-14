@@ -74,21 +74,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapControllerRoute("catpage",
-"{category}/Page{productPage:int}",
-new { Controller = "Cook", action = "Food" });
-app.MapControllerRoute("page", "Page{productPage:int}",
-new { Controller = "Cook", action = "Food", productPage = 1 });
-app.MapControllerRoute("category", "{category}",
-new { Controller = "Cook", action = "Food", productPage = 1 });
-app.MapControllerRoute("pagination",
-"Food/Page{productPage}",
-new
-{
-    Controller = "Cook",
-    action = "Food",
-    productPage = 1
-});
+
 app.MapRazorPages();
 app.MapDefaultControllerRoute();
 app.Seed();

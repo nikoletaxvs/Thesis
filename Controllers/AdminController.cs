@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Drawing.Printing;
 using ThesisOct2023.Models;
 using ThesisOct2023.Models.ViewModels;
@@ -232,7 +233,7 @@ namespace ThesisOct2023.Controllers
 			return RedirectToAction("Index");
 			
         }
-
+        public IActionResult Help() => View();
         
     }
 }
