@@ -15,15 +15,12 @@ namespace ThesisOct2023.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        public async Task<IActionResult> Register()
-        {
-            return View();
-        }
-        public async Task<IActionResult> Login()
-        {
-            return View();
-        }
-        
+        public async Task<IActionResult> Register() => View();
+
+
+        public async Task<IActionResult> Login() => View();
+
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
